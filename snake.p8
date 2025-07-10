@@ -2,6 +2,7 @@ pico-8 cartridge // http://www.pico-8.com
 version 42
 __lua__
 // start = 2025-07-08 23:22
+
 function check_x(dir,cor)
 	if (btn(dir))	then
 		if (cor > 0) then
