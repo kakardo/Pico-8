@@ -10,7 +10,7 @@
 ]]--
 
 -- VARIABLES USED ONLY IN SNAKE.LUA
-snake_starting_length = 7
+snake_starting_length = 4
 snake_starting_coordinate = 64
 snake_starting_direction = 1
 
@@ -26,16 +26,17 @@ function init_body()
 	body.x = {}
 	body.y = {}
 	
-	-- Build by looping once for each segment
-	local coordinate_step = snake_starting_coordinate
+	-- Build by looping once for each segment.
+	local starting_x_pos = snake_starting_coordinate
 	
 	for i = 1, body.segments, 1 do
-		coordinate_step -= scale
-		body.x[i] = coordinate_step
+		starting_x_pos -= scale
+		body.x[i] = starting_x_pos
 		body.y[i] = snake_starting_coordinate
 	end
 end
 
+-- Update the snakes movement table.
 function update_snake()
 	for i = body.segments, 1, -1 do
 		body.x[i] = body.x[i-1]
@@ -46,6 +47,7 @@ function update_snake()
 	body.y[1] = head.y
 end
 
+-- Draw snake with its table as reference.
 function draw_snake()
 	-- Draw head
 	spr(9,head.x,head.y)
@@ -58,6 +60,7 @@ function draw_snake()
 	end
 end
 
+-- Checks if the snake is within bounds
 function is_alive()
 	if head.x < 0 or head.x > 128 or
 	   head.y < 0 or head.y > 128 then
