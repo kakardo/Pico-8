@@ -1,8 +1,24 @@
 --[[ MAIN.LUA 
 	- Main loop of the program.
 
-	FUNCTIONS
+	Features
+	- No going backwards into body.
 	
+	Visuals
+	
+	TODO
+	- No fruit spawn untop of the snake.
+	- Scoreboard.
+	- Increase speed at certain lengths.
+	- Possibility to dash for higher score.
+	- [VISUAL] Game over screen.
+	- [VISUAL] Start screen.
+	- [VISUAL] Visually linked snake. Path taken's visible.
+	- [VISUAL] Game border.
+	- [VISUAL] Multiple fruit types.
+	- [SOUND] Fruit
+	- [SOUND] Snake crawl
+	- [SOUND] Game over
 ]]--
 
 head = {}
