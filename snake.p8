@@ -12,16 +12,13 @@ body = {}
 fruit = {}
 
 scale = 8 -- size of game steps
-
 button_pushed = 1
-speed = 1
 step = 1
 just_moved = false
 
-tick_goal = 5
+-- game loop tick
+tick_goal = 15
 tick_count = 0
-
-
 
 function _init()
 	init_head()
@@ -32,6 +29,7 @@ end
 
 function _update()
 	cls(1)
+	debug()
 	check_button_push()
 
 	if (just_moved == false) then
@@ -44,8 +42,6 @@ function _update()
 	else
 	 tick_count += 1
 	end
-
-	debug()
 end
 
 function _draw()
