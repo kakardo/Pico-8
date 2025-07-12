@@ -19,15 +19,12 @@ function debug()
 	   snake.y >= 1 and snake.y <= 128 then
 		snake.alive = true
 	end
+	
+	print('Length = '..body.segments)
 
 end
 
 
-function is_alive()
-	if snake.x < 0 or snake.x > 128 or
-	   snake.y < 0 or snake.y > 128 then
-		snake.alive = false
-	end
-end
+
 
 // LAST_LINE_SNAKE_EXTERNAL_LUA

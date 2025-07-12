@@ -4,9 +4,11 @@ __lua__
 // start = 2025-07-08 23:22
 #include snake_external.lua
 #include movement.lua
+#include snake.lua
 
 snake = {}
 body = {}
+fruit = {}
 
 scale = 8
 
@@ -18,13 +20,15 @@ just_moved = false
 tick_goal = 5
 tick_count = 0
 
+
+
+
 function _init()
-	snake.x = 64
-	snake.y = 64
-	snake.bodyx[]
-	snake.bodyy[]
-	snake.dir = 1 --at start, move right
-	snake.alive = true
+	init_head()
+	init_body()
+	
+	fruit.x = 88
+ fruit.y = 88
 end
 
 function _update()
@@ -34,6 +38,7 @@ function _update()
 	if (just_moved == false) then
 	 move()
 	 is_alive()
+	 is_fruit_eaten()
 	elseif tick_count == tick_goal then
 		just_moved = false
 		tick_count = 0
@@ -41,12 +46,14 @@ function _update()
 	 tick_count += 1
 	end
 
+	
 	debug()
 end
 
 function _draw()
 	if snake.alive then
 		spr(9,snake.x,snake.y)
+		spr(10,fruit.x,fruit.y)
 	else
 		print("game over")
 	end
