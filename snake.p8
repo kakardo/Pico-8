@@ -6,27 +6,31 @@ __lua__
 #include movement.lua
 
 snake = {}
+body = {}
+
 scale = 8
+
+button_pushed = 1
 speed = 1
 step = 1
+just_moved = false
 
 tick_goal = 5
 tick_count = 0
-just_moved = false
-button_pushed = 1
 
 function _init()
 	snake.x = 64
 	snake.y = 64
-	snake.dir = 1
+	snake.bodyx[]
+	snake.bodyy[]
+	snake.dir = 1 --at start, move right
 	snake.alive = true
 end
 
 function _update()
 	cls(1)
-	debug()
 	check_button_push()
-	
+
 	if (just_moved == false) then
 	 move()
 	 is_alive()
@@ -37,6 +41,7 @@ function _update()
 	 tick_count += 1
 	end
 
+	debug()
 end
 
 function _draw()
