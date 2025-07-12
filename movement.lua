@@ -30,15 +30,19 @@ end
 -- Move snake and update variable "just_moved" to TRUE
 function move()
 	if (button_pushed == 0)	then
+		update_snake()
 		snake.x += scale * (-step) -- LEFT
 		snake.dir = 0
 	elseif (button_pushed == 1) then
+		update_snake()
 		snake.x += scale * (step) -- RIGHT
 		snake.dir = 1
 	elseif (button_pushed == 2) then
+		update_snake()
 		snake.y += scale * (-step) -- UP
 		snake.dir = 2
 	elseif (button_pushed == 3) then
+		update_snake()
 		snake.y += scale * (step) -- DOWN
 		snake.dir = 3
 	else

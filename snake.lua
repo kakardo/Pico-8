@@ -25,6 +25,15 @@ function init_body()
 	body.y = {}
 end
 
+function update_snake()
+	for i = body.segments, 1, -1 do
+		body.x[i] = body.x[i-1]
+		body.y[i] = body.y[i-1]
+	end
+	
+	body.x[1] = snake.x
+	body.y[1] = snake.y
+end
 
 function draw_snake()
 	spr(9,snake.x,snake.y)

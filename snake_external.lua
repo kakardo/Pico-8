@@ -1,8 +1,6 @@
 --[[ FUNCTIONS
 	- debug()
-	- is_alive()
 ]]--
-
 
 function debug()
 	print('X = '..snake.x)
@@ -24,8 +22,5 @@ function debug()
 	print('Frukt x = '..fruit.x)
 	print('Frukt y = '..fruit.y)
 end
-
-
-
 
 // LAST_LINE_SNAKE_EXTERNAL_LUA
