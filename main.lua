@@ -3,12 +3,12 @@
 
 	Features
 	- No going backwards into body.
+	- Scoreboard.
 	
 	Visuals
 	
 	TODO
 	- No fruit spawn untop of the snake.
-	- Scoreboard.
 	- Increase speed at certain lengths.
 	- Possibility to dash for higher score.
 	- [VISUAL] Game over screen.
@@ -31,8 +31,10 @@ step = 1
 just_moved = false
 
 -- game loop tick
-tick_goal = 15
+tick_goal = 5
 tick_count = 0
+
+score = 0
 
 function _init()
 	init_head()
@@ -43,7 +45,8 @@ end
 
 function _update()
 	cls(1)
-	debug() -- Not part of ready game
+	print("SCORE = "..score)
+	-- debug() -- Not part of ready game
 	check_button_push()
 
 	if (just_moved == false) then

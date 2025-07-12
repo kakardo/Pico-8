@@ -50,12 +50,12 @@ end
 -- Draw snake with its table as reference.
 function draw_snake()
 	-- Draw head
-	spr(9,head.x,head.y)
+	spr(0,head.x,head.y)
 	
 	-- Draw body
 	if body.segments > 0 then
 		for i = body.segments, 1, -1 do
-			spr(9,body.x[i],body.y[i])
+			spr(0,body.x[i],body.y[i])
 		end
 	end
 end

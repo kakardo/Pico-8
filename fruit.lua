@@ -14,7 +14,7 @@ function init_fruit()
 end
 
 function draw_fruit()
-	spr(10,fruit.x,fruit.y)
+	spr(1,fruit.x,fruit.y)
 end
 
 function spawn_fruit()
@@ -28,7 +28,8 @@ function is_fruit_eaten()
 		body.x[body.segments] = fruit.x
 		body.y[body.segments] = fruit.y
 		
-		spawn_fruit()
+		score += 10
+		spawn_fruit()	
 	end
 end
 
