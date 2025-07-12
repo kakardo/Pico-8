@@ -10,19 +10,27 @@
 	- is_alive()
 ]]--
 
+snake_starting_length = 5
+snake_starting_coordinate = 64
+snake_starting_direction = 1
 
 function init_head()
-	head.x = 64
-	head.y = 64
-	head.dir = 1 --at start, move right
+	head.x = snake_starting_coordinate
+	head.y = snake_starting_coordinate
+	head.dir = snake_starting_direction
 	head.alive = true
 end
 
-
 function init_body()
-	body.segments = 0
+	body.segments = snake_starting_length
 	body.x = {}
 	body.y = {}
+	
+	coordinate_step = snake_starting_coordinate
+	for i = body.segments, 1, -1 do
+		coordinate_step -= scale
+		body.x[i] = coordinate_step
+	end
 end
 
 function update_snake()
@@ -54,6 +62,11 @@ end
 
 --[[ FRUIT FUNCTIONS -------------------- ]]--
 
+function init_fruit()
+	fruit.x = 0
+	fruit.y = 0
+end
+
 function draw_fruit()
 	spr(10,fruit.x,fruit.y)
 end
@@ -71,7 +84,6 @@ function is_fruit_eaten()
 		
 		spawn_fruit()
 	end
-	
 end
 
 // LAST_LINE_SNAKE_LUA

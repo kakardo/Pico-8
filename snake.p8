@@ -10,7 +10,7 @@ head = {}
 body = {}
 fruit = {}
 
-scale = 8
+scale = 8 -- size of game steps
 
 button_pushed = 1
 speed = 1
