@@ -23,8 +23,6 @@ tick_count = 0
 fruit.x = 0
 fruit.y = 0
 
-
-
 function _init()
 	init_head()
 	init_body()

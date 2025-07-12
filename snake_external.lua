@@ -21,7 +21,8 @@ function debug()
 	end
 	
 	print('Length = '..body.segments)
-
+	print('Frukt x = '..fruit.x)
+	print('Frukt y = '..fruit.y)
 end
 
 

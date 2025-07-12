@@ -50,8 +50,8 @@ function draw_fruit()
 end
 
 function spawn_fruit()
-	fruit.x = rnd(16) * scale
-	fruit.y = rnd(16) * scale
+	fruit.x = flr(rnd(128 / scale)) * scale
+	fruit.y = flr(rnd(128 / scale)) * scale
 end
 
 function is_fruit_eaten()
