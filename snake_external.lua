@@ -29,22 +29,37 @@ function debug()
 
 end
 
-function move()
+-- Stores pressed button direction until move update
+function check_button_push()
 	if (btn(0))	then
-		snake.x += scale * (-1) -- LEFT
-		snake.dir = 0
+		button_pushed = 0 -- LEFT
 	elseif (btn(1)) then
-		snake.x += scale * (1) -- RIGHT
-		snake.dir = 1
+		button_pushed = 1 -- RIGHT
 	elseif (btn(2)) then
-		snake.y += scale * (-1) -- UP
-		snake.dir = 2
+		button_pushed = 2 -- UP
 	elseif (btn(3)) then
-		snake.y += scale * (1) -- DOWN
+		button_pushed = 3 -- DOWN
+	end
+end
+
+function move()
+	if (button_pushed == 0)	then
+		snake.x += scale * (-step) -- LEFT
+		snake.dir = 0
+	elseif (button_pushed == 1) then
+		snake.x += scale * (step) -- RIGHT
+		snake.dir = 1
+	elseif (button_pushed == 2) then
+		snake.y += scale * (-step) -- UP
+		snake.dir = 2
+	elseif (button_pushed == 3) then
+		snake.y += scale * (step) -- DOWN
 		snake.dir = 3
 	else
 		move_increment()
 	end
+	
+	just_moved = true
 end
 
 -- No switch statements in Lua...

@@ -7,6 +7,12 @@ __lua__
 snake = {}
 scale = 8
 speed = 1
+step = 1
+
+tick_goal = 30
+tick_count = 0
+just_moved = false
+button_pushed = 1
 
 function _init()
 	snake.x = 64
@@ -18,8 +24,18 @@ end
 function _update()
 	cls(1)
 	debug()
-	move()
-	is_alive()
+	check_button_push()
+	
+	if (just_moved == false) then
+	 move()
+	 is_alive()
+	elseif tick_count == tick_goal then
+		just_moved = false
+		tick_count = 0
+	else
+	 tick_count += 1
+	end
+
 end
 
 function _draw()
