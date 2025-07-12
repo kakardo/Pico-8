@@ -20,15 +20,15 @@ just_moved = false
 tick_goal = 5
 tick_count = 0
 
+fruit.x = 0
+fruit.y = 0
 
 
 
 function _init()
 	init_head()
 	init_body()
-	
-	fruit.x = 88
- fruit.y = 88
+	spawn_fruit()
 end
 
 function _update()
@@ -46,14 +46,13 @@ function _update()
 	 tick_count += 1
 	end
 
-	
 	debug()
 end
 
 function _draw()
 	if snake.alive then
-		spr(9,snake.x,snake.y)
-		spr(10,fruit.x,fruit.y)
+		draw_snake()
+		draw_fruit()
 	else
 		print("game over")
 	end
