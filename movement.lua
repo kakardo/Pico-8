@@ -1,34 +1,13 @@
--- DIRECTIONS
--- 0 = left
--- 1 = right
--- 2 = up
--- 3 = down
+--[[ MOVEMENT.LUA 
+	- Functions connected to the movement
+	  of the snake.
 
---[[ FUNCTIONS
-	- debug()
+	FUNCTIONS
 	- check_button_push()
 	- move()
 	- move_increment()
-	- is_alive()
 ]]--
 
-function debug()
-	print('X = '..snake.x)
-	print('Y = '..snake.y)
-	
-	if snake.alive then
-	 print('Alive = TRUE')
-	else
-	 print('Alive = FALSE')
-	end
-
-	-- Resurrect snake for debugging purposes
-	if snake.x >= 1 and snake.x <= 128 and
-	   snake.y >= 1 and snake.y <= 128 then
-		snake.alive = true
-	end
-
-end
 
 -- Stores pressed button direction until move update
 function check_button_push()
@@ -42,6 +21,7 @@ function check_button_push()
 		button_pushed = 3 -- DOWN
 	end
 end
+
 
 function move()
 	if (button_pushed == 0)	then
@@ -63,6 +43,7 @@ function move()
 	just_moved = true
 end
 
+
 -- No switch statements in Lua...
 -- No increment (++) and decrement (--) operators in Lua...
 function move_increment()
@@ -77,11 +58,4 @@ function move_increment()
 	end
 end
 
-function is_alive()
-	if snake.x < 1 or snake.x > 128 or
-	   snake.y < 1 or snake.y > 128 then
-		snake.alive = false
-	end
-end
-
-// LAST_LINE_SNAKE_EXTERNAL_LUA
+// LAST_LINE_MOVEMENT_LUA

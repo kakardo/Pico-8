@@ -3,6 +3,7 @@ version 42
 __lua__
 // start = 2025-07-08 23:22
 #include snake_external.lua
+#include movement.lua
 
 snake = {}
 scale = 8
