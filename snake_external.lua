@@ -3,19 +3,19 @@
 ]]--
 
 function debug()
-	print('X = '..snake.x)
-	print('Y = '..snake.y)
+	print('X = '..head.x)
+	print('Y = '..head.y)
 	
-	if snake.alive then
+	if head.alive then
 	 print('Alive = TRUE')
 	else
 	 print('Alive = FALSE')
 	end
 
 	-- Resurrect snake for debugging purposes
-	if snake.x >= 1 and snake.x <= 128 and
-	   snake.y >= 1 and snake.y <= 128 then
-		snake.alive = true
+	if head.x >= 1 and head.x <= 128 and
+	   head.y >= 1 and head.y <= 128 then
+		head.alive = true
 	end
 	
 	print('Length = '..body.segments)

@@ -12,10 +12,10 @@
 
 
 function init_head()
-	snake.x = 64
-	snake.y = 64
-	snake.dir = 1 --at start, move right
-	snake.alive = true
+	head.x = 64
+	head.y = 64
+	head.dir = 1 --at start, move right
+	head.alive = true
 end
 
 
@@ -31,12 +31,12 @@ function update_snake()
 		body.y[i] = body.y[i-1]
 	end
 	
-	body.x[1] = snake.x
-	body.y[1] = snake.y
+	body.x[1] = head.x
+	body.y[1] = head.y
 end
 
 function draw_snake()
-	spr(9,snake.x,snake.y)
+	spr(9,head.x,head.y)
 	
 	if body.segments > 0 then
 		for i = 1, body.segments do
@@ -46,9 +46,9 @@ function draw_snake()
 end
 
 function is_alive()
-	if snake.x < 0 or snake.x > 128 or
-	   snake.y < 0 or snake.y > 128 then
-		snake.alive = false
+	if head.x < 0 or head.x > 128 or
+	   head.y < 0 or head.y > 128 then
+		head.alive = false
 	end
 end
 
@@ -64,7 +64,7 @@ function spawn_fruit()
 end
 
 function is_fruit_eaten()
-	if snake.x == fruit.x and snake.y == fruit.y then
+	if head.x == fruit.x and head.y == fruit.y then
 		body.segments += 1
 		body.x[body.segments] = fruit.x
 		body.y[body.segments] = fruit.y

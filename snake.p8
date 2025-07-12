@@ -6,7 +6,7 @@ __lua__
 #include movement.lua
 #include snake.lua
 
-snake = {}
+head = {}
 body = {}
 fruit = {}
 
@@ -48,7 +48,7 @@ function _update()
 end
 
 function _draw()
-	if snake.alive then
+	if head.alive then
 		draw_snake()
 		draw_fruit()
 	else
