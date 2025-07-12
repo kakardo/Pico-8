@@ -10,7 +10,7 @@ scale = 8
 speed = 1
 step = 1
 
-tick_goal = 30
+tick_goal = 5
 tick_count = 0
 just_moved = false
 button_pushed = 1

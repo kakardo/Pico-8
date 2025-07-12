@@ -6,8 +6,13 @@
 	- check_button_push()
 	- move()
 	- move_increment()
+	
+	DIRECTIONS
+	0 = left
+	1 = right
+	2 = up
+	3 = down
 ]]--
-
 
 -- Stores pressed button direction until move update
 function check_button_push()
@@ -22,7 +27,7 @@ function check_button_push()
 	end
 end
 
-
+-- Move snake and update variable "just_moved" to TRUE
 function move()
 	if (button_pushed == 0)	then
 		snake.x += scale * (-step) -- LEFT
