@@ -2,56 +2,11 @@ pico-8 cartridge // http://www.pico-8.com
 version 42
 __lua__
 // start = 2025-07-08 23:22
-#include snake_external.lua
-#include movement.lua
+#include main.lua
 #include snake.lua
 #include fruit.lua
-
-head = {}
-body = {}
-fruit = {}
-
-scale = 8 -- size of game steps
-button_pushed = 1
-step = 1
-just_moved = false
-
--- game loop tick
-tick_goal = 15
-tick_count = 0
-
-function _init()
-	init_head()
-	init_body()
-	init_fruit()
-	spawn_fruit()
-end
-
-function _update()
-	cls(1)
-	debug()
-	check_button_push()
-
-	if (just_moved == false) then
-	 move()
-	 is_alive()
-	 is_fruit_eaten()
-	elseif tick_count == tick_goal then
-		just_moved = false
-		tick_count = 0
-	else
-	 tick_count += 1
-	end
-end
-
-function _draw()
-	if head.alive then
-		draw_snake()
-		draw_fruit()
-	else
-		print("game over")
-	end
-end
+#include movement.lua
+#include snake_external.lua
 -->8
 function check_x(dir,cor)
 	if (btn(dir))	then
