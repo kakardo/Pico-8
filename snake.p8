@@ -5,6 +5,7 @@ __lua__
 #include snake_external.lua
 #include movement.lua
 #include snake.lua
+#include fruit.lua
 
 head = {}
 body = {}
@@ -20,12 +21,12 @@ just_moved = false
 tick_goal = 5
 tick_count = 0
 
-fruit.x = 0
-fruit.y = 0
+
 
 function _init()
 	init_head()
 	init_body()
+	init_fruit()
 	spawn_fruit()
 end
 

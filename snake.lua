@@ -6,7 +6,6 @@
 	- init_head()
 	- init_body()
 	- draw_snake()
-	- is_fruit_eaten()
 	- is_alive()
 ]]--
 
@@ -57,32 +56,6 @@ function is_alive()
 	if head.x < 0 or head.x > 128 or
 	   head.y < 0 or head.y > 128 then
 		head.alive = false
-	end
-end
-
---[[ FRUIT FUNCTIONS -------------------- ]]--
-
-function init_fruit()
-	fruit.x = 0
-	fruit.y = 0
-end
-
-function draw_fruit()
-	spr(10,fruit.x,fruit.y)
-end
-
-function spawn_fruit()
-	fruit.x = flr(rnd(128 / scale)) * scale
-	fruit.y = flr(rnd(128 / scale)) * scale
-end
-
-function is_fruit_eaten()
-	if head.x == fruit.x and head.y == fruit.y then
-		body.segments += 1
-		body.x[body.segments] = fruit.x
-		body.y[body.segments] = fruit.y
-		
-		spawn_fruit()
 	end
 end
 
