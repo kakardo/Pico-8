@@ -15,7 +15,7 @@ step = 1
 just_moved = false
 
 -- game loop tick
-tick_goal = 5
+tick_goal = 15
 tick_count = 0
 
 function _init()

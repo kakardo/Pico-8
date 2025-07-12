@@ -29,7 +29,9 @@ end
 
 -- Move snake and update variable "just_moved" to TRUE
 function move()
-	if (button_pushed == 0)	then
+	avert_going_backwards()
+
+	if (button_pushed == 0) then
 		update_snake()
 		head.x += scale * (-step) -- LEFT
 		head.dir = 0
@@ -45,25 +47,20 @@ function move()
 		update_snake()
 		head.y += scale * (step) -- DOWN
 		head.dir = 3
-	else
-		move_increment()
 	end
 	
 	just_moved = true
 end
 
-
--- No switch statements in Lua...
--- No increment (++) and decrement (--) operators in Lua...
-function move_increment()
-	if head.dir == 0 then
-		head.x -= 1
-	elseif head.dir == 1 then
-		head.x += 1
-	elseif head.dir == 2 then
-		head.y -= 1
-	elseif head.dir == 3 then
-		head.y += 1
+function avert_going_backwards()
+	if button_pushed == 0 and head.dir == 1 then
+		button_pushed = head.dir
+	elseif button_pushed == 1 and head.dir == 0 then
+		button_pushed = head.dir
+	elseif button_pushed == 2 and head.dir == 3 then
+		button_pushed = head.dir
+	elseif button_pushed == 3 and head.dir == 2 then
+		button_pushed = head.dir
 	end
 end
 
