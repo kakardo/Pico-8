@@ -2,62 +2,32 @@ pico-8 cartridge // http://www.pico-8.com
 version 42
 __lua__
 // start = 2025-07-08 23:22
+#include snake_external.lua
 
-function check_x(dir,cor)
-	if (btn(dir))	then
-		if (cor > 0) then
-			cor-=8
-		end
-	end
-end
+snake = {}
+scale = 8
+speed = 1
 
 function _init()
-	min=0
-	max=120
-	inc=8
-	
-	// snake
-	x	= 0
-	y = 0
+	snake.x = 64
+	snake.y = 64
+	snake.dir = 1
+	snake.alive = true
 end
 
 function _update()
-	if (btn(⬅️))	then
-		if (x > 0) then
-			x-=8
-		end
-	end
-	
-	
-	//check_x(⬅️,x)
-
-	if (btn(➡️)) then
-		if (x < 119) then
-			x+=8
-		end
-	end
-
-	if (btn(⬆️)) y-=8
-	if (btn(⬇️)) y+=8
-
+	cls(1)
+	debug()
+	move()
+	is_alive()
 end
 
 function _draw()
-	cls()
-	
-	// corners
-	spr(1,0,0)
-	spr(2,120,0)
-	spr(3,0,120)
-	spr(4,120,120)
-
-// border
-	for x = 8, max-8, inc do
-		spr(0,x,0)
+	if snake.alive then
+		spr(9,snake.x,snake.y)
+	else
+		print("game over")
 	end
-	
-	// snake
-	spr(9,x,y)
 end
 -->8
 function check_x(dir,cor)
