@@ -1,5 +1,6 @@
 --[[ DEBUG.LUA
 	- Made to track and surveil the game.
+	@date 2025-07-14
 
 	FUNCTIONS
 	- debug()	

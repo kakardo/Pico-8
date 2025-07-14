@@ -1,16 +1,24 @@
 --[[ MAIN.LUA
 	- Main loop of the program.
-	@date 2025-07-14
-	@version 1.0
 	@author Kardo Rostam
 
-	Features
+	@date 2025-07-14
+	@version 1.0
+	- Basic gameplay:	
+		# Fruit spawns (always one on field).
+		# Snake can eat fruit to grow.
+		# Crude game over screen.
+		# Scoreboard.
+	- Four colors (not black and white!).
 	- No going backwards into body.
-	- Scoreboard.
+
+	@version 1.1
 	
+	Features
 	Visuals
 	
 	TODO
+	- Die when crashing into eats own body.
 	- No fruit spawn untop of the snake.
 	- Increase speed at certain lengths.
 	- Possibility to dash for higher score.
