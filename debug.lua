@@ -1,5 +1,8 @@
---[[ FUNCTIONS
-	- debug()
+--[[ DEBUG.LUA
+	- Made to track and surveil the game.
+
+	FUNCTIONS
+	- debug()	
 ]]--
 
 function debug()
@@ -22,19 +25,5 @@ function debug()
 	print('Frukt x = '..fruit.x)
 	print('Frukt y = '..fruit.y)
 end
-
--- No switch statements in Lua...
--- No increment (++) and decrement (--) operators in Lua...
--- function move_increment()
-	-- if head.dir == 0 then
-		-- head.x -= scale
-	-- elseif head.dir == 1 then
-		-- head.x += scale
-	-- elseif head.dir == 2 then
-		-- head.y -= scale
-	-- elseif head.dir == 3 then
-		-- head.y += scale
-	-- end
--- end
 
 // LAST_LINE_SNAKE_EXTERNAL_LUA

@@ -1,5 +1,8 @@
---[[ MAIN.LUA 
+--[[ MAIN.LUA
 	- Main loop of the program.
+	@date 2025-07-14
+	@version 1.0
+	@author Kardo Rostam
 
 	Features
 	- No going backwards into body.

@@ -1,11 +1,12 @@
 --[[ MOVEMENT.LUA 
 	- Functions connected to the movement
 	  of the snake.
+	@date 2025-07-14
 
 	FUNCTIONS
 	- check_button_push()
 	- move()
-	- move_increment()
+	- avert_going_backwards()
 	
 	DIRECTIONS
 	0 = left

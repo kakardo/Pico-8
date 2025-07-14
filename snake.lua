@@ -1,10 +1,12 @@
 --[[ MOVEMENT.LUA 
 	- Functions connected to the body
 	  and head of the snake.
-
+	@date 2025-07-14
+	
 	FUNCTIONS
 	- init_head()
 	- init_body()
+	- update_snake()
 	- draw_snake()
 	- is_alive()
 ]]--

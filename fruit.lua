@@ -1,11 +1,13 @@
 --[[ FRUIT.LUA 
 	- Functions connected the fruit which
 	  the snake crave more than anything.
+	@date 2025-07-14
 
 	FUNCTIONS
-	- check_button_push()
-	- move()
-	- move_increment()
+	- init_fruit()
+	- draw_fruit()
+	- spawn_fruit()
+	- is_fruit_eaten()
 ]]--
 
 function init_fruit()
