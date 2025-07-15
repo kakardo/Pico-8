@@ -7,10 +7,14 @@
 ]]--
 
 function debug()
-	--coordinat_tester()
+	--snake_and_fruit_tester()
+	coordinat_tester()
+end
+
+function snake_and_fruit_tester()
 	print('X = '..head.x)
 	print('Y = '..head.y)
-	
+
 	if head.alive then
 	 print('Alive = TRUE')
 	else
@@ -22,7 +26,7 @@ function debug()
 	   head.y >= 1 and head.y <= 128 then
 		head.alive = true
 	end
-	
+
 	print('Length = '..body.segments)
 	print('Frukt x = '..fruit.x)
 	print('Frukt y = '..fruit.y)

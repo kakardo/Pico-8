@@ -52,6 +52,10 @@ tick_count = 0
 score = 0
 
 function store_empty_cells()
+	for i = 0, width-1, scale do
+		rect(i, 0, i+scale-1, scale-1)
+		print(i.." "..i+scale-1)
+	end
 end
 
 
@@ -63,17 +67,7 @@ end
 
 function _update()
 	cls(1)
-	-- debug() -- Not part of ready game
-
-	print("")
-	print("")
-	for i = 0, width-1, scale do
-		rect(i, 0, i+scale-1, scale-1)
-		print(i.." "..i+scale-1)
-	end
-
-
-
+	debug() -- Not part of ready game
 
 	--print("SCORE = "..score)
 	check_button_push()
