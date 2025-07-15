@@ -39,7 +39,7 @@ empty_cells = {}
 
 
 scale = 8 -- size of game steps
-width = 128
+max = 128
 
 button_pushed = 1
 just_moved = false
@@ -52,14 +52,18 @@ tick_count = 0
 score = 0
 
 function store_empty_cells()
-	for i = 0, width-1, scale do
-		rect(i, 0, i+scale-1, scale-1)
-		print(i.." "..i+scale-1)
+	for y = 0, max-1, scale do
+		for x = 0, max-1, scale do
+			--rect(x, 0, x+scale-1, scale-1)
+			rect(0, y, scale-1, y+scale-1)
+			print(x.." "..x+scale-1)
+		end
 	end
 end
 
 
 function _init()
+	--store_empty_cells()
 	init_head()
 	init_body()
 	init_fruit()

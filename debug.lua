@@ -8,7 +8,7 @@
 
 function debug()
 	--snake_and_fruit_tester()
-	coordinat_tester()
+	--coordinat_tester()
 end
 
 function snake_and_fruit_tester()
@@ -35,9 +35,10 @@ end
 function coordinat_tester()
 	print("")
 	print("")
-	for i = 0, width-1, scale do
-		rect(i, 0, i+scale-1, scale-1)
-		print(i.." "..i+scale-1)
+	for i = 0, max-1, scale do
+		rect(i, 0, i+scale-1, scale-1, 14) -- X-coordinate
+		rect(0, i, scale-1, i+scale-1, 9) -- Y-coordinate
+		print("   "..i.." "..i+scale-1)
 	end
 end
 
