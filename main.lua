@@ -39,18 +39,19 @@ empty_cells = {}
 
 
 scale = 8 -- size of game steps
+width = 128
+
 button_pushed = 1
-step = 1
 just_moved = false
+step = 1
 
 -- game loop tick
-tick_goal = 5
+tick_goal = 15 -- Default = 5
 tick_count = 0
 
 score = 0
 
 function store_empty_cells()
-	
 end
 
 
@@ -62,8 +63,19 @@ end
 
 function _update()
 	cls(1)
-	print("SCORE = "..score)
 	-- debug() -- Not part of ready game
+
+	print("")
+	print("")
+	for i = 0, width-1, scale do
+		rect(i, 0, i+scale-1, scale-1)
+		print(i.." "..i+scale-1)
+	end
+
+
+
+
+	--print("SCORE = "..score)
 	check_button_push()
 
 	if (just_moved == false) then
@@ -83,7 +95,7 @@ function _draw()
 		draw_snake()
 		draw_fruit()
 	else
-		print("game over")
+		--print("game over")
 	end
 end
 

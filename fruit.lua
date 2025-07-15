@@ -1,7 +1,7 @@
 --[[ FRUIT.LUA 
 	- Functions connected the fruit which
 	  the snake crave more than anything.
-	@date 2025-07-14
+	@date 2025-07-15 1.0.1	
 
 	FUNCTIONS
 	- init_fruit()

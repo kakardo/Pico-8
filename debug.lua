@@ -7,6 +7,7 @@
 ]]--
 
 function debug()
+	--coordinat_tester()
 	print('X = '..head.x)
 	print('Y = '..head.y)
 	
@@ -25,6 +26,15 @@ function debug()
 	print('Length = '..body.segments)
 	print('Frukt x = '..fruit.x)
 	print('Frukt y = '..fruit.y)
+end
+
+function coordinat_tester()
+	print("")
+	print("")
+	for i = 0, width-1, scale do
+		rect(i, 0, i+scale-1, scale-1)
+		print(i.." "..i+scale-1)
+	end
 end
 
 // LAST_LINE_SNAKE_EXTERNAL_LUA
