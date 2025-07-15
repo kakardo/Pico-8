@@ -54,16 +54,20 @@ score = 0
 function store_empty_cells()
 	for y = 0, max-1, scale do
 		for x = 0, max-1, scale do
-			--rect(x, 0, x+scale-1, scale-1)
-			rect(0, y, scale-1, y+scale-1)
-			print(x.." "..x+scale-1)
+			add(empty_cells, convert_coordinate_to_index(x, y))
 		end
 	end
 end
 
 
+function convert_coordinate_to_index(x, y)
+	new_arr = y * max + x
+	return new_arr
+end
+
+
 function _init()
-	--store_empty_cells()
+	store_empty_cells()
 	init_head()
 	init_body()
 	init_fruit()
@@ -72,20 +76,23 @@ end
 function _update()
 	cls(1)
 	debug() -- Not part of ready game
+	
+	
+	print(count(empty_cells))
+	
+	-- --print("SCORE = "..score)
+	-- check_button_push()
 
-	--print("SCORE = "..score)
-	check_button_push()
-
-	if (just_moved == false) then
-	 move()
-	 is_alive()
-	 is_fruit_eaten()
-	elseif tick_count == tick_goal then
-		just_moved = false
-		tick_count = 0
-	else
-	 tick_count += 1
-	end
+	-- if (just_moved == false) then
+	 -- move()
+	 -- is_alive()
+	 -- is_fruit_eaten()
+	-- elseif tick_count == tick_goal then
+		-- just_moved = false
+		-- tick_count = 0
+	-- else
+	 -- tick_count += 1
+	-- end
 end
 
 function _draw()
