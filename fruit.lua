@@ -13,6 +13,7 @@
 function init_fruit()
 	fruit.x = 0
 	fruit.y = 0
+	spawn_fruit()
 end
 
 function draw_fruit()

@@ -35,6 +35,8 @@
 head = {}
 body = {}
 fruit = {}
+empty_cells = {}
+
 
 scale = 8 -- size of game steps
 button_pushed = 1
@@ -47,11 +49,15 @@ tick_count = 0
 
 score = 0
 
+function store_empty_cells()
+	
+end
+
+
 function _init()
 	init_head()
 	init_body()
 	init_fruit()
-	spawn_fruit()
 end
 
 function _update()
@@ -80,5 +86,10 @@ function _draw()
 		print("game over")
 	end
 end
+
+
+
+
+
 
 // LAST_LINE_MAIN_LUA
