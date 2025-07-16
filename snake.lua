@@ -22,7 +22,8 @@ function init_head()
 	head.dir = snake_starting_direction
 	head.alive = true
 	
-	add_to_table(head.x, head.y)
+	-- Add occupied cells to empty_cells-table
+	empty_cells_occupy(head.x, head.y)
 end
 
 function init_body()
@@ -37,13 +38,16 @@ function init_body()
 		starting_x_pos -= scale
 		body.x[i] = starting_x_pos
 		body.y[i] = snake_starting_coordinate
+		
+		-- Add occupied cells to empty_cells-table
+		empty_cells_occupy(body.x[i], body.y[i])
 	end
-
-	add_to_table(body.x[4], body.y[4])
 end
 
 -- Update the snakes movement table.
 function update_snake()
+	empty_cells_free(body.x[body.segments], body.y[body.segments])
+
 	for i = body.segments, 1, -1 do
 		body.x[i] = body.x[i-1]
 		body.y[i] = body.y[i-1]
@@ -51,6 +55,9 @@ function update_snake()
 
 	body.x[1] = head.x
 	body.y[1] = head.y
+
+	-- Add occupied cells to empty_cells-table
+	empty_cells_occupy(body.x[body.segments], body.y[body.segments])
 end
 
 -- Draw snake with its table as reference.

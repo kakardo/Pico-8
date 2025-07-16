@@ -65,11 +65,12 @@ function convert_coordinate_to_index(x, y)
 	return new_pos
 end
 
-function add_to_table(x, y)
+function empty_cells_occupy(x, y)
 	del(empty_cells, convert_coordinate_to_index(x, y))
 end
 
-function update_table()
+function empty_cells_free(x, y)
+	add(empty_cells, convert_coordinate_to_index(x, y))
 end
 
 
@@ -88,7 +89,6 @@ function _update()
 	debug() -- Not part of ready game
 
 	print(count(empty_cells))
-	print(body.x[4]..body.y[4])
 
 	--print("SCORE = "..score)
 	check_button_push()
