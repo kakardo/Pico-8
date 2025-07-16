@@ -15,6 +15,8 @@
 	3 = down
 ]]--
 
+local went_backwards = false
+
 -- Stores pressed button direction until move update
 function check_button_push()
 	if (btn(0))	then
@@ -30,12 +32,17 @@ end
 
 -- Move snake and update variable "just_moved" to TRUE
 function move()
-	avert_going_backwards()
+	went_backwards = avert_going_backwards()
+	if (went_backwards == true) then
+		empty_cells_free(head.x, head.y)
+	end
 
 	if (button_pushed == 0) then
+
 		update_snake()
 		head.x += scale * (-step) -- LEFT
 		head.dir = 0
+		
 	elseif (button_pushed == 1) then
 		update_snake()
 		head.x += scale * (step) -- RIGHT
@@ -50,19 +57,29 @@ function move()
 		head.dir = 3
 	end
 	
+	if (went_backwards == true) then
+		empty_cells_occupy(head.x, head.y)
+	end
+
 	just_moved = true
 end
 
 function avert_going_backwards()
 	if button_pushed == 0 and head.dir == 1 then
 		button_pushed = head.dir
+		return true
 	elseif button_pushed == 1 and head.dir == 0 then
 		button_pushed = head.dir
+		return true
 	elseif button_pushed == 2 and head.dir == 3 then
 		button_pushed = head.dir
+		return true
 	elseif button_pushed == 3 and head.dir == 2 then
 		button_pushed = head.dir
+		return true
 	end
+	
+	return false
 end
 
 // LAST_LINE_MOVEMENT_LUA
