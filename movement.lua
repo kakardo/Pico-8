@@ -36,7 +36,6 @@ function move()
 		update_snake()
 		head.x += scale * (-step) -- LEFT
 		head.dir = 0
-		print(head.x)
 	elseif (button_pushed == 1) then
 		update_snake()
 		head.x += scale * (step) -- RIGHT

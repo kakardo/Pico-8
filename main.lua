@@ -61,9 +61,19 @@ end
 
 
 function convert_coordinate_to_index(x, y)
-	new_arr = y * max + x
-	return new_arr
+	new_pos = y * max + x
+	return new_pos
 end
+
+function add_to_table(x, y)
+	del(empty_cells, convert_coordinate_to_index(x, y))
+end
+
+function update_table()
+end
+
+
+
 
 
 function _init()
@@ -76,23 +86,22 @@ end
 function _update()
 	cls(1)
 	debug() -- Not part of ready game
-	
-	
-	print(count(empty_cells))
-	
-	-- --print("SCORE = "..score)
-	-- check_button_push()
 
-	-- if (just_moved == false) then
-	 -- move()
-	 -- is_alive()
-	 -- is_fruit_eaten()
-	-- elseif tick_count == tick_goal then
-		-- just_moved = false
-		-- tick_count = 0
-	-- else
-	 -- tick_count += 1
-	-- end
+	print(count(empty_cells))
+
+	--print("SCORE = "..score)
+	check_button_push()
+
+	if (just_moved == false) then
+	 move()
+	 is_alive()
+	 is_fruit_eaten()
+	elseif tick_count == tick_goal then
+		just_moved = false
+		tick_count = 0
+	else
+	 tick_count += 1
+	end
 end
 
 function _draw()

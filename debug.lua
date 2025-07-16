@@ -40,6 +40,10 @@ function coordinat_tester()
 		rect(0, i, scale-1, i+scale-1, 9) -- Y-coordinate
 		print("   "..i.." "..i+scale-1)
 	end
+	
+	-- Count amount of cells
+	print(count(empty_cells))
+
 end
 
 // LAST_LINE_SNAKE_EXTERNAL_LUA

@@ -21,6 +21,8 @@ function init_head()
 	head.y = snake_starting_coordinate
 	head.dir = snake_starting_direction
 	head.alive = true
+	
+	add_to_table(head.x, head.y)
 end
 
 function init_body()
