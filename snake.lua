@@ -38,6 +38,8 @@ function init_body()
 		body.x[i] = starting_x_pos
 		body.y[i] = snake_starting_coordinate
 	end
+
+	add_to_table(body.x[4], body.y[4])
 end
 
 -- Update the snakes movement table.

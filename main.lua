@@ -88,6 +88,7 @@ function _update()
 	debug() -- Not part of ready game
 
 	print(count(empty_cells))
+	print(body.x[4]..body.y[4])
 
 	--print("SCORE = "..score)
 	check_button_push()
