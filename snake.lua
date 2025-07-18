@@ -11,6 +11,10 @@
 	- is_alive()
 ]]--
 
+-- TABLES
+head = {}
+body = {}
+
 -- VARIABLES USED ONLY IN SNAKE.LUA
 snake_starting_length = 4
 snake_starting_coordinate = 64

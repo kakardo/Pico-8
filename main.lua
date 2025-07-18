@@ -32,11 +32,8 @@
 	- [SOUND] Game over
 ]]--
 
-head = {}
-body = {}
 fruit = {}
 empty_cells = {}
-
 
 scale = 8 -- size of game steps
 max = 128
