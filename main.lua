@@ -32,7 +32,6 @@
 	- [SOUND] Game over
 ]]--
 
-fruit = {}
 empty_cells = {}
 
 scale = 8 -- size of game steps

@@ -10,6 +10,9 @@
 	- is_fruit_eaten()
 ]]--
 
+-- TABLE
+fruit = {}
+
 function init_fruit()
 	fruit.x = 0
 	fruit.y = 0
