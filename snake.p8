@@ -3,6 +3,7 @@ version 42
 __lua__
 // start = 2025-07-08 23:22
 #include main.lua
+#include cells.lua
 #include snake.lua
 #include fruit.lua
 #include movement.lua

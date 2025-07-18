@@ -6,7 +6,7 @@
 	-
 ]]--
 
--- TABLE
+-- TABLES AND VARIABLES
 empty_cells = {}
 
 function store_empty_cells()
@@ -18,18 +18,17 @@ function store_empty_cells()
 end
 
 function convert_coordinate_to_index(x, y)
-	new_pos = y * max + x
-	return new_pos
+	return y * max + x
 end
 
-function empty_cells_occupy(x, y)
-	print(x.." "..y)
-	del(empty_cells, convert_coordinate_to_index(x, y))
+function empty_cells_occupy(del_x, del_y)
+	del(empty_cells,
+			convert_coordinate_to_index(del_x, del_y))
 end
 
-function empty_cells_free(x, y)
-	print(x.." "..y)
-	add(empty_cells, convert_coordinate_to_index(x, y))
+function empty_cells_free(add_x, add_y)
+	add(empty_cells,
+			convert_coordinate_to_index(add_x, add_y))
 end
 
 // LAST_LINE_CELLS_LUA

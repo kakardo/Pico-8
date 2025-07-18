@@ -11,14 +11,13 @@
 	- is_alive()
 ]]--
 
--- TABLES
+-- TABLES AND VARIABLES
 head = {}
 body = {}
 
--- VARIABLES USED ONLY IN SNAKE.LUA
-snake_starting_length = 4
-snake_starting_coordinate = 64
-snake_starting_direction = 1
+local snake_starting_length = 4
+local snake_starting_coordinate = 64
+local snake_starting_direction = 1
 
 function init_head()
 	head.x = snake_starting_coordinate
@@ -50,7 +49,7 @@ end
 
 -- Update the snakes movement table.
 function update_snake()
-	empty_cells_free(body.x[body.segments], body.y[body.segments])
+	--empty_cells_free(body.x[body.segments], body.y[body.segments])
 
 	for i = body.segments, 1, -1 do
 		body.x[i] = body.x[i-1]
@@ -61,7 +60,7 @@ function update_snake()
 	body.y[1] = head.y
 
 	-- Add occupied cells to empty_cells-table
-	empty_cells_occupy(body.x[body.segments], body.y[body.segments])
+	--empty_cells_occupy(body.x[body.segments], body.y[body.segments])
 end
 
 -- Draw snake with its table as reference.

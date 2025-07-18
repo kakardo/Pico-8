@@ -15,6 +15,7 @@
 	3 = down
 ]]--
 
+-- TABLES AND VARIABLES
 local went_backwards = false
 
 -- Stores pressed button direction until move update

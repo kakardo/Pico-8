@@ -10,7 +10,7 @@
 	- is_fruit_eaten()
 ]]--
 
--- TABLE
+-- TABLES AND VARIABLES
 fruit = {}
 
 function init_fruit()

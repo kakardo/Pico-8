@@ -32,7 +32,7 @@
 	- [SOUND] Game over
 ]]--
 
-
+-- TABLES AND VARIABLES
 scale = 8 -- size of game steps
 max = 128
 
@@ -47,7 +47,6 @@ tick_count = 0
 score = 0
 
 ---------------------------------------------------------------
-
 -- TODO Fix empty cell count bug
 
 function _init()
