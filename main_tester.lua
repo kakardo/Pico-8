@@ -3,9 +3,6 @@
 	@author Kardo Rostam
 ]]--
 
-head = {}
-body = {}
-fruit = {}
 empty_cells = {}
 
 scale = 8 -- size of game steps
