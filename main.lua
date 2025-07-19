@@ -47,7 +47,13 @@ tick_count = 0
 score = 0
 
 ---------------------------------------------------------------
--- TODO Fix empty cell count bug
+--[[ TODO
+
+All positions are successfully added and removed from
+empty_cells. But, I don't think that I have implemented it well.
+Kind of hate it... I will think of a better solution.
+
+]]--
 
 function _init()
 	store_empty_cells()
