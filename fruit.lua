@@ -26,6 +26,8 @@ end
 function spawn_fruit()
 	fruit.x = flr(rnd(128 / scale)) * scale
 	fruit.y = flr(rnd(128 / scale)) * scale
+
+	empty_cells_occupy(fruit.x, fruit.y)
 end
 
 function is_fruit_eaten()
@@ -33,8 +35,10 @@ function is_fruit_eaten()
 		body.segments += 1
 		body.x[body.segments] = fruit.x
 		body.y[body.segments] = fruit.y
-		
+
 		score += 10
+
+		--empty_cells_free(fruit.x, fruit.y)
 		spawn_fruit()	
 	end
 end
