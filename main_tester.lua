@@ -28,16 +28,16 @@ function boolean_test(boolean_argument)
 
 	if boolean_argument then
 		successful_tests += 1
-		printh("Success")
+		printh("<Test:"..total_tests.."> Success")
 	else
 		failed_tests += 1
-		printh("Fail")
+		printh("<Test:"..total_tests.."> Fail")
 	end
 end
 
 function print_test_stats()
 	percentage = successful_tests/total_tests*100
-	printh("Results = "..percentage.."%"..
+	printh("Results = "..flr(percentage).."%".. --Only whole numbers
 		" ("..successful_tests.." SUCCESS / "..failed_tests.." FAIL)")
 end
 
@@ -46,6 +46,10 @@ function tester_tables()
 	table = {"Crash","Spyro","Ratchet","Clank","Jak","Daxter",}
 
 	boolean_test(#table == 6)
+	boolean_test(del(table, "Ratchet") == "Ratchet")
+	boolean_test(table[3] == "Clank")
+	boolean_test(add(table, "Clank", 3) == "Clank")
+	boolean_test(table[3] == "Clank")
 	print_test_stats()
 end
 
@@ -66,6 +70,5 @@ end
 
 function _draw()
 end
-
 
 // LAST_LINE_MAIN_TESTER_LUA
