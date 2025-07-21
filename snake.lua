@@ -49,7 +49,9 @@ end
 
 -- Update the snakes movement table.
 function update_snake()
+	-- Add occupied cells to empty_cells-table
 	--empty_cells_free(body.x[body.segments], body.y[body.segments])
+	--empty_cells_occupy(body.x[head.x], body.y[head.y])
 
 	for i = body.segments, 1, -1 do
 		body.x[i] = body.x[i-1]
@@ -58,9 +60,6 @@ function update_snake()
 
 	body.x[1] = head.x
 	body.y[1] = head.y
-
-	-- Add occupied cells to empty_cells-table
-	--empty_cells_occupy(body.x[body.segments], body.y[body.segments])
 end
 
 -- Draw snake with its table as reference.
