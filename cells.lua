@@ -9,7 +9,7 @@
 -- TABLES AND VARIABLES
 empty_cells = {}
 
-function store_empty_cells()
+function store_empty_cells(max, scale)
 	for y = 0, max-1, scale do
 		for x = 0, max-1, scale do
 			add(empty_cells, convert_coordinate_to_index(x, y))

@@ -56,7 +56,7 @@ Kind of hate it... I will think of a better solution.
 ]]--
 
 function _init()
-	store_empty_cells()
+	store_empty_cells(max, scale)
 	init_head()
 	init_body()
 	init_fruit()
