@@ -55,8 +55,11 @@ Kind of hate it... I will think of a better solution.
 
 ]]--
 
+--[[ TABLES ]]--
+empty_cells = {}
+
 function _init()
-	store_empty_cells(max, scale)
+	store_empty_cells(empty_cells, max, scale)
 	init_head()
 	init_body()
 	init_fruit()
@@ -65,7 +68,6 @@ end
 function _update()
 	cls(1)
 	debug() -- Not part of ready game
-
 	print(count(empty_cells))
 
 	--print("SCORE = "..score)

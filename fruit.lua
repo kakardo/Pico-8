@@ -27,7 +27,7 @@ function spawn_fruit()
 	fruit.x = flr(rnd(128 / scale)) * scale
 	fruit.y = flr(rnd(128 / scale)) * scale
 
-	empty_cells_occupy(fruit.x, fruit.y)
+	empty_cells_occupy(empty_cells, fruit.x, fruit.y)
 end
 
 function is_fruit_eaten()

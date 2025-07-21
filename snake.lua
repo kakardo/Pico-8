@@ -26,7 +26,7 @@ function init_head()
 	head.alive = true
 	
 	-- Add occupied cells to empty_cells-table
-	empty_cells_occupy(head.x, head.y)
+	empty_cells_occupy(empty_cells, head.x, head.y)
 end
 
 function init_body()
@@ -43,7 +43,7 @@ function init_body()
 		body.y[i] = snake_starting_coordinate
 		
 		-- Add occupied cells to empty_cells-table
-		empty_cells_occupy(body.x[i], body.y[i])
+		empty_cells_occupy(empty_cells, body.x[i], body.y[i])
 	end
 end
 
