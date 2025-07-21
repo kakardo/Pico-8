@@ -41,7 +41,7 @@ function print_test_stats()
 		" ("..successful_tests.." SUCCESS / "..failed_tests.." FAIL)")
 end
 
-function tester_tables()
+function test_tables()
 	printh("Table Tester")
 	table = {"Crash","Spyro","Ratchet","Clank","Jak","Daxter",}
 
@@ -50,7 +50,21 @@ function tester_tables()
 	boolean_test(table[3] == "Clank")
 	boolean_test(add(table, "Clank", 3) == "Clank")
 	boolean_test(table[3] == "Clank")
+
 	print_test_stats()
+end
+
+function test_empty_cells()
+	tec = {}
+	tec.x = {}
+	tec.y = {}
+
+	--convert_coordinate_to_index()
+
+	
+
+	--boolean_test()
+	--print_test_stats()
 end
 
 
@@ -60,7 +74,8 @@ function _init()
 	--init_body()
 	--init_fruit()
 	printh("TESTER START")
-	tester_tables()
+	--test_tables()
+	test_empty_cells()
 	printh("Run time: "..time().."\n")
 end
 
