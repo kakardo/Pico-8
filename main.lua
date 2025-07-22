@@ -42,7 +42,7 @@ just_moved = false
 step = 1
 
 -- game loop tick
-tick_goal = 15 -- Default = 5
+tick_goal = 5 -- Default = 5
 tick_count = 0
 
 score = 0
@@ -70,6 +70,9 @@ function _update()
 	cls(1)
 	debug() -- Not part of ready game
 	print(count(empty_cells))
+	print(body.segments)
+	print(#body.x)
+	print(#body.y)
 
 	--print("SCORE = "..score)
 	check_button_push()

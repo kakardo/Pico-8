@@ -15,7 +15,7 @@
 head = {}
 body = {}
 
-local snake_starting_length = 4
+local snake_starting_length = 12
 local snake_starting_coordinate = 64
 local snake_starting_direction = 1
 
@@ -82,8 +82,8 @@ function update_snake(button_pushed)
 	body.last_tail_pos_x = body.x[body.segments]
 	body.last_tail_pos_y = body.y[body.segments]
 	
-	del(body.x, body.segments)
-	del(body.y, body.segments)
+	deli(body.x, body.segments)
+	deli(body.y, body.segments)
 	
 	add(body.x, last_head_pos_x, 1)
 	add(body.y, last_head_pos_y, 1)
