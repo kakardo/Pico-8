@@ -55,6 +55,10 @@ function update_snake(button_pushed)
 
 	head.dir = button_pushed
 	
+	last_head_pos_x = head.x
+	last_head_pos_y = head.y
+
+	-- Move head
 	if (head.dir == 0) then
 		head.x += scale * (-step) -- LEFT
 	elseif (head.dir == 1) then
@@ -64,17 +68,23 @@ function update_snake(button_pushed)
 	elseif (head.dir == 3) then
 		head.y += scale * (step) -- DOWN
 	end
+	
+	-- Move body
+	del(body.x, body.segments)
+	del(body.y, body.segments)
+	
+	
+	add(body.x, last_head_pos_x, 1)
+	add(body.y, last_head_pos_y, 1)
 
+	-- -- Move body
+	-- for i = body.segments, 1, -1 do
+		-- body.x[i] = body.x[i-1]
+		-- body.y[i] = body.y[i-1]
+	-- end
 
-
-
-	for i = body.segments, 1, -1 do
-		body.x[i] = body.x[i-1]
-		body.y[i] = body.y[i-1]
-	end
-
-	body.x[1] = head.x
-	body.y[1] = head.y
+	-- body.x[1] = head.x
+	-- body.y[1] = head.y
 end
 
 -- Draw snake with its table as reference.
