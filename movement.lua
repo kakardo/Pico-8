@@ -38,29 +38,11 @@ function move()
 		empty_cells_free(head.x, head.y)
 	end
 
-	if (button_pushed == 0) then
+	update_snake(button_pushed)
 
-		update_snake()
-		head.x += scale * (-step) -- LEFT
-		head.dir = 0
-		
-	elseif (button_pushed == 1) then
-		update_snake()
-		head.x += scale * (step) -- RIGHT
-		head.dir = 1
-	elseif (button_pushed == 2) then
-		update_snake()
-		head.y += scale * (-step) -- UP
-		head.dir = 2
-	elseif (button_pushed == 3) then
-		update_snake()
-		head.y += scale * (step) -- DOWN
-		head.dir = 3
-	end
-	
-	if (went_backwards == true) then
-		empty_cells_occupy(head.x, head.y)
-	end
+	-- if (went_backwards == true) then
+		-- empty_cells_occupy(head.x, head.y)
+	-- end
 
 	just_moved = true
 end
