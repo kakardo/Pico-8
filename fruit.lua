@@ -5,8 +5,8 @@
 
 	FUNCTIONS
 	- init_fruit()
-	- draw_fruit()
 	- spawn_fruit()
+	- draw_fruit()
 	- is_fruit_eaten()
 ]]--
 
@@ -19,22 +19,29 @@ function init_fruit()
 	spawn_fruit()
 end
 
-function draw_fruit()
-	spr(1,fruit.x,fruit.y)
-end
+
 
 function spawn_fruit()
+	-- TODO = Does not choose a random empty cell from table!
 	fruit.x = flr(rnd(128 / scale)) * scale
 	fruit.y = flr(rnd(128 / scale)) * scale
 
 	empty_cells_occupy(empty_cells, fruit.x, fruit.y)
 end
 
+
+
+function draw_fruit()
+	spr(1,fruit.x,fruit.y)
+end
+
+
+
 function is_fruit_eaten()
 	if head.x == fruit.x and head.y == fruit.y then
 		body.segments += 1
-		body.x[body.segments] = fruit.x
-		body.y[body.segments] = fruit.y
+		add(body.x, body.last_tail_pos_x)
+		add(body.y, body.last_tail_pos_y)
 
 		score += 10
 

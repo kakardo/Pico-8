@@ -19,6 +19,9 @@ local snake_starting_length = 4
 local snake_starting_coordinate = 64
 local snake_starting_direction = 1
 
+local last_head_pos_x = -1
+local last_head_pos_y = -1
+
 function init_head()
 	head.x = snake_starting_coordinate
 	head.y = snake_starting_coordinate
@@ -33,18 +36,24 @@ function init_body()
 	body.segments = snake_starting_length
 	body.x = {}
 	body.y = {}
-	
+	body.last_tail_pos_x = -1
+	body.last_tail_pos_y = -1
+
 	-- Build by looping once for each segment.
 	local starting_x_pos = snake_starting_coordinate
 	
 	for i = 1, body.segments, 1 do
 		starting_x_pos -= scale
-		body.x[i] = starting_x_pos
-		body.y[i] = snake_starting_coordinate
+		add(body.x, starting_x_pos)
+		add(body.y, snake_starting_coordinate)
 		
 		-- Add occupied cells to empty_cells-table
 		empty_cells_occupy(empty_cells, body.x[i], body.y[i])
 	end
+	
+	starting_x_pos -= scale
+	body.last_tail_pos_x = starting_x_pos
+	body.last_tail_pos_y = snake_starting_coordinate
 end
 
 -- Update the snakes movement table.
@@ -57,7 +66,7 @@ function update_snake(button_pushed)
 	
 	last_head_pos_x = head.x
 	last_head_pos_y = head.y
-
+	
 	-- Move head
 	if (head.dir == 0) then
 		head.x += scale * (-step) -- LEFT
@@ -70,21 +79,14 @@ function update_snake(button_pushed)
 	end
 	
 	-- Move body
+	body.last_tail_pos_x = body.x[body.segments]
+	body.last_tail_pos_y = body.y[body.segments]
+	
 	del(body.x, body.segments)
 	del(body.y, body.segments)
 	
-	
 	add(body.x, last_head_pos_x, 1)
 	add(body.y, last_head_pos_y, 1)
-
-	-- -- Move body
-	-- for i = body.segments, 1, -1 do
-		-- body.x[i] = body.x[i-1]
-		-- body.y[i] = body.y[i-1]
-	-- end
-
-	-- body.x[1] = head.x
-	-- body.y[1] = head.y
 end
 
 -- Draw snake with its table as reference.
