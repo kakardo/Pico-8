@@ -34,6 +34,7 @@
 
 -- TABLES AND VARIABLES
 scale = 8 -- size of game steps
+min = 0
 max = 128
 
 button_pushed = 1
@@ -75,7 +76,7 @@ function _update()
 
 	if (just_moved == false) then
 	 move()
-	 is_alive()
+	 is_alive(min, max)
 	 is_fruit_eaten()
 	elseif tick_count == tick_goal then
 		just_moved = false

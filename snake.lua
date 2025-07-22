@@ -19,6 +19,8 @@ local snake_starting_length = 4
 local snake_starting_coordinate = 64
 local snake_starting_direction = 1
 
+
+
 function init_head()
 	head.x = snake_starting_coordinate
 	head.y = snake_starting_coordinate
@@ -47,6 +49,8 @@ function init_body()
 	end
 end
 
+
+
 -- Update the snakes movement table.
 function update_snake()
 	-- Add occupied cells to empty_cells-table
@@ -62,6 +66,8 @@ function update_snake()
 	body.y[1] = head.y
 end
 
+
+
 -- Draw snake with its table as reference.
 function draw_snake()
 	-- Draw head
@@ -75,10 +81,12 @@ function draw_snake()
 	end
 end
 
+
+
 -- Checks if the snake is within bounds
-function is_alive()
-	if head.x < 0 or head.x > 128 or
-	   head.y < 0 or head.y > 128 then
+function is_alive(min, max)
+	if head.x < min or head.x > max or
+	   head.y < min or head.y > max then
 		head.alive = false
 	end
 end
