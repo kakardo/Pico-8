@@ -8,7 +8,7 @@
 
 function debug()
 	--snake_and_fruit_tester()
-	--coordinat_tester()
+	--coordinat_tester()	
 end
 
 function snake_and_fruit_tester()

@@ -75,6 +75,7 @@ function _update()
 	print(#body.y)
 
 	--print("SCORE = "..score)
+	game_state_checker()
 	check_button_push()
 
 	if (just_moved == false) then
@@ -96,6 +97,18 @@ function _draw()
 	else
 		--print("game over")
 	end
+end
+
+function game_state_checker()
+	if #body.x != #body.y then
+		print("ERROR: X and Y total's not the same!")
+	elseif body.segments != #body.x then
+		print("ERROR: Body segments not equal to X!")
+	elseif body.segments != #body.y then
+		print("ERROR: Body segments not equal to X!")
+	end
+
+--count(empty_cells))
 end
 
 // LAST_LINE_MAIN_LUA
