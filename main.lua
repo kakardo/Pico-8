@@ -47,12 +47,10 @@ tick_count = 0
 
 score = 0
 
+print_tests = true
+
 ---------------------------------------------------------------
 --[[ TODO
-
-All positions are successfully added and removed from
-empty_cells. But, I don't think that I have implemented it well.
-Kind of hate it... I will think of a better solution.
 
 ]]--
 
@@ -68,11 +66,6 @@ end
 
 function _update()
 	cls(1)
-	debug() -- Not part of ready game
-	print(count(empty_cells))
-	print(body.segments)
-	print(#body.x)
-	print(#body.y)
 
 	--print("SCORE = "..score)
 	game_state_checker()
@@ -95,20 +88,30 @@ function _draw()
 		draw_snake()
 		draw_fruit()
 	else
-		--print("game over")
+		print("game over")
 	end
 end
 
 function game_state_checker()
+	debug() -- Not part of ready game
+	--body.segments += 1
+	
 	if #body.x != #body.y then
-		print("ERROR: X and Y total's not the same!")
+		print("X and Y total's not the same!")
 	elseif body.segments != #body.x then
-		print("ERROR: Body segments not equal to X!")
+		print("Body segments not equal to X!")
 	elseif body.segments != #body.y then
-		print("ERROR: Body segments not equal to X!")
+		print("Body segments not equal to X!")
 	end
 
---count(empty_cells))
+	-- Test prints
+	if print_tests then
+		used_cells = 256 - count(empty_cells)
+		print("empty_cells:"..count(empty_cells)..
+			  " (used:"..used_cells..")")
+		print("segments:"..body.segments..
+			  ' X = '..head.x..' Y = '..head.y)
+	end
 end
 
 // LAST_LINE_MAIN_LUA
