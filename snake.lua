@@ -78,6 +78,12 @@ function update_snake(button_pushed)
 		head.y += scale * (step) -- DOWN
 	end
 	
+	if is_occupied(empty_cells, head.x, head.y) then
+		print("YES")
+	else
+		print("NO")
+	end
+	
 	-- Move body
 	body.last_tail_pos_x = body.x[body.segments]
 	body.last_tail_pos_y = body.y[body.segments]
@@ -87,6 +93,9 @@ function update_snake(button_pushed)
 	
 	add(body.x, last_head_pos_x, 1)
 	add(body.y, last_head_pos_y, 1)
+	
+	empty_cells_occupy(empty_cells, head.x, head.y)
+	empty_cells_free(empty_cells, body.last_tail_pos_x, body.last_tail_pos_y)
 end
 
 -- Draw snake with its table as reference.
