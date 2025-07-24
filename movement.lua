@@ -34,16 +34,7 @@ end
 -- Move snake and update variable "just_moved" to TRUE
 function move()
 	went_backwards = avert_going_backwards()
-	if (went_backwards == true) then
-		--empty_cells_free(head.x, head.y)
-	end
-
 	update_snake(button_pushed)
-
-	if (went_backwards == true) then
-		--empty_cells_occupy(head.x, head.y)
-	end
-
 	just_moved = true
 end
 

@@ -42,7 +42,7 @@ just_moved = false
 step = 1
 
 -- game loop tick
-tick_goal = 5 -- Default = 5
+tick_goal = 15 -- Default = 5
 tick_count = 0
 
 score = 0
@@ -111,6 +111,7 @@ function game_state_checker()
 			  " (used:"..used_cells..")")
 		print("segments:"..body.segments..
 			  ' X = '..head.x..' Y = '..head.y)
+	print(button_pushed.." -> "..head.dir)
 	end
 end
 

@@ -58,21 +58,19 @@ end
 
 -- Update the snakes movement table.
 function update_snake(button_pushed)
-	-- Add occupied cells to empty_cells-table
-	--empty_cells_free(body.x[body.segments], body.y[body.segments])
-	--empty_cells_occupy(body.x[head.x], body.y[head.y])
 
+	new_dir = button_pushed
 	last_head_pos_x = head.x
 	last_head_pos_y = head.y
 
 	-- Move head
-	if (button_pushed == 0) then
+	if (new_dir == 0) then
 		head.x += scale * (-step) -- LEFT
-	elseif (button_pushed == 1) then
+	elseif (new_dir == 1) then
 		head.x += scale * (step) -- RIGHT
-	elseif (button_pushed == 2) then
+	elseif (new_dir == 2) then
 		head.y += scale * (-step) -- UP
-	elseif (button_pushed == 3) then
+	elseif (new_dir == 3) then
 		head.y += scale * (step) -- DOWN
 	end
 	
@@ -80,12 +78,25 @@ function update_snake(button_pushed)
 		print("YES")
 		head.x = last_head_pos_x
 		head.y = last_head_pos_y
+		new_dir = head.dir
+
+		if (new_dir == 0) then
+			head.x += scale * (-step) -- LEFT
+		elseif (new_dir == 1) then
+			head.x += scale * (step) -- RIGHT
+		elseif (new_dir == 2) then
+			head.y += scale * (-step) -- UP
+		elseif (new_dir == 3) then
+			head.y += scale * (step) -- DOWN
+		end
 	else
 		print("NO")
 	end
 
+
+
 	-- Move body
-	head.dir = button_pushed
+	head.dir = new_dir
 
 	body.last_tail_pos_x = body.x[body.segments]
 	body.last_tail_pos_y = body.y[body.segments]
@@ -99,7 +110,6 @@ function update_snake(button_pushed)
 	empty_cells_occupy(empty_cells, head.x, head.y)
 	empty_cells_free(empty_cells,
 	body.last_tail_pos_x, body.last_tail_pos_y)
-
 end
 
 -- Draw snake with its table as reference.
