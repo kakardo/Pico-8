@@ -74,6 +74,7 @@ function update_snake(button_pushed)
 		head.y += scale * (step) -- DOWN
 	end
 	
+	-- TODO make it an option if player wants this safety net
 	if is_occupied(empty_cells, head.x, head.y) then
 		print("YES")
 		
