@@ -111,7 +111,7 @@ function game_state_checker()
 			  " (used:"..used_cells..")")
 		print("segments:"..body.segments..
 			  ' X = '..head.x..' Y = '..head.y)
-	print(button_pushed.." -> "..head.dir)
+	print("button pushed "..button_pushed.." -> head.dir "..head.dir)
 	end
 end
 

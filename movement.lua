@@ -31,6 +31,10 @@ function check_button_push()
 	end
 end
 
+function ignore_button_push(previous_button_input)
+	button_pushed = previous_button_input
+end
+
 -- Move snake and update variable "just_moved" to TRUE
 function move()
 	went_backwards = avert_going_backwards()

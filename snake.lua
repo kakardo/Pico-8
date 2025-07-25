@@ -76,6 +76,10 @@ function update_snake(button_pushed)
 	
 	if is_occupied(empty_cells, head.x, head.y) then
 		print("YES")
+		
+		-- remove to have snake chosen turn when possible
+		ignore_button_push(head.dir)
+
 		head.x = last_head_pos_x
 		head.y = last_head_pos_y
 		new_dir = head.dir
@@ -91,12 +95,10 @@ function update_snake(button_pushed)
 		end
 	else
 		print("NO")
+		head.dir = new_dir
 	end
 
-
-
 	-- Move body
-	head.dir = new_dir
 
 	body.last_tail_pos_x = body.x[body.segments]
 	body.last_tail_pos_y = body.y[body.segments]
