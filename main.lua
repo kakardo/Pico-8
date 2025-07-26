@@ -59,9 +59,12 @@ print_tests = true
 
 --[[ TABLES ]]--
 empty_cells = {}
+available_cells = {}
+
 
 function _init()
 	store_empty_cells(empty_cells, max, scale)
+	init_available_cells(available_cells, max, scale)
 	init_head()
 	init_body()
 	init_fruit()
@@ -115,6 +118,7 @@ function game_state_checker()
 		print("segments:"..body.segments..
 			  ' X = '..head.x..' Y = '..head.y)
 	print("button pushed "..button_pushed.." -> head.dir "..head.dir)
+
 	end
 end
 
