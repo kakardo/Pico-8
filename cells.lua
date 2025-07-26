@@ -25,8 +25,7 @@ function init_isAvailable(max_position, scale)
 
 	for y = 0, max_position-1, scale do
 		for x = 0, max_position-1, scale do
-			index_key = convert_coordinate_to_index(x, y)
-			table[index_key] = index_key
+			add(table, convert_coordinate_to_index(x, y))
 		end
 	end
 	
