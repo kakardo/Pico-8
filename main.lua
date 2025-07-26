@@ -63,8 +63,9 @@ available_cells = {}
 
 
 function _init()
-	store_empty_cells(empty_cells, max, scale)
-	init_available_cells(available_cells, max, scale)
+	empty_cells     = init_isEmpty    (max, scale)
+	available_cells = init_isAvailable(max, scale)
+
 	init_head()
 	init_body()
 	init_fruit()
@@ -115,6 +116,7 @@ function game_state_checker()
 		used_cells = 256 - count(empty_cells)
 		print("empty_cells:"..count(empty_cells)..
 			  " (used:"..used_cells..")")
+	print("available:"..count(available_cells))
 		print("segments:"..body.segments..
 			  ' X = '..head.x..' Y = '..head.y)
 	print("button pushed "..button_pushed.." -> head.dir "..head.dir)

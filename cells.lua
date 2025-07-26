@@ -8,12 +8,29 @@
 
 -- TABLES AND VARIABLES
 
-function store_empty_cells(table, max_position, scale)
+function init_isEmpty(max_position, scale)
+	table = {}
+
 	for y = 0, max_position-1, scale do
 		for x = 0, max_position-1, scale do
 			table[convert_coordinate_to_index(x, y)] = false
 		end
 	end
+	
+	return table
+end
+
+function init_isAvailable(max_position, scale)
+	table = {}
+
+	for y = 0, max_position-1, scale do
+		for x = 0, max_position-1, scale do
+			index_key = convert_coordinate_to_index(x, y)
+			table[index_key] = index_key
+		end
+	end
+	
+	return table
 end
 
 function convert_coordinate_to_index(x, y)
