@@ -15,7 +15,7 @@
 head = {}
 body = {}
 
-local snake_starting_length = 12
+local snake_starting_length = 4
 local snake_starting_coordinate = 64
 local snake_starting_direction = 1
 
