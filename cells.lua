@@ -14,9 +14,10 @@ function init_isEmpty(max_position, scale)
 	for y = 0, max_position-1, scale do
 		for x = 0, max_position-1, scale do
 			table[convert_coordinate_to_index(x, y)] = false
+			--printh("X:"..x.." Y:"..y.." Key:"..convert_coordinate_to_index(x, y))
 		end
 	end
-	
+
 	return table
 end
 
@@ -25,7 +26,8 @@ function init_isAvailable(max_position, scale)
 
 	for y = 0, max_position-1, scale do
 		for x = 0, max_position-1, scale do
-			add(table, convert_coordinate_to_index(x, y))
+			test = add(table, convert_coordinate_to_index(x, y))
+			--printh("X:"..x.." Y:"..y.." Key:"..test)
 		end
 	end
 	

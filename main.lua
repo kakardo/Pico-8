@@ -113,12 +113,13 @@ function game_state_checker()
 		used_cells = 256 - count(empty_cells)
 		print("empty_cells:"..count(empty_cells)..
 			  " (used:"..used_cells..")")
-		print("available:"..available_cells[ceil(rnd(#available_cells))])
+		print("available:"..#available_cells)
 		print("segments:"..body.segments..
 			  ' X = '..head.x..' Y = '..head.y)
 		print("button pushed "..button_pushed.." -> head.dir "..head.dir)
 
 		--print("AV-CELLS:"..available_cells[ceil(#available_cells)])
+		print("available:"..available_cells[flr(rnd(#available_cells))])
 	
 	end
 end
