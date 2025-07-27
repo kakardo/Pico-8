@@ -119,7 +119,7 @@ function game_state_checker()
 		print("button pushed "..button_pushed.." -> head.dir "..head.dir)
 
 		--print("AV-CELLS:"..available_cells[ceil(#available_cells)])
-		print("available:"..available_cells[flr(rnd(#available_cells))])
+		--print("available:"..available_cells[flr(rnd(#available_cells))])
 	
 	end
 end

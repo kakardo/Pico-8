@@ -1,6 +1,7 @@
 --[[ CELLS.LUA 
-	- 
-	@date 2025-07-18
+	-
+	Cell grid coordinates starts at 1 (and not 0). Not my choice
+	but's built in Pico 8:s array index. Little bit weird.
 	
 	FUNCTIONS
 	-
@@ -24,10 +25,10 @@ end
 function init_isAvailable(max_position, scale)
 	table = {}
 
-	for y = 0, max_position-1, scale do
-		for x = 0, max_position-1, scale do
-			test = add(table, convert_coordinate_to_index(x, y))
-			--printh("X:"..x.." Y:"..y.." Key:"..test)
+	for y = 1, max_position/scale, 1 do
+		for x = 1, max_position/scale, 1 do
+			add(table, convert_coordinate_to_index(x, y))
+			printh("X:"..x.." Y:"..y.." Key:"..convert_coordinate_to_index(x, y))
 		end
 	end
 	
