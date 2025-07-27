@@ -36,6 +36,7 @@
 ]]--
 
 -- TABLES AND VARIABLES
+--TODO Limit scale use. Mark variables that has been scaled.
 scale = 8 -- size of game steps
 min = 0
 max = 128
