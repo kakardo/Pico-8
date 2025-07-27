@@ -30,8 +30,8 @@ end
 function init_isAvailable(max_position, scale)
 	table = {}
 
-	for y = 1, max_position/scale, 1 do
-		for x = 1, max_position/scale, 1 do
+	for y = 0, max_position/scale-1, 1 do
+		for x = 0, max_position/scale-1, 1 do
 			add(table, convert_coordinate_to_index(x, y))
 			--printh("X:"..x.." Y:"..y.." Key:"..convert_coordinate_to_index(x, y))
 		end

@@ -19,12 +19,21 @@ function init_fruit()
 	spawn_fruit()
 end
 
-function spawn_fruit()
-	-- TODO = Does not choose a random empty cell from table!
-	fruit.x = flr(rnd(128 / scale)) * scale	
-	fruit.y = flr(rnd(128 / scale)) * scale
---fruit.x = flr(rnd(empty_cells))
-	--empty_cells_occupy(empty_cells, fruit.x, fruit.y)
+function spawn_fruit()	
+	-- Converts available fruit coordinate to X & Y positions
+	-- No scale multiplier added yet
+	index = flr(rnd(#available_cells))
+	coordinate = available_cells[index]
+	new_x = coordinate % max
+	new_y = flr(coordinate / max)
+	printh("Fruit coordinate:"..coordinate.." [index:"..index..
+					"] (x:"..new_x..".y:"..new_y..")")
+	
+	-- POSITION BOUNDARIES = min: 0, max: 15
+	fruit.y = new_y * scale
+	fruit.x = new_x * scale
+
+	empty_cells_occupy(empty_cells, fruit.x, fruit.y)
 end
 
 function draw_fruit()
@@ -40,7 +49,7 @@ function is_fruit_eaten()
 		score += 10
 
 		--empty_cells_free(fruit.x, fruit.y)
-		spawn_fruit()	
+		spawn_fruit()
 	end
 end
 
