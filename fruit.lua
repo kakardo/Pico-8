@@ -48,7 +48,8 @@ function is_fruit_eaten()
 
 		score += 10
 
-		--empty_cells_free(fruit.x, fruit.y)
+		printh("F.X: "..fruit.x.." F.Y:"..fruit.y)
+		empty_cells_free(empty_cells, fruit.x, fruit.y)
 		spawn_fruit()
 	end
 end

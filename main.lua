@@ -15,14 +15,12 @@
 	- No suicide turning (a command that turnes snake into     <2025-07-25>
 	  its own body within an 1-step move even though the path
 	  ahead is clear and the death could have been avoided).
-
-	Features
-	Visuals
+	- Fruit never spawns on top of the snake. The spawning
+	  position's randomised from table of available locations. <2025-07-29>
 	
 	TODO
 	- Make suicide turn a toggleable option.
-	- Die when crashing into eats own body.
-	- No fruit spawn untop of the snake.
+	- Die when crashing into the snakes own body.
 	- Increase speed at certain lengths.
 	- Possibility to dash for higher score.
 	- [VISUAL] Game over screen.
