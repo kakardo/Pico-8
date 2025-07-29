@@ -76,9 +76,9 @@ function update_snake(button_pushed)
 	
 	-- TODO make it an option if player wants this safety net
 	if is_occupied(empty_cells, head.x, head.y) then
-		print("YES")
+		--print("YES")
 		
-		-- remove to have snake chosen turn when possible
+		-- remove this to have snake take chosen turn when possible
 		ignore_button_push(head.dir)
 
 		head.x = last_head_pos_x
@@ -95,7 +95,7 @@ function update_snake(button_pushed)
 			head.y += scale * (step) -- DOWN
 		end
 	else
-		print("NO")
+		--print("NO")
 		head.dir = new_dir
 	end
 
@@ -130,8 +130,8 @@ end
 
 -- Checks if the snake is within bounds
 function is_alive(min, max)
-	if head.x < min or head.x > max or
-	   head.y < min or head.y > max then
+	if head.x < min or head.x >= max or
+	   head.y < min or head.y >= max then
 		head.alive = false
 	end
 end

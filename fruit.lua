@@ -26,8 +26,7 @@ function spawn_fruit()
 	coordinate = available_cells[index]
 	new_x = coordinate % max
 	new_y = flr(coordinate / max)
-	printh("Fruit coordinate:"..coordinate.." [index:"..index..
-					"] (x:"..new_x..".y:"..new_y..")")
+	--printh("Fruit coordinate:"..coordinate.." [index:"..index.."] (x:"..new_x..".y:"..new_y..")")
 	
 	-- POSITION BOUNDARIES = min: 0, max: 15
 	fruit.y = new_y * scale
@@ -48,7 +47,7 @@ function is_fruit_eaten()
 
 		score += 10
 
-		printh("F.X: "..fruit.x.." F.Y:"..fruit.y)
+		--printh("F.X: "..fruit.x.." F.Y:"..fruit.y)
 		empty_cells_free(empty_cells, fruit.x, fruit.y)
 		spawn_fruit()
 	end
