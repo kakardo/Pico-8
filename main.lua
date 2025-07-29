@@ -70,7 +70,6 @@ end
 function _update()
 	cls(1)
 
-	--print("SCORE = "..score)
 	game_state_checker()
 	check_button_push()
 
@@ -88,13 +87,14 @@ end
 
 function _draw()
 	if head.alive then
+		print("score = "..score)	
 		draw_snake()
 		draw_fruit()
 	else
 		print_centered("score: "..score,32,32,9)
 		print_centered("lenght: "..body.segments+1,96,32,11)
 		print_centered("game over",64,64,8)
-		print("\ncontinue?")
+		print_centered("press \"ctr + r\" to restart",64,72,13)
 	end
 end
 
