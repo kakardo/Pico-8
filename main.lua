@@ -49,7 +49,7 @@ tick_count = 0
 
 score = 0
 
-print_tests = true
+print_tests = false
 
 ---------------------------------------------------------------
 --[[ TODO
@@ -91,13 +91,15 @@ function _draw()
 		draw_snake()
 		draw_fruit()
 	else
-		print("game over")
+		print_centered("score: "..score,32,32,9)
+		print_centered("lenght: "..body.segments+1,96,32,11)
+		print_centered("game over",64,64,8)
+		print("\ncontinue?")
 	end
 end
 
 function game_state_checker()
 	debug() -- Not part of ready game
-	--body.segments += 1
 	
 	if #body.x != #body.y then
 		print("X and Y total's not the same!")
@@ -119,8 +121,13 @@ function game_state_checker()
 
 		--print("AV-CELLS:"..available_cells[ceil(#available_cells)])
 		--print("available:"..available_cells[flr(rnd(#available_cells))])
-	
 	end
+end
+
+function print_centered(str, x, y, color)
+	x_centered = x - #str * 2
+	y_centered = y - 3 --Half string height
+	print(str, x_centered, y_centered, color)
 end
 
 // LAST_LINE_MAIN_LUA
