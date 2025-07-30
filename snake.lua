@@ -15,7 +15,7 @@
 head = {}
 body = {}
 
-local snake_starting_length = 4
+local snake_starting_length = 8
 local snake_starting_coordinate = 64
 local snake_starting_direction = 1
 
@@ -76,7 +76,7 @@ function update_snake(button_pushed)
 	
 	-- TODO make it an option if player wants this safety net
 	if is_occupied(empty_cells, head.x, head.y) then
-		--print("YES")
+		print("YES")
 		
 		-- remove this to have snake take chosen turn when possible
 		ignore_button_push(head.dir)
@@ -95,7 +95,7 @@ function update_snake(button_pushed)
 			head.y += scale * (step) -- DOWN
 		end
 	else
-		--print("NO")
+		print("NO")
 		head.dir = new_dir
 	end
 

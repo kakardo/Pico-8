@@ -44,12 +44,12 @@ just_moved = false
 step = 1
 
 -- game loop tick
-tick_goal = 5 -- Default = 5
+tick_goal = 15 -- Default = 5
 tick_count = 0
 
 score = 0
 
-print_tests = false
+print_tests = true
 
 ---------------------------------------------------------------
 --[[ TODO
@@ -87,7 +87,7 @@ end
 
 function _draw()
 	if head.alive then
-		print("score = "..score)	
+		--print("score = "..score)	
 		draw_snake()
 		draw_fruit()
 	else

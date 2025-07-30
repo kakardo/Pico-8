@@ -45,20 +45,22 @@ function convert_coordinate_to_index(x, y)
 end
 
 function empty_cells_occupy(table, del_x, del_y)
-	index_key = convert_coordinate_to_index(del_x/scale, del_y/scale)
-	table[index_key] = true
+	isEmpty_index_key = convert_coordinate_to_index(del_x, del_y)
+	table[isEmpty_index_key] = true
 
 	-- TODO get available_cells as parameter and not global
-	test = del(available_cells, index_key)
+	isAvailable_index_key = convert_coordinate_to_index(del_x/scale, del_y/scale)
+	test = del(available_cells, isAvailable_index_key)
 	--printh("del["..del_x.."."..del_y.."]:"..test)
 end
 
 function empty_cells_free(table, add_x, add_y)
-	index_key = convert_coordinate_to_index(add_x/scale, add_y/scale)
-	table[index_key] = false
+	isEmpty_index_key = convert_coordinate_to_index(add_x, add_y)
+	table[isEmpty_index_key] = false
 
 	-- TODO get available_cells as parameter and not global
-	test = add(available_cells, index_key)
+	isAvailable_index_key = convert_coordinate_to_index(add_x/scale, add_y/scale)
+	test = add(available_cells, isAvailable_index_key)
 	--printh("add["..add_x.."."..add_y.."]:"..test)
 end
 
