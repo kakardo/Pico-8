@@ -63,16 +63,8 @@ function update_snake(button_pushed)
 	last_head_pos_x = head.x
 	last_head_pos_y = head.y
 
-	-- Move head
-	if (new_dir == 0) then
-		head.x += scale * (-step) -- LEFT
-	elseif (new_dir == 1) then
-		head.x += scale * (step) -- RIGHT
-	elseif (new_dir == 2) then
-		head.y += scale * (-step) -- UP
-	elseif (new_dir == 3) then
-		head.y += scale * (step) -- DOWN
-	end
+
+	move_head(new_dir)
 	
 	-- TODO make it an option if player wants this safety net
 	if is_occupied(empty_cells, head.x, head.y) then
@@ -85,15 +77,7 @@ function update_snake(button_pushed)
 		head.y = last_head_pos_y
 		new_dir = head.dir
 
-		if (new_dir == 0) then
-			head.x += scale * (-step) -- LEFT
-		elseif (new_dir == 1) then
-			head.x += scale * (step) -- RIGHT
-		elseif (new_dir == 2) then
-			head.y += scale * (-step) -- UP
-		elseif (new_dir == 3) then
-			head.y += scale * (step) -- DOWN
-		end
+		move_head(new_dir)
 	else
 		print("NO")
 		head.dir = new_dir
@@ -113,6 +97,18 @@ function update_snake(button_pushed)
 	empty_cells_occupy(empty_cells, head.x, head.y)
 	empty_cells_free(empty_cells,
 	body.last_tail_pos_x, body.last_tail_pos_y)
+end
+
+function move_head(direction)
+	if (direction == 0) then
+		head.x += scale * (-step) -- LEFT
+	elseif (direction == 1) then
+		head.x += scale * (step) -- RIGHT
+	elseif (direction == 2) then
+		head.y += scale * (-step) -- UP
+	elseif (direction == 3) then
+		head.y += scale * (step) -- DOWN
+	end
 end
 
 -- Draw snake with its table as reference.
