@@ -17,7 +17,8 @@
 	  ahead is clear and the death could have been avoided).
 	- Fruit never spawns on top of the snake. The spawning
 	  position's randomised from table of available locations. <2025-07-29>
-	
+	- Game over screen show score, length and instruction on   <2025-07-29>
+	  how to restart.
 	TODO
 	- Make suicide turn a toggleable option.
 	- Die when crashing into the snakes own body.

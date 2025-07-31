@@ -58,14 +58,18 @@ end
 
 -- Update the snakes movement table.
 function update_snake(button_pushed)
-
 	new_dir = button_pushed
+	
+	--
+	check_if_occupied(new_dir, head.x, head.y)
+	
 	last_head_pos_x = head.x
 	last_head_pos_y = head.y
-
-
 	move_head(new_dir)
-	
+
+
+
+
 	-- TODO make it an option if player wants this safety net
 	if is_occupied(empty_cells, head.x, head.y) then
 		print("YES")
@@ -97,6 +101,20 @@ function update_snake(button_pushed)
 	empty_cells_occupy(empty_cells, head.x, head.y)
 	empty_cells_free(empty_cells,
 	body.last_tail_pos_x, body.last_tail_pos_y)
+end
+
+function check_if_occupied(new_dir, x, y)
+	if (new_dir == 0) then
+		x += scale * (-step) -- LEFT
+	elseif (new_dir == 1) then
+		x += scale * (step) -- RIGHT
+	elseif (new_dir == 2) then
+		y += scale * (-step) -- UP
+	elseif (new_dir == 3) then
+		y += scale * (step) -- DOWN
+	end
+	
+	return is_occupied(empty_cells, x, y)
 end
 
 function move_head(direction)
