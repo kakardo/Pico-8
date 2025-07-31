@@ -69,6 +69,10 @@ function update_snake(button_pushed)
 	last_head_pos_y = head.y
 	move_head(new_dir)
 
+	-- Is occupied space the fruit?
+	if head.x == fruit.x and head.y == fruit.y then
+		isForwardSafe = true
+	end
 
 	-- TODO make it an option if player wants this safety net
 	if isTurningSafe or isForwardSafe then
