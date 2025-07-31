@@ -19,9 +19,10 @@
 	  position's randomised from table of available locations. <2025-07-29>
 	- Game over screen show score, length and instruction on   <2025-07-29>
 	  how to restart.
+	- Crawling into your own body leads to GAME OVER.          <2025-07-31>
+
 	TODO
 	- Make suicide turn a toggleable option.
-	- Die when crashing into the snakes own body.
 	- Increase speed at certain lengths.
 	- Possibility to dash for higher score.
 	- [VISUAL] Game over screen.

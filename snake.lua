@@ -60,50 +60,53 @@ end
 function update_snake(button_pushed)
 	new_dir = button_pushed
 	
-	--
-	check_if_occupied(new_dir, head.x, head.y)
+	isTurningSafe = check_if_safe(new_dir, head.x, head.y)
+	isForwardSafe = check_if_safe(head.dir, head.x, head.y)
+	
+	-- TODO This whole section needs a clean up
 	
 	last_head_pos_x = head.x
 	last_head_pos_y = head.y
 	move_head(new_dir)
 
 
-
-
 	-- TODO make it an option if player wants this safety net
-	if is_occupied(empty_cells, head.x, head.y) then
-		print("YES")
+	if isTurningSafe or isForwardSafe then
+		if not isTurningSafe then
+			print("YES")
+			
+			-- remove this to have snake take chosen turn when possible
+			ignore_button_push(head.dir)
+
+			head.x = last_head_pos_x
+			head.y = last_head_pos_y
+			new_dir = head.dir
+
+			move_head(new_dir)
+		else
+			print("NO")
+			head.dir = new_dir
+		end
 		
-		-- remove this to have snake take chosen turn when possible
-		ignore_button_push(head.dir)
-
-		head.x = last_head_pos_x
-		head.y = last_head_pos_y
-		new_dir = head.dir
-
-		move_head(new_dir)
+		-- Move body
+		body.last_tail_pos_x = body.x[body.segments]
+		body.last_tail_pos_y = body.y[body.segments]
+		
+		deli(body.x, body.segments)
+		deli(body.y, body.segments)
+		
+		add(body.x, last_head_pos_x, 1)
+		add(body.y, last_head_pos_y, 1)
+		
+		empty_cells_occupy(empty_cells, head.x, head.y)
+		empty_cells_free(empty_cells,
+		body.last_tail_pos_x, body.last_tail_pos_y)
 	else
-		print("NO")
-		head.dir = new_dir
+		head.alive = false
 	end
-
-	-- Move body
-
-	body.last_tail_pos_x = body.x[body.segments]
-	body.last_tail_pos_y = body.y[body.segments]
-	
-	deli(body.x, body.segments)
-	deli(body.y, body.segments)
-	
-	add(body.x, last_head_pos_x, 1)
-	add(body.y, last_head_pos_y, 1)
-	
-	empty_cells_occupy(empty_cells, head.x, head.y)
-	empty_cells_free(empty_cells,
-	body.last_tail_pos_x, body.last_tail_pos_y)
 end
 
-function check_if_occupied(new_dir, x, y)
+function check_if_safe(new_dir, x, y)
 	if (new_dir == 0) then
 		x += scale * (-step) -- LEFT
 	elseif (new_dir == 1) then
@@ -114,7 +117,11 @@ function check_if_occupied(new_dir, x, y)
 		y += scale * (step) -- DOWN
 	end
 	
-	return is_occupied(empty_cells, x, y)
+	if is_occupied(empty_cells, x, y) then
+		return false
+	else
+		return true
+	end
 end
 
 function move_head(direction)
