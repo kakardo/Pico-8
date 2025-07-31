@@ -71,19 +71,21 @@ end
 
 function _update()
 	cls(1)
+	game_state_checker() -- Not part of ready game
 
-	game_state_checker()
-	check_button_push()
+	if head.alive then
+		check_button_push()
 
-	if (just_moved == false) then
-	 move()
-	 is_alive(min, max)
-	 is_fruit_eaten()
-	elseif tick_count == tick_goal then
-		just_moved = false
-		tick_count = 0
-	else
-	 tick_count += 1
+		if (just_moved == false) then
+		 move()
+		 is_alive(min, max)
+		 is_fruit_eaten()
+		elseif tick_count == tick_goal then
+			just_moved = false
+			tick_count = 0
+		else
+		 tick_count += 1
+		end
 	end
 end
 
