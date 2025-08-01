@@ -36,7 +36,7 @@ function spawn_fruit()
 end
 
 function draw_fruit()
-	spr(1,fruit.x,fruit.y)
+	spr(4,fruit.x,fruit.y)
 end
 
 function is_fruit_eaten()

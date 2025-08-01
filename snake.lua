@@ -146,13 +146,21 @@ end
 
 -- Draw snake with its table as reference.
 function draw_snake()
-	-- Draw head
-	spr(0,head.x,head.y)
-	
+	-- Draw head with direction
+	if head.dir == 0 then
+		spr(0,head.x,head.y)
+	elseif head.dir == 1 then
+		spr(1,head.x,head.y)
+	elseif head.dir == 2 then
+		spr(2,head.x,head.y)
+	elseif head.dir == 3 then
+		spr(3,head.x,head.y)
+	end
+
 	-- Draw body
 	if body.segments > 0 then
 		for i = body.segments, 1, -1 do
-			spr(0,body.x[i],body.y[i])
+			spr(5,body.x[i],body.y[i])
 		end
 	end
 end
