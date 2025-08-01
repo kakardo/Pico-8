@@ -39,6 +39,7 @@ function init_body()
 		segments = snake_starting_length,
 		x = {},
 		y = {},
+		part_dir = {},
 		last_tail_pos_x = -1,
 		last_tail_pos_y = -1,
 	}
