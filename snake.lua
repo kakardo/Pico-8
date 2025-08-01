@@ -23,21 +23,25 @@ local last_head_pos_x = -1
 local last_head_pos_y = -1
 
 function init_head()
-	head.x = snake_starting_coordinate
-	head.y = snake_starting_coordinate
-	head.dir = snake_starting_direction
-	head.alive = true
-	
+	head = {
+		x = snake_starting_coordinate,
+		y = snake_starting_coordinate,
+		dir = snake_starting_direction,
+		alive = true
+	}
+		
 	-- Add occupied cells to empty_cells-table
 	empty_cells_occupy(empty_cells, head.x, head.y)
 end
 
 function init_body()
-	body.segments = snake_starting_length
-	body.x = {}
-	body.y = {}
-	body.last_tail_pos_x = -1
-	body.last_tail_pos_y = -1
+	body = {
+		segments = snake_starting_length,
+		x = {},
+		y = {},
+		last_tail_pos_x = -1,
+		last_tail_pos_y = -1,
+	}
 
 	-- Build by looping once for each segment.
 	local starting_x_pos = snake_starting_coordinate
