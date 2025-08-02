@@ -15,7 +15,7 @@
 head = {}
 body = {}
 
-local snake_starting_length = 8
+local snake_starting_length = 4
 local snake_starting_coordinate = 64
 local snake_starting_direction = 1
 
@@ -180,14 +180,20 @@ function draw_snake()
 
 	-- Draw body
 	if body.segments > 0 then
-		for i = body.segments, 1, -1 do
-			x = body.x[i]
-			y = body.y[i]
-			shape_i = convert_coordinate_to_index(x, y)
-			shape = body.dir_move[shape_i]
-			spr(shape, x, y)
+		for i = body.segments-1, 1, -1 do
+			draw_body_shape(i)
 		end
+		spr(17, body.x[body.segments], body.y[body.segments])
 	end
+end
+
+function draw_body_shape(index)
+	x = body.x[index]
+	y = body.y[index]
+	shape_i = convert_coordinate_to_index(x, y)
+	shape = body.dir_move[shape_i]
+	spr(shape, x, y)
+
 end
 
 -- Checks if the snake is within bounds
