@@ -39,7 +39,7 @@ function init_body()
 		segments = snake_starting_length,
 		x = {},
 		y = {},
-		part_dir = {},
+		dir_move = {},
 		last_tail_pos_x = -1,
 		last_tail_pos_y = -1,
 	}
@@ -51,6 +51,11 @@ function init_body()
 		starting_x_pos -= scale
 		add(body.x, starting_x_pos)
 		add(body.y, snake_starting_coordinate)
+
+		a = starting_x_pos
+		b = snake_starting_coordinate
+		print(body.dir_move[convert_coordinate_to_index(a,b)])
+		body.dir_move[convert_coordinate_to_index(a,b)] = 6
 		
 		-- Add occupied cells to empty_cells-table
 		empty_cells_occupy(empty_cells, body.x[i], body.y[i])
@@ -60,6 +65,21 @@ function init_body()
 	body.last_tail_pos_x = starting_x_pos
 	body.last_tail_pos_y = snake_starting_coordinate
 end
+
+--[[
+	BODY AND TAIL INDEX AND NAME
+	6 = horizontal
+	7 = vertical
+	8 = NW
+	9 = NE
+	10 = SW
+	11 = SE
+	16 = TW
+	17 = TE
+	18 = TN
+	19 = TS
+]]--
+
 
 -- Update the snakes movement table.
 function update_snake(button_pushed)
