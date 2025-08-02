@@ -181,7 +181,11 @@ function draw_snake()
 	-- Draw body
 	if body.segments > 0 then
 		for i = body.segments, 1, -1 do
-			spr(5,body.x[i],body.y[i])
+			x = body.x[i]
+			y = body.y[i]
+			shape_i = convert_coordinate_to_index(x, y)
+			shape = body.dir_move[shape_i]
+			spr(shape, x, y)
 		end
 	end
 end
