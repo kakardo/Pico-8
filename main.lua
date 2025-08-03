@@ -22,6 +22,8 @@
 	- Crawling into your own body leads to GAME OVER.          <2025-07-31>
 
 	TODO
+	- Fix: snake dies if heading for tail that should have had
+	  the time to move away.
 	- Make suicide turn a toggleable option.
 	- Increase speed at certain lengths.
 	- Possibility to dash for higher score.
