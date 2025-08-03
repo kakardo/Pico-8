@@ -86,7 +86,8 @@ end
 -- Update the snakes movement table.
 function update_snake(button_pushed)
 	new_dir = button_pushed
-	
+	old_dir = body.dir
+
 	isTurningSafe = check_if_safe(new_dir, head.x, head.y)
 	isForwardSafe = check_if_safe(head.dir, head.x, head.y)
 	
@@ -120,6 +121,8 @@ function update_snake(button_pushed)
 		end
 		
 		-- Move body
+		
+		
 		body.last_tail_pos_x = body.x[body.segments]
 		body.last_tail_pos_y = body.y[body.segments]
 		
@@ -128,6 +131,7 @@ function update_snake(button_pushed)
 		
 		add(body.x, last_head_pos_x, 1)
 		add(body.y, last_head_pos_y, 1)
+		calculate_body_piece(body.dir, old_dir)
 		
 		empty_cells_occupy(empty_cells, head.x, head.y)
 		empty_cells_free(empty_cells,
@@ -135,6 +139,10 @@ function update_snake(button_pushed)
 	else
 		head.alive = false
 	end
+end
+
+calculate_body_piece(new_dir, old_dir)
+
 end
 
 function check_if_safe(new_dir, x, y)
@@ -197,9 +205,7 @@ function draw_body_shape(index)
 	y = body.y[index]
 	shape_i = convert_coordinate_to_index(x, y)
 	shape = body.pos_dir[shape_i]
-	--spr(shape, x, y)
-	spr(22, x, y)
-
+	spr(shape, x, y)
 end
 
 -- Checks if the snake is within bounds
