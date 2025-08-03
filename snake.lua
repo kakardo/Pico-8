@@ -39,8 +39,7 @@ function init_body()
 		segments = snake_starting_length,
 		x = {},
 		y = {},
-		prev_x = {},
-		prev_y = {},
+		pos_dir = {},
 		last_tail_pos_x = -1,
 		last_tail_pos_y = -1,
 	}
@@ -57,8 +56,8 @@ function init_body()
 		b = snake_starting_coordinate
 		
 		-- TEST FOR BODY ANIMATION
-		--print(body.dir_move[convert_coordinate_to_index(a,b)])
-		--body.prev_x[convert_coordinate_to_index(a,b)] = 6
+		body.pos_dir[convert_coordinate_to_index(a,b)] = 6
+		print(body.pos_dir[convert_coordinate_to_index(a,b)])
 
 		-- Add occupied cells to empty_cells-table
 		empty_cells_occupy(empty_cells, body.x[i], body.y[i])
@@ -186,7 +185,7 @@ function draw_snake()
 		for i = body.segments-1, 1, -1 do
 			draw_body_shape(i)
 		end
-		spr(17, body.x[body.segments], body.y[body.segments])
+		spr(21, body.x[body.segments], body.y[body.segments])
 	end
 end
 
@@ -194,8 +193,9 @@ function draw_body_shape(index)
 	x = body.x[index]
 	y = body.y[index]
 	shape_i = convert_coordinate_to_index(x, y)
-	shape = body.dir_move[shape_i]
-	spr(shape, x, y)
+	shape = body.pos_dir[shape_i]
+	--spr(shape, x, y)
+	spr(22, x, y)
 
 end
 
