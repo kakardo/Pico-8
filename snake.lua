@@ -39,7 +39,8 @@ function init_body()
 		segments = snake_starting_length,
 		x = {},
 		y = {},
-		dir_move = {},
+		prev_x = {},
+		prev_y = {},
 		last_tail_pos_x = -1,
 		last_tail_pos_y = -1,
 	}
@@ -54,9 +55,11 @@ function init_body()
 
 		a = starting_x_pos
 		b = snake_starting_coordinate
-		print(body.dir_move[convert_coordinate_to_index(a,b)])
-		body.dir_move[convert_coordinate_to_index(a,b)] = 6
 		
+		-- TEST FOR BODY ANIMATION
+		--print(body.dir_move[convert_coordinate_to_index(a,b)])
+		--body.prev_x[convert_coordinate_to_index(a,b)] = 6
+
 		-- Add occupied cells to empty_cells-table
 		empty_cells_occupy(empty_cells, body.x[i], body.y[i])
 	end
