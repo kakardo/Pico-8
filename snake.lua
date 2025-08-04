@@ -69,6 +69,12 @@ function init_body()
 end
 
 --[[
+	DIRECTIONS
+	0 = left
+	1 = right
+	2 = up
+	3 = down
+
 	BODY AND TAIL INDEX AND NAME
 	6 = horizontal
 	7 = vertical
@@ -86,7 +92,7 @@ end
 -- Update the snakes movement table.
 function update_snake(button_pushed)
 	new_dir = button_pushed
-	old_dir = body.dir
+	old_dir = head.dir
 
 	isTurningSafe = check_if_safe(new_dir, head.x, head.y)
 	isForwardSafe = check_if_safe(head.dir, head.x, head.y)
@@ -131,7 +137,8 @@ function update_snake(button_pushed)
 		
 		add(body.x, last_head_pos_x, 1)
 		add(body.y, last_head_pos_y, 1)
-		calculate_body_piece(body.dir, old_dir)
+	print("NewDir:"..head.dir.." OldDir:"..old_dir)
+		calculate_body_piece(head.dir, old_dir)
 		
 		empty_cells_occupy(empty_cells, head.x, head.y)
 		empty_cells_free(empty_cells,
@@ -141,8 +148,22 @@ function update_snake(button_pushed)
 	end
 end
 
-calculate_body_piece(new_dir, old_dir)
+function calculate_body_piece(new_dir, old_dir)
+	--print("NewDir:"..new_dir.." OldDir:"..old_dir)
+	if new_dir == old_dir then
+		if new_dir == 0 or new_dir == 1 then
+	print("calculate_body_piece")
+	print("calculate_body_piece")
+			add_new_shape(6)
+		elseif new_dir == 2 or new_dir == 3 then
+			add_new_shape(7)
+		end
+	end
+end
 
+function add_new_shape(shape_index)
+	index = convert_coordinate_to_index(body.x[1],body.y[1])
+	body.pos_dir[index] = shape_index
 end
 
 function check_if_safe(new_dir, x, y)
