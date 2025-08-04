@@ -68,27 +68,6 @@ function init_body()
 	body.last_tail_pos_y = snake_starting_coordinate
 end
 
---[[
-	DIRECTIONS
-	0 = left
-	1 = right
-	2 = up
-	3 = down
-
-	BODY AND TAIL INDEX AND NAME
-	6 = horizontal
-	7 = vertical
-	8 = NW
-	9 = NE
-	10 = SW
-	11 = SE
-	16 = TW
-	17 = TE
-	18 = TN
-	19 = TS
-]]--
-
-
 -- Update the snakes movement table.
 function update_snake(button_pushed)
 	new_dir = button_pushed
@@ -138,7 +117,7 @@ function update_snake(button_pushed)
 		add(body.x, last_head_pos_x, 1)
 		add(body.y, last_head_pos_y, 1)
 	print("NewDir:"..head.dir.." OldDir:"..old_dir)
-		calculate_body_piece(head.dir, old_dir)
+		calculate_body_piece(old_dir, head.dir)
 		
 		empty_cells_occupy(empty_cells, head.x, head.y)
 		empty_cells_free(empty_cells,
@@ -148,16 +127,28 @@ function update_snake(button_pushed)
 	end
 end
 
-function calculate_body_piece(new_dir, old_dir)
+function calculate_body_piece(old_dir, new_dir)
 	--print("NewDir:"..new_dir.." OldDir:"..old_dir)
-	if new_dir == old_dir then
-		if new_dir == 0 or new_dir == 1 then
-	print("calculate_body_piece")
-	print("calculate_body_piece")
+	if (old_dir == new_dir) then
+		if (new_dir == 0 or new_dir == 1) then
 			add_new_shape(6)
-		elseif new_dir == 2 or new_dir == 3 then
+		elseif (new_dir == 2 or new_dir == 3) then
 			add_new_shape(7)
 		end
+	elseif (old_dir == 0 and new_dir == 3) or
+           (old_dir == 2 and new_dir == 1) then
+			add_new_shape(8)
+	elseif (old_dir == 1 and new_dir == 3) or
+           (old_dir == 2 and new_dir == 0) then
+			add_new_shape(9)
+	elseif (old_dir == 0 and new_dir == 2) or
+           (old_dir == 3 and new_dir == 1) then
+			add_new_shape(10)
+	elseif (old_dir == 1 and new_dir == 2) or
+		   (old_dir == 3 and new_dir == 0) then
+			add_new_shape(11)
+	else
+		add_new_shape(32) --error
 	end
 end
 
