@@ -106,8 +106,6 @@ function update_snake(button_pushed)
 		end
 		
 		-- Move body
-		
-		
 		body.last_tail_pos_x = body.x[body.segments]
 		body.last_tail_pos_y = body.y[body.segments]
 		
@@ -116,7 +114,8 @@ function update_snake(button_pushed)
 		
 		add(body.x, last_head_pos_x, 1)
 		add(body.y, last_head_pos_y, 1)
-	print("NewDir:"..head.dir.." OldDir:"..old_dir)
+		
+		print("NewDir:"..head.dir.." OldDir:"..old_dir)
 		calculate_body_piece(old_dir, head.dir)
 		
 		empty_cells_occupy(empty_cells, head.x, head.y)
@@ -205,19 +204,37 @@ function draw_snake()
 		-- body.segments-1 = to not draw the last piece
 		-- and save the spot for a tail.			
 		for i = body.segments-1, 1, -1 do
-			draw_body_shape(i)
+			spr(get_shape(i), body.x[i], body.y[i])
 		end
 		
-		spr(21, body.x[body.segments], body.y[body.segments])
+		draw_tail(body.segments)
 	end
 end
 
-function draw_body_shape(index)
+function draw_tail(index)
+	-- x = body.x[body.segments]
+	-- y = body.y[body.segments]
+	-- shape_i = convert_coordinate_to_index(x, y)
+	-- shape = body.pos_dir[shape_i]
+	
+	-- if head.dir == 0 then
+		-- spr(0,head.x,head.y)
+	-- elseif head.dir == 1 then
+		-- spr(1,head.x,head.y)
+	-- elseif head.dir == 2 then
+		-- spr(2,head.x,head.y)
+	-- elseif head.dir == 3 then
+		-- spr(3,head.x,head.y)
+	-- end
+	
+	-- spr(shape, x, y)
+end
+
+function get_shape(index)
 	x = body.x[index]
 	y = body.y[index]
 	shape_i = convert_coordinate_to_index(x, y)
-	shape = body.pos_dir[shape_i]
-	spr(shape, x, y)
+	return body.pos_dir[shape_i]
 end
 
 -- Checks if the snake is within bounds
