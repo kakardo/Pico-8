@@ -15,7 +15,7 @@
 head = {}
 body = {}
 
-local snake_starting_length = 8
+local snake_starting_length = 3
 local snake_starting_coordinate = 64
 local snake_starting_direction = 1
 
@@ -118,7 +118,7 @@ function update_snake(button_pushed)
 		add(body.x, last_head_pos_x, 1)
 		add(body.y, last_head_pos_y, 1)
 		
-		print("NewDir:"..head.dir.." OldDir:"..old_dir)
+		--print("NewDir:"..head.dir.." OldDir:"..old_dir)
 		calculate_body_piece(old_dir, head.dir)
 		
 		empty_cells_occupy(empty_cells, head.x, head.y)
@@ -131,16 +131,16 @@ end
 
 function update_tail_dir(x, y, segment)
 	if x[segment] == x[segment-1] then
-		if y[segment] < y[segment-1] then
+		if y[segment] > y[segment-1] then
 			body.tail_dir = 2
 		else
 			body.tail_dir = 3
 		end
 	elseif y[segment] == y[segment-1] then
-		if x[segment] < x[segment-1] then
-			body.tail_dir = 1
-		else
+		if x[segment] > x[segment-1] then
 			body.tail_dir = 0
+		else
+			body.tail_dir = 1
 		end
 	end
 end
@@ -231,46 +231,39 @@ function draw_snake()
 end
 
 function draw_tail()
-	-- last_segment = get_shape(body.segments)
+	last_segment = get_shape(body.segments)
+	new_tail_shape = 32
+
+	-- Horizontal shape
+	if last_segment == 6 then
+		if body.tail_dir == 0 then
+			new_tail_shape = 16 --left
+		elseif body.tail_dir == 1 then
+			new_tail_shape = 17 --right
+		else
+			new_tail_shape = 32
+		end
+	-- Vertical Shape
+	elseif last_segment == 7 then
+		if body.tail_dir == 2 then
+			new_tail_shape = 18 --UP
+		elseif body.tail_dir == 3 then
+			new_tail_shape = 19 --DOWM
+		else
+			new_tail_shape = 32
+		end
+	elseif last_segment == 2 then
+	elseif last_segment == 3 then
+	else
+		new_tail_shape = 32 --error
+	end
 	
-	
-	-- if last_segment == 6 or last_segment == then
-		-- spr(0,head.x,head.y)
-	-- elseif last_segment == 1 then
-		-- spr(1,head.x,head.y)
-	-- elseif last_segment == 2 then
-		-- spr(2,head.x,head.y)
-	-- elseif last_segment == 3 then
-		-- spr(3,head.x,head.y)
-	-- else
-		-- add_new_shape(32) --error
-	-- end
-	
-	-- if (old_dir == new_dir) then
-		-- if (new_dir == 0 or new_dir == 1) then
-			-- add_new_shape(6)
-		-- elseif (new_dir == 2 or new_dir == 3) then
-			-- add_new_shape(7)
-		-- end
-	-- elseif (old_dir == 0 and new_dir == 3) or
-           -- (old_dir == 2 and new_dir == 1) then
-			-- add_new_shape(8)
-	-- elseif (old_dir == 1 and new_dir == 3) or
-           -- (old_dir == 2 and new_dir == 0) then
-			-- add_new_shape(9)
-	-- elseif (old_dir == 0 and new_dir == 2) or
-           -- (old_dir == 3 and new_dir == 1) then
-			-- add_new_shape(10)
-	-- elseif (old_dir == 1 and new_dir == 2) or
-		   -- (old_dir == 3 and new_dir == 0) then
-			-- add_new_shape(11)
-	-- else
-		-- add_new_shape(32) --error
-	-- end
-	
-	
-	-- spr(21, body.x[body.segments], body.y[body.segments])
+	spr(new_tail_shape, body.x[body.segments], body.y[body.segments])
 end
+
+function convert_to_tail()
+end
+
 --[[
 	DIRECTIONS
 	0 = left
