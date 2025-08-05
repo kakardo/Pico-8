@@ -23,7 +23,7 @@
 
 	TODO
 	- Fix: snake dies if heading for tail that should have had
-	  the time to move away.
+	  the time to move away. Incorrect collision.
 	- Make suicide turn a toggleable option.
 	- Increase speed at certain lengths.
 	- Possibility to dash for higher score.

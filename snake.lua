@@ -40,6 +40,7 @@ function init_body()
 		x = {},
 		y = {},
 		pos_dir = {},
+		tail_dir = 1 --Right
 		last_tail_pos_x = -1,
 		last_tail_pos_y = -1,
 	}
@@ -62,7 +63,7 @@ function init_body()
 		-- Add occupied cells to empty_cells-table
 		empty_cells_occupy(empty_cells, body.x[i], body.y[i])
 	end
-	
+
 	starting_x_pos -= scale
 	body.last_tail_pos_x = starting_x_pos
 	body.last_tail_pos_y = snake_starting_coordinate
@@ -206,30 +207,71 @@ function draw_snake()
 		for i = body.segments-1, 1, -1 do
 			spr(get_shape(i), body.x[i], body.y[i])
 		end
-		
-		draw_tail(body.segments)
+
+		draw_tail()
 	end
 end
 
-function draw_tail(index)
-	-- x = body.x[body.segments]
-	-- y = body.y[body.segments]
-	-- shape_i = convert_coordinate_to_index(x, y)
-	-- shape = body.pos_dir[shape_i]
+function draw_tail()
+	last_segment = get_shape(body.segments)
 	
-	-- if head.dir == 0 then
-		-- spr(0,head.x,head.y)
-	-- elseif head.dir == 1 then
-		-- spr(1,head.x,head.y)
-	-- elseif head.dir == 2 then
-		-- spr(2,head.x,head.y)
-	-- elseif head.dir == 3 then
-		-- spr(3,head.x,head.y)
-	-- end
 	
-	-- spr(shape, x, y)
+	if last_segment == 6 or last_segment == then
+		spr(0,head.x,head.y)
+	elseif last_segment == 1 then
+		spr(1,head.x,head.y)
+	elseif last_segment == 2 then
+		spr(2,head.x,head.y)
+	elseif last_segment == 3 then
+		spr(3,head.x,head.y)
+	else
+		add_new_shape(32) --error
+	end
+	
+	if (old_dir == new_dir) then
+		if (new_dir == 0 or new_dir == 1) then
+			add_new_shape(6)
+		elseif (new_dir == 2 or new_dir == 3) then
+			add_new_shape(7)
+		end
+	elseif (old_dir == 0 and new_dir == 3) or
+           (old_dir == 2 and new_dir == 1) then
+			add_new_shape(8)
+	elseif (old_dir == 1 and new_dir == 3) or
+           (old_dir == 2 and new_dir == 0) then
+			add_new_shape(9)
+	elseif (old_dir == 0 and new_dir == 2) or
+           (old_dir == 3 and new_dir == 1) then
+			add_new_shape(10)
+	elseif (old_dir == 1 and new_dir == 2) or
+		   (old_dir == 3 and new_dir == 0) then
+			add_new_shape(11)
+	else
+		add_new_shape(32) --error
+	end
+	
+	
+	spr(21, body.x[body.segments], body.y[body.segments])
 end
+--[[
+	DIRECTIONS
+	0 = left
+	1 = right
+	2 = up
+	3 = down
 
+	BODY AND TAIL INDEX AND NAME
+	6 = horizontal
+	7 = vertical
+	8 = NW
+	9 = NE
+	10 = SW
+	11 = SE
+	16 = TW
+	17 = TE
+	18 = TN
+	19 = TS
+]]--
 function get_shape(index)
 	x = body.x[index]
 	y = body.y[index]
