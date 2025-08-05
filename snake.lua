@@ -40,7 +40,7 @@ function init_body()
 		x = {},
 		y = {},
 		pos_dir = {},
-		tail_dir = 1 --Right
+		tail_dir = 1, --Right
 		last_tail_pos_x = -1,
 		last_tail_pos_y = -1,
 	}
@@ -110,6 +110,8 @@ function update_snake(button_pushed)
 		body.last_tail_pos_x = body.x[body.segments]
 		body.last_tail_pos_y = body.y[body.segments]
 		
+		-- Tail update
+		update_tail_dir(body.x, body.y, body.segments)
 		deli(body.x, body.segments)
 		deli(body.y, body.segments)
 		
@@ -124,6 +126,22 @@ function update_snake(button_pushed)
 		body.last_tail_pos_x, body.last_tail_pos_y)
 	else
 		head.alive = false
+	end
+end
+
+function update_tail_dir(x, y, segment)
+	if x[segment] == x[segment-1] then
+		if y[segment] < y[segment-1] then
+			body.tail_dir = 2
+		else
+			body.tail_dir = 3
+		end
+	elseif y[segment] == y[segment-1] then
+		if x[segment] < x[segment-1] then
+			body.tail_dir = 1
+		else
+			body.tail_dir = 0
+		end
 	end
 end
 
@@ -213,45 +231,45 @@ function draw_snake()
 end
 
 function draw_tail()
-	last_segment = get_shape(body.segments)
+	-- last_segment = get_shape(body.segments)
 	
 	
-	if last_segment == 6 or last_segment == then
-		spr(0,head.x,head.y)
-	elseif last_segment == 1 then
-		spr(1,head.x,head.y)
-	elseif last_segment == 2 then
-		spr(2,head.x,head.y)
-	elseif last_segment == 3 then
-		spr(3,head.x,head.y)
-	else
-		add_new_shape(32) --error
-	end
+	-- if last_segment == 6 or last_segment == then
+		-- spr(0,head.x,head.y)
+	-- elseif last_segment == 1 then
+		-- spr(1,head.x,head.y)
+	-- elseif last_segment == 2 then
+		-- spr(2,head.x,head.y)
+	-- elseif last_segment == 3 then
+		-- spr(3,head.x,head.y)
+	-- else
+		-- add_new_shape(32) --error
+	-- end
 	
-	if (old_dir == new_dir) then
-		if (new_dir == 0 or new_dir == 1) then
-			add_new_shape(6)
-		elseif (new_dir == 2 or new_dir == 3) then
-			add_new_shape(7)
-		end
-	elseif (old_dir == 0 and new_dir == 3) or
-           (old_dir == 2 and new_dir == 1) then
-			add_new_shape(8)
-	elseif (old_dir == 1 and new_dir == 3) or
-           (old_dir == 2 and new_dir == 0) then
-			add_new_shape(9)
-	elseif (old_dir == 0 and new_dir == 2) or
-           (old_dir == 3 and new_dir == 1) then
-			add_new_shape(10)
-	elseif (old_dir == 1 and new_dir == 2) or
-		   (old_dir == 3 and new_dir == 0) then
-			add_new_shape(11)
-	else
-		add_new_shape(32) --error
-	end
+	-- if (old_dir == new_dir) then
+		-- if (new_dir == 0 or new_dir == 1) then
+			-- add_new_shape(6)
+		-- elseif (new_dir == 2 or new_dir == 3) then
+			-- add_new_shape(7)
+		-- end
+	-- elseif (old_dir == 0 and new_dir == 3) or
+           -- (old_dir == 2 and new_dir == 1) then
+			-- add_new_shape(8)
+	-- elseif (old_dir == 1 and new_dir == 3) or
+           -- (old_dir == 2 and new_dir == 0) then
+			-- add_new_shape(9)
+	-- elseif (old_dir == 0 and new_dir == 2) or
+           -- (old_dir == 3 and new_dir == 1) then
+			-- add_new_shape(10)
+	-- elseif (old_dir == 1 and new_dir == 2) or
+		   -- (old_dir == 3 and new_dir == 0) then
+			-- add_new_shape(11)
+	-- else
+		-- add_new_shape(32) --error
+	-- end
 	
 	
-	spr(21, body.x[body.segments], body.y[body.segments])
+	-- spr(21, body.x[body.segments], body.y[body.segments])
 end
 --[[
 	DIRECTIONS
