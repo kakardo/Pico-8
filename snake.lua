@@ -233,56 +233,50 @@ end
 function draw_tail()
 	last_segment = get_shape(body.segments)
 	new_tail_shape = 32
-
-	-- Horizontal shape
-	if last_segment == 6 then
-		if body.tail_dir == 0 then
-			new_tail_shape = 16 --left
-		elseif body.tail_dir == 1 then
-			new_tail_shape = 17 --right
-		else
-			new_tail_shape = 32
-		end
-	-- Vertical Shape
-	elseif last_segment == 7 then
-		if body.tail_dir == 2 then
-			new_tail_shape = 18 --UP
-		elseif body.tail_dir == 3 then
-			new_tail_shape = 19 --DOWM
-		else
-			new_tail_shape = 32
-		end
-	elseif last_segment == 2 then
-	elseif last_segment == 3 then
-	else
-		new_tail_shape = 32 --error
+	print(last_segment)
+	-- -- Horizontal shape
+	-- if last_segment == 6 then
+		-- new_tail_shape = convert_to_tail(0, 1, 16, 17)
+	-- -- Vertical Shape
+	-- elseif last_segment == 7 then
+		-- new_tail_shape = convert_to_tail(2, 3, 18, 19)
+		
+	
+	-- elseif last_segment == 8 then -- NW
+		-- new_tail_shape = convert_to_tail(0, 3, 17, 19)
+	-- elseif last_segment == 9 then -- NE
+		-- new_tail_shape = convert_to_tail(1, 3, 17, 17)
+	-- elseif last_segment == 10 then -- SW
+		-- new_tail_shape = convert_to_tail(0, 3, 17, 19)
+	-- elseif last_segment == 11 then -- SE
+		-- new_tail_shape = convert_to_tail(0, 3, 17, 19)
+	-- else
+		-- new_tail_shape = 32 --error
+	-- end
+	
+	if body.tail_dir == 0 then
+		new_tail_shape = 19
+	elseif body.tail_dir == 1 then
+		new_tail_shape = 17
+	elseif body.tail_dir == 2 then
+		new_tail_shape = 18
+	elseif body.tail_dir == 3 then
+		new_tail_shape = 19
 	end
 	
 	spr(new_tail_shape, body.x[body.segments], body.y[body.segments])
 end
 
-function convert_to_tail()
+function convert_to_tail(dir1, dir2, shape1, shape2)
+	if body.tail_dir == dir1 then
+		return shape1
+	elseif body.tail_dir == dir2 then
+		return shape2
+	else
+		return 32 --error
+	end
 end
 
---[[
-	DIRECTIONS
-	0 = left
-	1 = right
-	2 = up
-	3 = down
-
-	BODY AND TAIL INDEX AND NAME
-	6 = horizontal
-	7 = vertical
-	8 = NW
-	9 = NE
-	10 = SW
-	11 = SE
-	16 = TW
-	17 = TE
-	18 = TN
-	19 = TS
-]]--
 function get_shape(index)
 	x = body.x[index]
 	y = body.y[index]
