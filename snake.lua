@@ -93,8 +93,10 @@ function update_snake(button_pushed)
 		if not isTurningSafe then
 			print("YES")
 			
-			-- remove this to have snake take chosen turn when possible
-			ignore_button_push(head.dir)
+			-- Remove to have snake only turn if button is
+			-- is pressed correctly on a possible path.
+			-- Include this to have snake take chosen turn when possible
+			--ignore_button_push(head.dir)
 
 			head.x = last_head_pos_x
 			head.y = last_head_pos_y
