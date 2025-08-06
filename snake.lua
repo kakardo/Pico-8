@@ -130,14 +130,14 @@ function update_snake(button_pushed)
 end
 
 function update_tail_dir(x, y, segment)
-	if x[segment] == x[segment-1] then
-		if y[segment] > y[segment-1] then
+	if x[segment-1] == x[segment-2] then
+		if y[segment-1] > y[segment-2] then
 			body.tail_dir = 2
 		else
 			body.tail_dir = 3
 		end
-	elseif y[segment] == y[segment-1] then
-		if x[segment] > x[segment-1] then
+	elseif y[segment-1] == y[segment-2] then
+		if x[segment-1] > x[segment-2] then
 			body.tail_dir = 0
 		else
 			body.tail_dir = 1
@@ -232,38 +232,27 @@ end
 
 function draw_tail()
 	last_segment = get_shape(body.segments)
-	new_tail_shape = 32
-	print(last_segment)
-	-- -- Horizontal shape
-	-- if last_segment == 6 then
-		-- new_tail_shape = convert_to_tail(0, 1, 16, 17)
-	-- -- Vertical Shape
-	-- elseif last_segment == 7 then
-		-- new_tail_shape = convert_to_tail(2, 3, 18, 19)
-		
-	
-	-- elseif last_segment == 8 then -- NW
-		-- new_tail_shape = convert_to_tail(0, 3, 17, 19)
-	-- elseif last_segment == 9 then -- NE
-		-- new_tail_shape = convert_to_tail(1, 3, 17, 17)
-	-- elseif last_segment == 10 then -- SW
-		-- new_tail_shape = convert_to_tail(0, 3, 17, 19)
-	-- elseif last_segment == 11 then -- SE
-		-- new_tail_shape = convert_to_tail(0, 3, 17, 19)
-	-- else
-		-- new_tail_shape = 32 --error
-	-- end
-	
-	if body.tail_dir == 0 then
-		new_tail_shape = 19
-	elseif body.tail_dir == 1 then
-		new_tail_shape = 17
-	elseif body.tail_dir == 2 then
-		new_tail_shape = 18
-	elseif body.tail_dir == 3 then
-		new_tail_shape = 19
+	new_tail_shape = 32	
+
+	-- Horizontal shape
+	if last_segment == 6 then
+		new_tail_shape = convert_to_tail(0, 1, 16, 17)
+	-- Vertical Shape
+	elseif last_segment == 7 then
+		new_tail_shape = convert_to_tail(2, 3, 18, 19)
+	-- Corner Shape
+	elseif last_segment == 8 then -- NW
+		new_tail_shape = convert_to_tail(1, 3, 17, 19)
+	elseif last_segment == 9 then -- NE
+		new_tail_shape = convert_to_tail(0, 3, 16, 19)
+	elseif last_segment == 10 then -- SW
+		new_tail_shape = convert_to_tail(1, 2, 17, 18)
+	elseif last_segment == 11 then -- SE
+		new_tail_shape = convert_to_tail(0, 2, 16, 18)
+	else
+		new_tail_shape = 32 --error
 	end
-	
+
 	spr(new_tail_shape, body.x[body.segments], body.y[body.segments])
 end
 
