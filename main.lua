@@ -69,6 +69,7 @@ function _init()
 	init_head()
 	init_body()
 	init_fruit()
+	printh("\n\nSnake debugger text")
 end
 
 function _update()

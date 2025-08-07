@@ -24,6 +24,7 @@ function spawn_fruit()
 	-- No scale multiplier added yet
 	index = flr(rnd(#available_cells))
 	coordinate = available_cells[index]
+	printh("spawn_fruit -> coordinate: "..coordinate)
 	new_x = coordinate % max
 	new_y = flr(coordinate / max)
 	--printh("Fruit coordinate:"..coordinate.." [index:"..index.."] (x:"..new_x..".y:"..new_y..")")
