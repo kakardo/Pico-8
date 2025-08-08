@@ -22,9 +22,8 @@ end
 function spawn_fruit()	
 	-- Converts available fruit coordinate to X & Y positions
 	-- No scale multiplier added yet
-	index = flr(rnd(#available_cells))
+	index = flr(rnd(#available_cells))+1
 	coordinate = available_cells[index]
-	printh("spawn_fruit -> coordinate: "..coordinate)
 	new_x = coordinate % max
 	new_y = flr(coordinate / max)
 	--printh("Fruit coordinate:"..coordinate.." [index:"..index.."] (x:"..new_x..".y:"..new_y..")")
