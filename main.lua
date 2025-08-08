@@ -12,14 +12,17 @@
 	- Four colors (not black and white!).
 	- No going backwards into body.
 	@version 1.1
-	- No suicide turning (a command that turnes snake into     <2025-07-25>
+	- No suicide turning (a command that turnes snake into      <2025-07-25>
 	  its own body within an 1-step move even though the path
 	  ahead is clear and the death could have been avoided).
 	- Fruit never spawns on top of the snake. The spawning
-	  position's randomised from table of available locations. <2025-07-29>
-	- Game over screen show score, length and instruction on   <2025-07-29>
+	  position's randomised from table of available locations.  <2025-07-29>
+	- Game over screen show score, length and instruction on    <2025-07-29>
 	  how to restart.
-	- Crawling into your own body leads to GAME OVER.          <2025-07-31>
+	- Crawling into your own body leads to GAME OVER.           <2025-07-31>
+	- Snakes body's visually linked together. Shapes (vertical, <2025-08-06>
+      horizontal and corners) are dynamically placed depending
+	  on path, and tail's dynamically rotated accordingly.
 
 	TODO
 	- Fix: snake dies if heading for tail that should have had
@@ -27,14 +30,16 @@
 	- Make suicide turn a toggleable option.
 	- Increase speed at certain lengths.
 	- Possibility to dash for higher score.
-	- [VISUAL] Game over screen.
 	- [VISUAL] Start screen.
-	- [VISUAL] Visually linked snake. Path taken's visible.
 	- [VISUAL] Game border.
 	- [VISUAL] Multiple fruit types.
 	- [SOUND] Fruit
 	- [SOUND] Snake crawl
 	- [SOUND] Game over
+	
+	KNOWN BUGS
+	- Tail becomes an error cube sometimes.
+	- Can crawl through tail sometimes without dying.
 ]]--
 
 -- TABLES AND VARIABLES
@@ -48,7 +53,7 @@ just_moved = false
 step = 1
 
 -- game loop tick
-tick_goal = 5 -- Default = 5
+tick_goal = 15 -- Default = 5
 tick_count = 0
 
 score = 0
