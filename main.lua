@@ -53,7 +53,7 @@ just_moved = false
 step = 1
 
 -- game loop tick
-tick_goal = 15 -- Default = 5
+tick_goal = 5 -- Default = 5, Testing = 15
 tick_count = 0
 
 score = 0
