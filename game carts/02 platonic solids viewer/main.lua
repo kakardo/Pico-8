@@ -34,6 +34,7 @@ cube = {-- Front: -1, Back: +1
 -- edges
 
 function _init()
+	-- TODO Make the scale adjustable
 	center_x = 64
 	center_y = 64
 	color = 7
