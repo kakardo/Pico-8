@@ -16,18 +16,33 @@
 		Regular dodecahedron
 		Regular icosahedron 
 	- Implement two perspective:
-		Orthographic
+		Orthographic (ignores depth)
 		Perspective
+	
+Notes for MD-doc
+Linear algebra's needed for matrix calculations.
+Cube has 8 corners (vertices).
+
 ]]--
 
+-- verticis
+
+-- edges
+
+cube = {}
+
 function _init()
+	center_x = 64
+	center_y = 64
+	color = 7
 end
 
 function _update()
 end
 
 function _draw()
-cls()
+	cls()
+	pset(center_x,center_y,color)
 end
 
 -- LAST_LINE_MAIN_LUA
