@@ -25,14 +25,13 @@ Cube has 8 corners (vertices).
 
 ]]--
 
--- verticis
-
--- edges
-
-cube = {
+-- vertices
+cube = {-- Front: -1, Back: +1
 	{-1,-1,-1}, {1,-1,-1}, {1,1,-1}, {-1,1,-1},
 	{-1,-1, 1}, {1,-1, 1}, {1,1, 1}, {-1,1, 1}
 }
+
+-- edges
 
 function _init()
 	center_x = 64
@@ -45,7 +44,15 @@ end
 
 function _draw()
 	cls()
-	pset(center_x,center_y,color)
+	
+	for i = 1, #cube do
+		vertices = cube[i]
+		pointX = vertices[1] + center_x
+		pointY = vertices[2] + center_y
+		--skip Z for now
+		
+		pset(pointX, pointY, color)
+	end
 end
 
 -- LAST_LINE_MAIN_LUA
