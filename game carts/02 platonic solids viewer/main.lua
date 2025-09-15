@@ -29,7 +29,10 @@ Cube has 8 corners (vertices).
 
 -- edges
 
-cube = {}
+cube = {
+	{-1,-1,-1}, {1,-1,-1}, {1,1,-1}, {-1,1,-1},
+	{-1,-1, 1}, {1,-1, 1}, {1,1, 1}, {-1,1, 1}
+}
 
 function _init()
 	center_x = 64
