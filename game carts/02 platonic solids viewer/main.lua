@@ -39,7 +39,6 @@ function calc_projection(coordinate, scale, center)
 end
 
 function _init()
-	-- TODO Make the scale adjustable
 	center_x = 64
 	center_y = 64
 	color = 7
@@ -53,8 +52,14 @@ function _draw()
 	cls()
 	
 	for i = 1, #cube do
-		vertices = cube[i]
-		pointX = calc_projection(vertices[1], scale, center_x)
+		local vertices = cube[i]
+		
+		-- sin() and cos() angles go from 0 to 360° (0.0 to 1.0)
+		-- example -> 0.25 = 90°, 1.0 = 360°)
+		angle = 0.1
+		rotX = vertices[1] * cos(angle) - vertices[3] * sin(angle)
+
+		pointX = calc_projection(rotX, scale, center_x)
 		pointY = calc_projection(vertices[2], scale, center_y)
 		--skip Z for now
 		
