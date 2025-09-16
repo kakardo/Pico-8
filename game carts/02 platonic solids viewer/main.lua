@@ -25,14 +25,17 @@ Cube has 8 corners (vertices).
 
 ]]--
 
--- vertices
-cube = {-- Front: -1, Back: +1
+-- vertices (8 in a cube)
+cube = { -- Front: -1, Back: +1
 	{-1,-1,-1}, {1,-1,-1}, {1,1,-1}, {-1,1,-1},
 	{-1,-1, 1}, {1,-1, 1}, {1,1, 1}, {-1,1, 1}
 }
 
--- edges
-
+edges = { -- (12 in a cube)
+  {1,2}, {2,3}, {3,4}, {4,1}, -- back
+  {5,6}, {6,7}, {7,8}, {8,5}, -- front
+  {1,5}, {2,6}, {3,7}, {4,8}  -- bridges
+}
 
 function calc_projection(coordinate, scale, center)
 	return coordinate * scale + center
