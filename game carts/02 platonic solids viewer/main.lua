@@ -33,6 +33,11 @@ cube = {-- Front: -1, Back: +1
 
 -- edges
 
+
+function calc_projection(coordinate, scale, center)
+	return coordinate * scale + center
+end
+
 function _init()
 	-- TODO Make the scale adjustable
 	center_x = 64
@@ -49,8 +54,8 @@ function _draw()
 	
 	for i = 1, #cube do
 		vertices = cube[i]
-		pointX = vertices[1] * scale + center_x
-		pointY = vertices[2] * scale + center_y
+		pointX = calc_projection(vertices[1], scale, center_x)
+		pointY = calc_projection(vertices[2], scale, center_y)
 		--skip Z for now
 		
 		pset(pointX, pointY, color)
