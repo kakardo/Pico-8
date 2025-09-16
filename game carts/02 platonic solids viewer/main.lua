@@ -38,6 +38,7 @@ function _init()
 	center_x = 64
 	center_y = 64
 	color = 7
+	scale = 20
 end
 
 function _update()
@@ -48,8 +49,8 @@ function _draw()
 	
 	for i = 1, #cube do
 		vertices = cube[i]
-		pointX = vertices[1] + center_x
-		pointY = vertices[2] + center_y
+		pointX = vertices[1] * scale + center_x
+		pointY = vertices[2] * scale + center_y
 		--skip Z for now
 		
 		pset(pointX, pointY, color)
