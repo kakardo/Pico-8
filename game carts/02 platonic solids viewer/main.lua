@@ -41,6 +41,7 @@ function calc_projection(coordinate, scale, center)
 	return coordinate * scale + center
 end
 
+
 function _init()
 	center_x = 64
 	center_y = 64
@@ -62,11 +63,19 @@ function _draw()
 		angle = 0.1
 		rotX = vertices[1] * cos(angle) - vertices[3] * sin(angle)
 
-		pointX = calc_projection(rotX, scale, center_x)
-		pointY = calc_projection(vertices[2], scale, center_y)
-		--skip Z for now
 		
-		pset(pointX, pointY, color)
+		
+		for e in all(edges) do
+			alfa = edges[e[1]]
+			beta = edges[e[2]]
+			
+			pointX = calc_projection(rotX, scale, center_x)
+			pointY = calc_projection(vertices[2], scale, center_y)
+			--skip Z for now
+		
+			--line()
+			--pset(pointX, pointY, color)
+		end
 	end
 end
 
