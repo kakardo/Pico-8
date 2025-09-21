@@ -64,10 +64,12 @@ function _draw()
 	
 		-- sin() and cos() angles go from 0 to 360° (0.0 to 1.0)
 		-- example -> 0.25 = 90°, 1.0 = 360°)
-		rotX = alfa[1] * cos(angle) - alfa[3] * sin(angle)
+		rotX1 = alfa[1] * cos(angle) - alfa[3] * sin(angle)
+		rotX2 = beta[1] * cos(angle) - beta[3] * sin(angle)
+		
 
-		pointX1, pointY1 = calc_projection(alfa[1], alfa[2])
-		pointX2, pointY2 = calc_projection(beta[1], beta[2])
+		pointX1, pointY1 = calc_projection(rotX1, alfa[2])
+		pointX2, pointY2 = calc_projection(rotX2, beta[2])
 
 		line(pointX1, pointY1, pointX2, pointY2, 7)
 		--pset(pointX, pointY, color)
