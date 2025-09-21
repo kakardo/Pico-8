@@ -77,10 +77,9 @@ function _init()
 	color = 7
 	scale = 30
 	
-	angle_x = 0.2
-	angle_y = 0
-	angle_z = 0
-	
+	angle_x, angle_y, angle_z = 0, 0, 0
+	angle_x_step, angle_y_step, angle_z_step = 0.02, 0, 0
+
 	menu_x, menu_y, menu_z = 2, 0, 0
 	selected = 0
 end
@@ -102,24 +101,29 @@ function _update()
 		end
 	end
 
+	-- Vertical
 	if btnp(2) then
 		if selected == 0 then
-			angle_x += 0.01
+			angle_x_step += 0.001
 		elseif selected == 1 then
-			angle_y += 0.01
+			angle_y_step += 0.001
 		else
-			angle_z += 0.01
+			angle_z_step += 0.001
 		end
 	end
 	if btnp(3) then
 		if selected == 0 then
-			angle_x -= 0.01
+			angle_x_step -= 0.001
 		elseif selected == 1 then
-			angle_y -= 0.01
+			angle_y_step -= 0.001
 		else
-			angle_z -= 0.01
+			angle_z_step -= 0.001
 		end
 	end
+	
+	angle_x += angle_x_step
+	angle_y += angle_y_step
+	angle_z += angle_z_step
 end
 
 function _draw()
@@ -140,9 +144,9 @@ function _draw()
 
 	print("cube")
 	
-	text_x = "X : "..angle_x
-	text_y = "Y : "..angle_y
-	text_z = "Z : "..angle_z
+	text_x = "X : "..flr(angle_x_step * 1000)
+	text_y = "Y : "..flr(angle_y_step * 1000)
+	text_z = "Z : "..flr(angle_z_step * 1000)
 	
 	if selected == 0 then
 		text_x = "< "..text_x.." >"
@@ -152,7 +156,7 @@ function _draw()
 		text_z = "< "..text_z.." >"
 	end
 	
-	print(text_x.."   "..text_y.."   "..text_z)
+	print(text_x.." "..text_y.." "..text_z)
 end
 
 -- LAST_LINE_MAIN_LUA
