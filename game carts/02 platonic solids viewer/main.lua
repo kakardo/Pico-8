@@ -73,8 +73,7 @@ end
 
 --[[ MAIN - - - - - - - - - - - - ]]--
 function _init()
-	center_x = 64
-	center_y = 64
+	center_x, center_y = 64, 64
 	color = 7
 	scale = 30
 	
@@ -82,10 +81,12 @@ function _init()
 	angle_y = 0
 	angle_z = 0
 	
+	menu_x, menu_y, menu_z = 2, 0, 0
 	selected = 0
 end
 
 function _update()
+	-- Horizontal
 	if btnp(0) then
 		if selected == 0 then
 			selected = 2
@@ -101,9 +102,24 @@ function _update()
 		end
 	end
 
-	angle_x += 0.01
-	angle_y += 0.01
-	angle_z += 0.01
+	if btnp(2) then
+		if selected == 0 then
+			angle_x += 0.01
+		elseif selected == 1 then
+			angle_y += 0.01
+		else
+			angle_z += 0.01
+		end
+	end
+	if btnp(3) then
+		if selected == 0 then
+			angle_x -= 0.01
+		elseif selected == 1 then
+			angle_y -= 0.01
+		else
+			angle_z -= 0.01
+		end
+	end
 end
 
 function _draw()
