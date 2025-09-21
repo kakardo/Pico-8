@@ -86,6 +86,21 @@ function _init()
 end
 
 function _update()
+	if btnp(0) then
+		if selected == 0 then
+			selected = 2
+		else
+			selected -= 1
+		end
+	end
+	if btnp(1) then
+		if selected == 2 then
+			selected = 0
+		else
+			selected += 1
+		end
+	end
+
 	angle_x += 0.01
 	angle_y += 0.01
 	angle_z += 0.01
@@ -115,6 +130,10 @@ function _draw()
 	
 	if selected == 0 then
 		text_x = "< "..text_x.." >"
+	elseif selected == 1 then
+		text_y = "< "..text_y.." >"
+	else
+		text_z = "< "..text_z.." >"
 	end
 	
 	print(text_x.."   "..text_y.."   "..text_z)
