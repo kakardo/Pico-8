@@ -47,12 +47,27 @@ end
 -- sin() and cos() angles go from 0 to 360° (0.0 to 1.0)
 -- example -> 0.25 = 90°, 1.0 = 360°)
 function calc_rotation(x, y, z)
-	return rotate_x(x, y, z, angle_x)
+	x, y, z = rotate_x(x, y, z, angle_x)
+	x, y, z = rotate_y(x, y, z, angle_y)
+	x, y, z = rotate_z(x, y, z, angle_z)
+	return x, y, z
 end
 
 function rotate_x(x, y, z, angle)
-	return 	x * cos(angle) - z * sin(angle),
-			x * sin(angle) + y * cos(angle),
+	return 	x,
+			y*cos(angle) - z*sin(angle),
+			y*sin(angle) + z*cos(angle)
+end
+
+function rotate_y(x, y, z, angle)
+	return 	x*cos(angle) - z*sin(angle),
+			y,
+			x*sin(angle) + z*cos(angle)
+end
+
+function rotate_z(x, y, z, angle)
+	return 	x*cos(angle) - y*sin(angle),
+			x*sin(angle) + y*cos(angle),
 			z
 end
 
@@ -61,13 +76,17 @@ function _init()
 	center_x = 64
 	center_y = 64
 	color = 7
-	scale = 20
+	scale = 30
 	
-	angle_x = 0.1
+	angle_x = 0.2
+	angle_y = 0
+	angle_z = 0
 end
 
 function _update()
-	angle_x += 0.01
+	angle_x += 0.0
+	angle_y += 0.01
+	angle_z += 0.0
 end
 
 function _draw()
