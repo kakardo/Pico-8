@@ -26,7 +26,7 @@ Cube has 8 corners (vertices).
 ]]--
 
 -- vertices (8 in a cube)
-cube = { -- Front: -1, Back: +1
+vertices = { -- Front: -1, Back: +1
 	{-1,-1,-1}, {1,-1,-1}, {1,1,-1}, {-1,1,-1},
 	{-1,-1, 1}, {1,-1, 1}, {1,1, 1}, {-1,1, 1}
 }
@@ -37,8 +37,8 @@ edges = { -- (12 in a cube)
   {1,5}, {2,6}, {3,7}, {4,8}  -- bridges
 }
 
-function calc_projection(coordinate, scale, center)
-	return coordinate * scale + center
+function calc_projection(x, y)
+	return x * scale + center_x, y * scale + center_y
 end
 
 
@@ -58,26 +58,19 @@ end
 function _draw()
 	cls()
 	
-	for i = 1, #cube do
-		local vertices = cube[i]
-		
+	for e in all(edges) do
+		alfa = vertices[e[1]]
+		beta = vertices[e[2]]
+	
 		-- sin() and cos() angles go from 0 to 360° (0.0 to 1.0)
 		-- example -> 0.25 = 90°, 1.0 = 360°)
-		rotX = vertices[1] * cos(angle) - vertices[3] * sin(angle)
+		rotX = alfa[1] * cos(angle) - alfa[3] * sin(angle)
 
-		
-		
-		for e in all(edges) do
-			alfa = edges[e[1]]
-			beta = edges[e[2]]
-			
-			pointX = calc_projection(rotX, scale, center_x)
-			pointY = calc_projection(vertices[2], scale, center_y)
-			--skip Z for now
-		
-			line(pointX, pointY, 7)
-			--pset(pointX, pointY, color)
-		end
+		pointX1, pointY1 = calc_projection(alfa[1], alfa[2])
+		pointX2, pointY2 = calc_projection(beta[1], beta[2])
+
+		line(pointX1, pointY1, pointX2, pointY2, 7)
+		--pset(pointX, pointY, color)
 	end
 end
 
