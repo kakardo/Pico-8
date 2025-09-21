@@ -81,12 +81,14 @@ function _init()
 	angle_x = 0.2
 	angle_y = 0
 	angle_z = 0
+	
+	selected = 0
 end
 
 function _update()
-	angle_x += 0.0
+	angle_x += 0.01
 	angle_y += 0.01
-	angle_z += 0.0
+	angle_z += 0.01
 end
 
 function _draw()
@@ -106,6 +108,16 @@ function _draw()
 	end
 
 	print("cube")
+	
+	text_x = "X : "..angle_x
+	text_y = "Y : "..angle_y
+	text_z = "Z : "..angle_z
+	
+	if selected == 0 then
+		text_x = "< "..text_x.." >"
+	end
+	
+	print(text_x.."   "..text_y.."   "..text_z)
 end
 
 -- LAST_LINE_MAIN_LUA
