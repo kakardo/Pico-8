@@ -41,28 +41,33 @@ function calc_projection(x, y)
 	return x * scale + center_x, y * scale + center_y
 end
 
-function calc_rotation(x, y)
-	return rotate_x(x, y, angle)
+
+
+--[[ ROTATION - - - - - - - - - - ]]--
+-- sin() and cos() angles go from 0 to 360° (0.0 to 1.0)
+-- example -> 0.25 = 90°, 1.0 = 360°)
+function calc_rotation(x, y, z)
+	return rotate_x(x, y, z, angle_x)
 end
 
-function rotate_x(x, y, angle)
-	return x * cos(angle) - 0 * sin(angle), x * sin(0) + y * cos(0)
+function rotate_x(x, y, z, angle)
+	return 	x * cos(angle) - z * sin(angle),
+			x * sin(angle) + y * cos(angle),
+			z
 end
 
-
-
-
+--[[ MAIN - - - - - - - - - - - - ]]--
 function _init()
 	center_x = 64
 	center_y = 64
 	color = 7
 	scale = 20
 	
-	angle = 0.1
+	angle_x = 0.1
 end
 
 function _update()
-	angle += 0.01
+	angle_x += 0.01
 end
 
 function _draw()
@@ -72,19 +77,13 @@ function _draw()
 		alfa = vertices[e[1]]
 		beta = vertices[e[2]]
 	
-		-- sin() and cos() angles go from 0 to 360° (0.0 to 1.0)
-		-- example -> 0.25 = 90°, 1.0 = 360°)
-		--rotX1 = alfa[1] * cos(angle) - alfa[3] * sin(angle)
-		--rotX2 = beta[1] * cos(angle) - beta[3] * sin(angle)
-		
-		ax, ay = calc_rotation(alfa[1], alfa[2])
-		bx, by = calc_rotation(beta[1], beta[2])
+		ax, ay, az = calc_rotation(alfa[1], alfa[2], alfa[3])
+		bx, by, bz = calc_rotation(beta[1], beta[2], beta[3])
 
 		pointX1, pointY1 = calc_projection(ax, ay)
 		pointX2, pointY2 = calc_projection(bx, by)
 
 		line(pointX1, pointY1, pointX2, pointY2, 7)
-		--pset(pointX, pointY, color)
 	end
 end
 
