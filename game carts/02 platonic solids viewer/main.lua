@@ -104,6 +104,8 @@ function _draw()
 
 		line(pointX1, pointY1, pointX2, pointY2, 7)
 	end
+
+	print("cube")
 end
 
 -- LAST_LINE_MAIN_LUA
