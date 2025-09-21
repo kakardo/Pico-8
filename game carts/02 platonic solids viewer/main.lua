@@ -47,9 +47,12 @@ function _init()
 	center_y = 64
 	color = 7
 	scale = 20
+	
+	angle = 0.1
 end
 
 function _update()
+	angle += 0.01
 end
 
 function _draw()
@@ -60,7 +63,6 @@ function _draw()
 		
 		-- sin() and cos() angles go from 0 to 360° (0.0 to 1.0)
 		-- example -> 0.25 = 90°, 1.0 = 360°)
-		angle = 0.1
 		rotX = vertices[1] * cos(angle) - vertices[3] * sin(angle)
 
 		
@@ -73,7 +75,7 @@ function _draw()
 			pointY = calc_projection(vertices[2], scale, center_y)
 			--skip Z for now
 		
-			--line()
+			line(pointX, pointY, 7)
 			--pset(pointX, pointY, color)
 		end
 	end
