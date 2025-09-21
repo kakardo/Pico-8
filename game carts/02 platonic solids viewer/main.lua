@@ -41,6 +41,11 @@ function calc_projection(x, y)
 	return x * scale + center_x, y * scale + center_y
 end
 
+function calc_rotation(x, y)
+end
+
+function rotate_x()
+end
 
 function _init()
 	center_x = 64
@@ -66,7 +71,8 @@ function _draw()
 		-- example -> 0.25 = 90°, 1.0 = 360°)
 		rotX1 = alfa[1] * cos(angle) - alfa[3] * sin(angle)
 		rotX2 = beta[1] * cos(angle) - beta[3] * sin(angle)
-		
+
+
 
 		pointX1, pointY1 = calc_projection(rotX1, alfa[2])
 		pointX2, pointY2 = calc_projection(rotX2, beta[2])
