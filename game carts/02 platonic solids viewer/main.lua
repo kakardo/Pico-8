@@ -143,9 +143,9 @@ function _draw()
 	end
 
 	
-	text_x = "X : "..flr(angle_x_step * 1000)
-	text_y = "Y : "..flr(angle_y_step * 1000)
-	text_z = "Z : "..flr(angle_z_step * 1000)
+	text_x = "X : "..ceil(angle_x_step * 1000)
+	text_y = "Y : "..ceil(angle_y_step * 1000)
+	text_z = "Z : "..ceil(angle_z_step * 1000)
 	
 	if selected == 0 then
 		text_x = "< "..text_x.." >"
