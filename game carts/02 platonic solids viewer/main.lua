@@ -75,10 +75,10 @@ end
 function _init()
 	center_x, center_y = 64, 64
 	color = 7
-	scale = 30
+	scale = 24
 	
 	angle_x, angle_y, angle_z = 0, 0, 0
-	angle_x_step, angle_y_step, angle_z_step = 0.02, 0, 0
+	angle_x_step, angle_y_step, angle_z_step = 0.005, 0.003, 0.001
 
 	menu_x, menu_y, menu_z = 2, 0, 0
 	selected = 0
@@ -142,7 +142,6 @@ function _draw()
 		line(pointX1, pointY1, pointX2, pointY2, 7)
 	end
 
-	print("cube")
 	
 	text_x = "X : "..flr(angle_x_step * 1000)
 	text_y = "Y : "..flr(angle_y_step * 1000)
@@ -156,7 +155,13 @@ function _draw()
 		text_z = "< "..text_z.." >"
 	end
 	
-	print(text_x.." "..text_y.." "..text_z)
+	solid = "cube"
+	solid_centered = 64 - #solid * 2
+	print(solid, solid_centered, 0, 3)
+	
+	angle_text = text_x.." "..text_y.." "..text_z
+	angle_centered = 64 - #angle_text * 2
+	print(angle_text, angle_centered, 7, 3)
 end
 
 -- LAST_LINE_MAIN_LUA
