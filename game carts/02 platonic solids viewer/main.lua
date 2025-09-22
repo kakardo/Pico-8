@@ -143,9 +143,9 @@ function _draw()
 	end
 
 	
-	text_x = "X : "..ceil(angle_x_step * 1000)
-	text_y = "Y : "..ceil(angle_y_step * 1000)
-	text_z = "Z : "..ceil(angle_z_step * 1000)
+	text_x = "X= "..ceil(angle_x_step * 1000)
+	text_y = "Y= "..ceil(angle_y_step * 1000)
+	text_z = "Z= "..ceil(angle_z_step * 1000)
 	
 	if selected == 0 then
 		text_x = "< "..text_x.." >"
@@ -157,11 +157,19 @@ function _draw()
 	
 	solid = "cube"
 	solid_centered = 64 - #solid * 2
-	print(solid, solid_centered, 0, 3)
+	print(solid, solid_centered, 0, 9)
 	
 	angle_text = text_x.." "..text_y.." "..text_z
 	angle_centered = 64 - #angle_text * 2
-	print(angle_text, angle_centered, 7, 3)
+	print(angle_text, angle_centered, 7, 9)
+	
+	param_text = "⬅️/➡️ switch parameters"
+	param_text_centered = 64 - #param_text * 2
+	print(param_text, param_text_centered, 116, 9)
+	
+	info_text = "⬆️/⬇️ adjust angle"
+	info_text_centered = 64 - #info_text * 2
+	print(info_text, info_text_centered, 123, 9)
 end
 
 -- LAST_LINE_MAIN_LUA
