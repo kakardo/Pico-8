@@ -27,7 +27,7 @@ Cube has 8 corners (vertices).
 
 solids = {
 	{
-		name="cube", dice="d4",
+		name="cube", dice="d4", color=9,
 		v = { -- vertices (8 in a cube) Front: -1, Back: +1
 			{-1,-1,-1}, {1,-1,-1}, {1,1,-1}, {-1,1,-1},
 			{-1,-1, 1}, {1,-1, 1}, {1,1, 1}, {-1,1, 1}
@@ -181,12 +181,14 @@ function _draw()
 		text_shape = "<"..text_shape..">"
 	end
 	
-	-- OPTION MENU	
+	-- OPTION MENU
+	color = solids[shape].color
 	options = text_x.." "..text_y.." "..text_z.." "..text_shape
-	print_centered_txt(solids[shape].name, 0, 9)
-	print_centered_txt(options, 7, 9)
-	print_centered_txt("⬅️/➡️ switch parameters", 116, 9)
-	print_centered_txt("⬆️/⬇️ adjust angle", 123, 9)
+
+	print_centered_txt(solids[shape].name, 0, color)
+	print_centered_txt(options, 7, color)
+	print_centered_txt("⬅️/➡️ switch parameters", 116, color)
+	print_centered_txt("⬆️/⬇️ adjust angle", 123, color)
 end
 
 -- LAST_LINE_MAIN_LUA
