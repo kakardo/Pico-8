@@ -139,6 +139,7 @@ end
 function _draw()
 	cls()
 	
+	-- DRAW EDGES BETWEEN VERTICES
 	for e in all(solids[shape].e) do
 		alfa = solids[shape].v[e[1]]
 		beta = solids[shape].v[e[2]]
@@ -183,7 +184,8 @@ function _draw()
 	
 	-- OPTION MENU
 	color = solids[shape].color
-	options = text_x.." "..text_y.." "..text_z.." "..text_shape
+	options = text_x.." "..text_y..
+              " "..text_z.." "..text_shape
 
 	print_centered_txt(solids[shape].name, 0, color)
 	print_centered_txt(options, 7, color)
