@@ -41,8 +41,6 @@ function calc_projection(x, y)
 	return x * scale + center_x, y * scale + center_y
 end
 
-
-
 --[[ ROTATION - - - - - - - - - - ]]--
 -- sin() and cos() angles go from 0 to 360° (0.0 to 1.0)
 -- example -> 0.25 = 90°, 1.0 = 360°)
@@ -69,6 +67,12 @@ function rotate_z(x, y, z, angle)
 	return 	x*cos(angle) - y*sin(angle),
 			x*sin(angle) + y*cos(angle),
 			z
+end
+
+--[[ TEXT - - - - - - - - - - - - ]]--
+function print_centered_txt(txt, y_pos, txt_color)
+	x_pos = 64 - #txt * 2 
+	print(txt, x_pos, y_pos, txt_color)
 end
 
 --[[ MAIN - - - - - - - - - - - - ]]--
@@ -150,7 +154,7 @@ function _draw()
 	text_x = "X= "..ceil(angle_x_step * 1000)
 	text_y = "Y= "..ceil(angle_y_step * 1000)
 	text_z = "Z= "..ceil(angle_z_step * 1000)
-	text_shape = "d6"
+	text_shape = "d"..shape
 	
 	if selected == 0 then
 		text_x = "< "..text_x.." >"
@@ -162,21 +166,12 @@ function _draw()
 		text_shape = "< "..text_shape.." >"
 	end
 	
-	solid = "cube"
-	solid_centered = 64 - #solid * 2
-	print(solid, solid_centered, 0, 9)
 	
-	angle_text = text_x.." "..text_y.." "..text_z.." "..text_shape
-	angle_centered = 64 - #angle_text * 2
-	print(angle_text, angle_centered, 7, 9)
-	
-	param_text = "⬅️/➡️ switch parameters"
-	param_text_centered = 64 - #param_text * 2
-	print(param_text, param_text_centered, 116, 9)
-	
-	info_text = "⬆️/⬇️ adjust angle"
-	info_text_centered = 64 - #info_text * 2
-	print(info_text, info_text_centered, 123, 9)
+	options = text_x.." "..text_y.." "..text_z.." "..text_shape
+	print_centered_txt("cube", 0, 9)
+	print_centered_txt(options, 7, 9)
+	print_centered_txt("⬅️/➡️ switch parameters", 116, 9)
+	print_centered_txt("⬆️/⬇️ adjust angle", 123, 9)
 end
 
 -- LAST_LINE_MAIN_LUA
