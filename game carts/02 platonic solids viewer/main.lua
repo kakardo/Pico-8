@@ -84,7 +84,6 @@ function _init()
 	angle_x, angle_y, angle_z = 0, 0, 0
 	angle_x_step, angle_y_step, angle_z_step = 0.005, 0.003, 0.001
 
-	menu_x, menu_y, menu_z = 2, 0, 0
 	selected = 0
 	shape = 4
 end
@@ -151,22 +150,36 @@ function _draw()
 		line(pointX1, pointY1, pointX2, pointY2, 7)
 	end
  
+	-- CONVERT LONG TEXT TO VARIABLES
 	text_x = "X= "..ceil(angle_x_step * 1000)
 	text_y = "Y= "..ceil(angle_y_step * 1000)
 	text_z = "Z= "..ceil(angle_z_step * 1000)
 	text_shape = "d"..shape
-	
+
+	-- HIGHLIGHT CHOSEN OPTION
 	if selected == 0 then
-		text_x = "< "..text_x.." >"
+		text_x = "<"..text_x..">"
+		text_y = " "..text_y.." "
+		text_z = " "..text_z.." "
+		text_shape = " "..text_shape.." "
 	elseif selected == 1 then
-		text_y = "< "..text_y.." >"
+		text_x = " "..text_x.." "
+		text_y = "<"..text_y..">"
+		text_z = " "..text_z.." "
+		text_shape = " "..text_shape.." "
 	elseif selected == 2 then
-		text_z = "< "..text_z.." >"
+		text_x = " "..text_x.." "
+		text_y = " "..text_y.." "
+		text_z = "<"..text_z..">"
+		text_shape = " "..text_shape.." "
 	else
-		text_shape = "< "..text_shape.." >"
+		text_x = " "..text_x.." "
+		text_y = " "..text_y.." "
+		text_z = " "..text_z.." "
+		text_shape = "<"..text_shape..">"
 	end
 	
-	
+	-- OPTION MENU	
 	options = text_x.." "..text_y.." "..text_z.." "..text_shape
 	print_centered_txt("cube", 0, 9)
 	print_centered_txt(options, 7, 9)
