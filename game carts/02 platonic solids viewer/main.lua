@@ -82,19 +82,20 @@ function _init()
 
 	menu_x, menu_y, menu_z = 2, 0, 0
 	selected = 0
+	shape = 4
 end
 
 function _update()
 	-- Horizontal
 	if btnp(0) then
 		if selected == 0 then
-			selected = 2
+			selected = 3
 		else
 			selected -= 1
 		end
 	end
 	if btnp(1) then
-		if selected == 2 then
+		if selected == 3 then
 			selected = 0
 		else
 			selected += 1
@@ -107,8 +108,10 @@ function _update()
 			angle_x_step += 0.001
 		elseif selected == 1 then
 			angle_y_step += 0.001
-		else
+		elseif selected == 2 then
 			angle_z_step += 0.001
+		else
+			shape += 0
 		end
 	end
 	if btnp(3) then
@@ -116,8 +119,10 @@ function _update()
 			angle_x_step -= 0.001
 		elseif selected == 1 then
 			angle_y_step -= 0.001
-		else
+		elseif selected == 2 then
 			angle_z_step -= 0.001
+		else
+			shape += 0
 		end
 	end
 	
@@ -141,25 +146,27 @@ function _draw()
 
 		line(pointX1, pointY1, pointX2, pointY2, 7)
 	end
-
-	
+ 
 	text_x = "X= "..ceil(angle_x_step * 1000)
 	text_y = "Y= "..ceil(angle_y_step * 1000)
 	text_z = "Z= "..ceil(angle_z_step * 1000)
+	text_shape = "d6"
 	
 	if selected == 0 then
 		text_x = "< "..text_x.." >"
 	elseif selected == 1 then
 		text_y = "< "..text_y.." >"
-	else
+	elseif selected == 2 then
 		text_z = "< "..text_z.." >"
+	else
+		text_shape = "< "..text_shape.." >"
 	end
 	
 	solid = "cube"
 	solid_centered = 64 - #solid * 2
 	print(solid, solid_centered, 0, 9)
 	
-	angle_text = text_x.." "..text_y.." "..text_z
+	angle_text = text_x.." "..text_y.." "..text_z.." "..text_shape
 	angle_centered = 64 - #angle_text * 2
 	print(angle_text, angle_centered, 7, 9)
 	
