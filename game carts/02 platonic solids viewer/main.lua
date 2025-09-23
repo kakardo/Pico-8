@@ -26,7 +26,7 @@ Cube has 8 corners (vertices).
 ]]--
 
 solids = {
-	cube = {
+	{
 		name="cube",
 		v = { -- vertices (8 in a cube) Front: -1, Back: +1
 			{-1,-1,-1}, {1,-1,-1}, {1,1,-1}, {-1,1,-1},
@@ -88,7 +88,7 @@ function _init()
 	angle_x_step, angle_y_step, angle_z_step = 0.005, 0.003, 0.001
 
 	selected = 0
-	shape = 4
+	shape = 1
 end
 
 function _update()
@@ -140,9 +140,9 @@ end
 function _draw()
 	cls()
 	
-	for e in all(solids.cube.e) do
-		alfa = solids.cube.v[e[1]]
-		beta = solids.cube.v[e[2]]
+	for e in all(solids[shape].e) do
+		alfa = solids[shape].v[e[1]]
+		beta = solids[shape].v[e[2]]
 	
 		ax, ay, az = calc_rotation(alfa[1], alfa[2], alfa[3])
 		bx, by, bz = calc_rotation(beta[1], beta[2], beta[3])
