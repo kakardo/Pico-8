@@ -27,7 +27,7 @@ Cube has 8 corners (vertices).
 
 solids = {
 	{
-		name="cube",
+		name="cube", dice="d4",
 		v = { -- vertices (8 in a cube) Front: -1, Back: +1
 			{-1,-1,-1}, {1,-1,-1}, {1,1,-1}, {-1,1,-1},
 			{-1,-1, 1}, {1,-1, 1}, {1,1, 1}, {-1,1, 1}
@@ -81,7 +81,6 @@ end
 --[[ MAIN - - - - - - - - - - - - ]]--
 function _init()
 	center_x, center_y = 64, 64
-	color = 7
 	scale = 24
 	
 	angle_x, angle_y, angle_z = 0, 0, 0
@@ -157,7 +156,7 @@ function _draw()
 	text_x = "X= "..ceil(angle_x_step * 1000)
 	text_y = "Y= "..ceil(angle_y_step * 1000)
 	text_z = "Z= "..ceil(angle_z_step * 1000)
-	text_shape = "d"..shape
+	text_shape = solids[shape].dice
 
 	-- HIGHLIGHT CHOSEN OPTION
 	if selected == 0 then
@@ -184,7 +183,7 @@ function _draw()
 	
 	-- OPTION MENU	
 	options = text_x.." "..text_y.." "..text_z.." "..text_shape
-	print_centered_txt("cube", 0, 9)
+	print_centered_txt(solids[shape].name, 0, 9)
 	print_centered_txt(options, 7, 9)
 	print_centered_txt("⬅️/➡️ switch parameters", 116, 9)
 	print_centered_txt("⬆️/⬇️ adjust angle", 123, 9)
