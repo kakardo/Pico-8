@@ -25,24 +25,20 @@ Cube has 8 corners (vertices).
 
 ]]--
 
-
-
-solids ={name="cube",
-	-- vertices (8 in a cube)
-	vertices = { -- Front: -1, Back: +1
-		{-1,-1,-1}, {1,-1,-1}, {1,1,-1}, {-1,1,-1},
-		{-1,-1, 1}, {1,-1, 1}, {1,1, 1}, {-1,1, 1}
-	},
-	edges = { -- (12 in a cube)
-		{1,2}, {2,3}, {3,4}, {4,1}, -- back
-		{5,6}, {6,7}, {7,8}, {8,5}, -- front
-		{1,5}, {2,6}, {3,7}, {4,8}  -- bridges
+solids = {
+	cube = {
+		name="cube",
+		v = { -- vertices (8 in a cube) Front: -1, Back: +1
+			{-1,-1,-1}, {1,-1,-1}, {1,1,-1}, {-1,1,-1},
+			{-1,-1, 1}, {1,-1, 1}, {1,1, 1}, {-1,1, 1}
+		},
+		e = { -- (12 edges in a cube)
+			{1,2}, {2,3}, {3,4}, {4,1}, -- back
+			{5,6}, {6,7}, {7,8}, {8,5}, -- front
+			{1,5}, {2,6}, {3,7}, {4,8}  -- bridges
+		}
 	}
 }
-
-
-
-
 
 function calc_projection(x, y)
 	return x * scale + center_x, y * scale + center_y
@@ -144,9 +140,9 @@ end
 function _draw()
 	cls()
 	
-	for e in all(solids.edges) do
-		alfa = solids.vertices[e[1]]
-		beta = solids.vertices[e[2]]
+	for e in all(solids.cube.e) do
+		alfa = solids.cube.v[e[1]]
+		beta = solids.cube.v[e[2]]
 	
 		ax, ay, az = calc_rotation(alfa[1], alfa[2], alfa[3])
 		bx, by, bz = calc_rotation(beta[1], beta[2], beta[3])
