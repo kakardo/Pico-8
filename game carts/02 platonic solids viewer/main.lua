@@ -132,7 +132,11 @@ function _update()
 		elseif selected == 2 then
 			angle_z_step += 0.001
 		else
-			shape += 0
+			if shape == 5 then
+				shape = 1
+			else
+				shape += 1
+			end
 		end
 	end
 	if btnp(3) then
@@ -143,7 +147,11 @@ function _update()
 		elseif selected == 2 then
 			angle_z_step -= 0.001
 		else
-			shape += 0
+			if shape == 1 then
+				shape = 5
+			else
+				shape -= 1
+			end
 		end
 	end
 	
