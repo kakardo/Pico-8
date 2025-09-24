@@ -28,13 +28,11 @@ Cube has 8 corners (vertices).
 solids = {
 	{
 		name="tetrahedron", dice="d4", color=8,
-		v = {
-			{ 1, 1, 1},
-			{-1,-1, 1},
-			{-1, 1,-1},
-			{ 1,-1,-1}
+		v = { -- 4 vertices
+			{ 1, 1, 1}, {-1,-1, 1},
+			{-1, 1,-1},	{ 1,-1,-1}
 		},
-		e = {
+		e = { -- 6 edges
 			{1,2}, {1,3}, {1,4},
 			{2,3}, {2,4}, {3,4}
 		}
@@ -51,7 +49,18 @@ solids = {
 			{1,5}, {2,6}, {3,7}, {4,8}  -- bridges
 		}
 	},
-	{name="octahedron", dice="d8", color=10},
+	{
+		name="octahedron", dice="d8", color=10,
+		v = {
+			{ 1, 0, 0}, {-1, 0, 0}, { 0, 1, 0},
+			{ 0,-1, 0}, { 0, 0, 1}, { 0, 0,-1}
+		},
+		e = { -- connects to all except its opposite
+			{1,2}, {1,3}, {1,4}, {1,5},
+			{}, {}, {}, {},
+			{}, {}, {}, {}
+		}
+	},
 	{name="dodecahedron", dice="d12", color=11},
 	{name="icosahedron", dice="d20", color=12}
 }
