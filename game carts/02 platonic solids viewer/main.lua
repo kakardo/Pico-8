@@ -27,6 +27,19 @@ Cube has 8 corners (vertices).
 
 solids = {
 	{
+		name="tetrahedron", dice="d4", color=8,
+		v = {
+			{ 1, 1, 1},
+			{-1,-1, 1},
+			{-1, 1,-1},
+			{ 1,-1,-1}
+		},
+		e = {
+			{1,2}, {1,3}, {1,4},
+			{2,3}, {2,4}, {3,4}
+		}
+	},
+	{
 		name="cube", dice="d4", color=9,
 		v = { -- vertices (8 in a cube) Front: -1, Back: +1
 			{-1,-1,-1}, {1,-1,-1}, {1,1,-1}, {-1,1,-1},
