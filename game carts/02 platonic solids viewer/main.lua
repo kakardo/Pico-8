@@ -7,22 +7,18 @@
 	https://en.wikipedia.org/wiki/3D_projection
 	https://en.wikipedia.org/wiki/Orthographic_projection
 	https://en.wikipedia.org/wiki/Perspective_(graphical)
+	- Linear algebra's needed for matrix calculations.
 
 	TODO
 	- Implement the five platonic solids:
-		Regular tetrahedron
-		Cube
-		Regular octahedron 
 		Regular dodecahedron
 		Regular icosahedron 
 	- Implement two perspective:
 		Orthographic (ignores depth)
 		Perspective
-	
-Notes for MD-doc
-Linear algebra's needed for matrix calculations.
-Cube has 8 corners (vertices).
-
+	- Make them appear the same size. The solids don't have the
+	  same radius to origin as each other. Octahedron's a good
+	  example. It renders really small compared to D4 and D6.
 ]]--
 
 solids = {
@@ -56,9 +52,9 @@ solids = {
 			{ 0,-1, 0}, { 0, 0, 1}, { 0, 0,-1}
 		},
 		e = { -- connects to all except its opposite
-			{1,2}, {1,3}, {1,4}, {1,5},
-			{}, {}, {}, {},
-			{}, {}, {}, {}
+			{1,3}, {1,4}, {1,5}, {1,6},
+			{2,3}, {2,4}, {2,5}, {2,6},
+			{3,5}, {3,6}, {4,5}, {4,6}
 		}
 	},
 	{name="dodecahedron", dice="d12", color=11},
@@ -106,7 +102,7 @@ end
 --[[ MAIN - - - - - - - - - - - - ]]--
 function _init()
 	center_x, center_y = 64, 64
-	scale = 24
+	scale = 30
 	
 	angle_x, angle_y, angle_z = 0, 0, 0
 	angle_x_step, angle_y_step, angle_z_step = 0.005, 0.003, 0.001
