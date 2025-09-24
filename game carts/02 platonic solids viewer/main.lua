@@ -40,7 +40,7 @@ solids = {
 		}
 	},
 	{
-		name="cube", dice="d4", color=9,
+		name="cube", dice="d6", color=9,
 		v = { -- vertices (8 in a cube) Front: -1, Back: +1
 			{-1,-1,-1}, {1,-1,-1}, {1,1,-1}, {-1,1,-1},
 			{-1,-1, 1}, {1,-1, 1}, {1,1, 1}, {-1,1, 1}
@@ -126,32 +126,32 @@ function _update()
 	-- Vertical
 	if btnp(2) then
 		if selected == 0 then
-			angle_x_step += 0.001
-		elseif selected == 1 then
-			angle_y_step += 0.001
-		elseif selected == 2 then
-			angle_z_step += 0.001
-		else
 			if shape == 5 then
 				shape = 1
 			else
 				shape += 1
 			end
+		elseif selected == 1 then
+			angle_x_step += 0.001
+		elseif selected == 2 then
+			angle_y_step += 0.001
+		else
+			angle_z_step += 0.001			
 		end
 	end
 	if btnp(3) then
 		if selected == 0 then
-			angle_x_step -= 0.001
-		elseif selected == 1 then
-			angle_y_step -= 0.001
-		elseif selected == 2 then
-			angle_z_step -= 0.001
-		else
 			if shape == 1 then
 				shape = 5
 			else
 				shape -= 1
 			end
+		elseif selected == 1 then
+			angle_x_step -= 0.001
+		elseif selected == 2 then
+			angle_y_step -= 0.001
+		else
+			angle_z_step -= 0.001
 		end
 	end
 	
@@ -178,38 +178,37 @@ function _draw()
 	end
  
 	-- CONVERT LONG TEXT TO VARIABLES
+	text_shape = solids[shape].dice
 	text_x = "X= "..ceil(angle_x_step * 1000)
 	text_y = "Y= "..ceil(angle_y_step * 1000)
 	text_z = "Z= "..ceil(angle_z_step * 1000)
-	text_shape = solids[shape].dice
 
 	-- HIGHLIGHT CHOSEN OPTION
 	if selected == 0 then
+		text_shape = "<"..text_shape..">"
+		text_x = " "..text_x.." "
+		text_y = " "..text_y.." "
+		text_z = " "..text_z.." "
+	elseif selected == 1 then
+		text_shape = " "..text_shape.." "
 		text_x = "<"..text_x..">"
 		text_y = " "..text_y.." "
 		text_z = " "..text_z.." "
+	elseif selected == 2 then
 		text_shape = " "..text_shape.." "
-	elseif selected == 1 then
 		text_x = " "..text_x.." "
 		text_y = "<"..text_y..">"
 		text_z = " "..text_z.." "
+	else
 		text_shape = " "..text_shape.." "
-	elseif selected == 2 then
 		text_x = " "..text_x.." "
 		text_y = " "..text_y.." "
 		text_z = "<"..text_z..">"
-		text_shape = " "..text_shape.." "
-	else
-		text_x = " "..text_x.." "
-		text_y = " "..text_y.." "
-		text_z = " "..text_z.." "
-		text_shape = "<"..text_shape..">"
 	end
 	
 	-- OPTION MENU
 	color = solids[shape].color
-	options = text_x.." "..text_y..
-              " "..text_z.." "..text_shape
+	options = text_shape.." "..text_x.." "..text_y.." "..text_z
 
 	print_centered_txt(solids[shape].name, 0, color)
 	print_centered_txt(options, 7, color)
