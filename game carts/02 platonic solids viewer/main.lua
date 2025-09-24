@@ -50,7 +50,10 @@ solids = {
 			{5,6}, {6,7}, {7,8}, {8,5}, -- front
 			{1,5}, {2,6}, {3,7}, {4,8}  -- bridges
 		}
-	}
+	},
+	{name="octahedron", dice="d8", color=10},
+	{name="dodecahedron", dice="d12", color=11},
+	{name="icosahedron", dice="d20", color=12}
 }
 
 function calc_projection(x, y)
