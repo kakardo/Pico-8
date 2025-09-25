@@ -118,12 +118,10 @@ function _update()
 	end
 	
 	angle.update()
-end
+	
+	-- SAVE ROTATED VERTICES
+	draw_buffer = {}
 
-function _draw()
-	cls()
-
-	-- DRAW EDGES BETWEEN VERTICES
 	for e in all(solids[shape].e) do
 		alfa = solids[shape].v[e[1]]
 		beta = solids[shape].v[e[2]]
@@ -134,7 +132,16 @@ function _draw()
 		pointX1, pointY1 = calc_projection(ax, ay)
 		pointX2, pointY2 = calc_projection(bx, by)
 
-		line(pointX1, pointY1, pointX2, pointY2, 7)
+		add(draw_buffer, {pointX1, pointY1, pointX2, pointY2, 7})
+	end
+end
+
+function _draw()
+	cls()
+	
+	-- DRAW LINES WITH SAVED VERTICES
+	for seg in all(draw_buffer) do
+		line(seg[1], seg[2], seg[3], seg[4], seg[5])
 	end
  
 	-- CONVERT LONG TEXT TO VARIABLES
@@ -176,11 +183,12 @@ function _draw()
 	print_centered_txt("⬆️/⬇️ adjust angle", 123, color)
 	
 	-- DEBUG
-	debug = false
+	debug = true
 	if debug then
 		print("x "..angle.get("x"),0,14,4)
 		print("y "..angle.get("y"),0,21,4)
 		print("z "..angle.get("z"),0,28,4)
+		print("Buff "..#draw_buffer)
 	end
 end
 
