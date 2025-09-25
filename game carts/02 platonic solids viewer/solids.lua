@@ -56,11 +56,15 @@ end
 
 
 angle = {
-	x, y, z = 0, 0, 0,
+	x = 5,
+	y = 3,
+	z = 1,
 
 	x_step = 0.005,
 	y_step = 0.003,
 	z_step = 0.001
+	
+	step_size = 0.001
 }
 
 function angle.get(coordinate)
@@ -75,14 +79,44 @@ function angle.get(coordinate)
 	end
 end
 
-function angle.step(coordinate, value)
+function angle.get_step(coordinate)
 	if coordinate == "x" then
-		angle.x_step += value
+		return angle.x_step
 	elseif coordinate == "y" then
-		angle.y_step += value
+		return angle.y_step
 	elseif coordinate == "z" then
-		angle.z_step += value
+		return angle.z_step
 	else
-		print("ERROR angle.step")
+		print("ERROR angle.get_step")
 	end
+end
+
+function angle.step_up(coordinate)
+	if coordinate == "x" then
+		angle.x_step += step_size
+	elseif coordinate == "y" then
+		angle.y_step += step_size
+	elseif coordinate == "z" then
+		angle.z_step += step_size
+	else
+		print("ERROR angle.step_up")
+	end
+end
+
+function angle.step_down(coordinate)
+	if coordinate == "x" then
+		angle.x_step -= step_size
+	elseif coordinate == "y" then
+		angle.y_step -= step_size
+	elseif coordinate == "z" then
+		angle.z_step -= step_size
+	else
+		print("ERROR angle.step_down")
+	end
+end
+
+function angle.update()
+	angle.x += 	angle.x_step
+	angle.y += 	angle.y_step
+	angle.z += 	angle.z_step
 end

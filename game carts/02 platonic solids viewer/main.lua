@@ -21,17 +21,13 @@
 	  example. It renders really small compared to D4 and D6.
 ]]--
 
-
-
-
-
 --[[ ROTATION - - - - - - - - - - ]]--
 -- sin() and cos() angles go from 0 to 360° (0.0 to 1.0)
 -- example -> 0.25 = 90°, 1.0 = 360°)
 function calc_rotation(x, y, z)
-	x, y, z = rotate_x(x, y, z, angle.get("x"))
-	x, y, z = rotate_y(x, y, z, angle.get("y"))
-	x, y, z = rotate_z(x, y, z, angle.get("z"))
+	x, y, z = rotate_x(x, y, z, angle.get_step("x"))
+	x, y, z = rotate_y(x, y, z, angle.get_step("y"))
+	x, y, z = rotate_z(x, y, z, angle.get_step("z"))
 	return x, y, z
 end
 
@@ -94,11 +90,11 @@ function _update()
 				shape += 1
 			end
 		elseif selected == 1 then
-			angle.step(x, 0.001)
+			angle.step_up(x)
 		elseif selected == 2 then
-			angle.step(y, 0.001)
+			angle.step_up(y)
 		else
-			angle.step(z, 0.001)
+			angle.step_up(z)
 		end
 	end
 	if btnp(3) then
@@ -109,13 +105,15 @@ function _update()
 				shape -= 1
 			end
 		elseif selected == 1 then
-			angle.step(x, -0.001)
+			angle.step_down(x)
 		elseif selected == 2 then
-			angle.step(y, -0.001)
+			angle.step_down(y)
 		else
-			angle.step(z, -0.001)
+			angle.step_down(z)
 		end
 	end
+	
+	angle.update()
 end
 
 function _draw()
@@ -137,9 +135,9 @@ function _draw()
  
 	-- CONVERT LONG TEXT TO VARIABLES
 	text_shape = solids[shape].dice
-	text_x = "X= "..ceil(angle.get("x") * 1000)
-	text_y = "Y= "..ceil(angle.get("y") * 1000)
-	text_z = "Z= "..ceil(angle.get("z") * 1000)
+	text_x = "X= "..ceil(angle.get_step("x") * 1000)
+	text_y = "Y= "..ceil(angle.get_step("y") * 1000)
+	text_z = "Z= "..ceil(angle.get_step("z") * 1000)
 
 	-- HIGHLIGHT CHOSEN OPTION
 	if selected == 0 then
