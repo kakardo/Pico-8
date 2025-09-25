@@ -21,49 +21,9 @@
 	  example. It renders really small compared to D4 and D6.
 ]]--
 
-solids = {
-	{
-		name="tetrahedron", dice="d4", color=8,
-		v = { -- 4 vertices
-			{ 1, 1, 1}, {-1,-1, 1},
-			{-1, 1,-1},	{ 1,-1,-1}
-		},
-		e = { -- 6 edges
-			{1,2}, {1,3}, {1,4},
-			{2,3}, {2,4}, {3,4}
-		}
-	},
-	{
-		name="cube", dice="d6", color=9,
-		v = { -- vertices (8 in a cube) Front: -1, Back: +1
-			{-1,-1,-1}, {1,-1,-1}, {1,1,-1}, {-1,1,-1},
-			{-1,-1, 1}, {1,-1, 1}, {1,1, 1}, {-1,1, 1}
-		},
-		e = { -- (12 edges in a cube)
-			{1,2}, {2,3}, {3,4}, {4,1}, -- back
-			{5,6}, {6,7}, {7,8}, {8,5}, -- front
-			{1,5}, {2,6}, {3,7}, {4,8}  -- bridges
-		}
-	},
-	{
-		name="octahedron", dice="d8", color=10,
-		v = {
-			{ 1, 0, 0}, {-1, 0, 0}, { 0, 1, 0},
-			{ 0,-1, 0}, { 0, 0, 1}, { 0, 0,-1}
-		},
-		e = { -- connects to all except its opposite
-			{1,3}, {1,4}, {1,5}, {1,6},
-			{2,3}, {2,4}, {2,5}, {2,6},
-			{3,5}, {3,6}, {4,5}, {4,6}
-		}
-	},
-	{name="dodecahedron", dice="d12", color=11},
-	{name="icosahedron", dice="d20", color=12}
-}
 
-function calc_projection(x, y)
-	return x * scale + center_x, y * scale + center_y
-end
+
+
 
 --[[ ROTATION - - - - - - - - - - ]]--
 -- sin() and cos() angles go from 0 to 360° (0.0 to 1.0)
@@ -176,8 +136,8 @@ function _draw()
 		ax, ay, az = calc_rotation(alfa[1], alfa[2], alfa[3])
 		bx, by, bz = calc_rotation(beta[1], beta[2], beta[3])
 
-		pointX1, pointY1 = calc_projection(ax, ay)
-		pointX2, pointY2 = calc_projection(bx, by)
+		pointX1, pointY1 = solids.calc_projection(ax, ay)
+		pointX2, pointY2 = solids.calc_projection(bx, by)
 
 		line(pointX1, pointY1, pointX2, pointY2, 7)
 	end
