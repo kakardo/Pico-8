@@ -185,10 +185,10 @@ function _draw()
 	-- DEBUG
 	debug = true
 	if debug then
-		print("x "..angle.get("x"),0,14,4)
+		print("x >"..angle.get("x"),0,14,4)
 		print("y "..angle.get("y"),0,21,4)
 		print("z "..angle.get("z"),0,28,4)
-		print("Buff "..#draw_buffer)
+		print("buff "..#draw_buffer)
 	end
 end
 
