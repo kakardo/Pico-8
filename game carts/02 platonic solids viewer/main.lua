@@ -29,9 +29,9 @@
 -- sin() and cos() angles go from 0 to 360° (0.0 to 1.0)
 -- example -> 0.25 = 90°, 1.0 = 360°)
 function calc_rotation(x, y, z)
-	x, y, z = rotate_x(x, y, z, angle_x)
-	x, y, z = rotate_y(x, y, z, angle_y)
-	x, y, z = rotate_z(x, y, z, angle_z)
+	x, y, z = rotate_x(x, y, z, angle.get("x"))
+	x, y, z = rotate_y(x, y, z, angle.get("y"))
+	x, y, z = rotate_z(x, y, z, angle.get("z"))
 	return x, y, z
 end
 
@@ -63,14 +63,9 @@ end
 function _init()
 	center_x, center_y = 64, 64
 	scale = 30
-	
-	
 
 	selected = 0
 	shape = 1
-	
-	
-	
 end
 
 function _update()
@@ -99,11 +94,11 @@ function _update()
 				shape += 1
 			end
 		elseif selected == 1 then
-			angle_x_step += 0.001
+			angle.step(x, 0.001)
 		elseif selected == 2 then
-			angle_y_step += 0.001
+			angle.step(y, 0.001)
 		else
-			angle_z_step += 0.001			
+			angle.step(z, 0.001)
 		end
 	end
 	if btnp(3) then
@@ -121,15 +116,11 @@ function _update()
 			angle.step(z, -0.001)
 		end
 	end
-	
-	angle_x += angle_x_step
-	angle_y += angle_y_step
-	angle_z += angle_z_step
 end
 
 function _draw()
 	cls()
-	
+
 	-- DRAW EDGES BETWEEN VERTICES
 	for e in all(solids[shape].e) do
 		alfa = solids[shape].v[e[1]]
@@ -146,9 +137,9 @@ function _draw()
  
 	-- CONVERT LONG TEXT TO VARIABLES
 	text_shape = solids[shape].dice
-	text_x = "X= "..ceil(angle_x_step * 1000)
-	text_y = "Y= "..ceil(angle_y_step * 1000)
-	text_z = "Z= "..ceil(angle_z_step * 1000)
+	text_x = "X= "..ceil(angle.get("x") * 1000)
+	text_y = "Y= "..ceil(angle.get("y") * 1000)
+	text_z = "Z= "..ceil(angle.get("z") * 1000)
 
 	-- HIGHLIGHT CHOSEN OPTION
 	if selected == 0 then
