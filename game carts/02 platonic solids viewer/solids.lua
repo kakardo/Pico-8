@@ -45,8 +45,22 @@ solids = {
 	{name="icosahedron", dice="d20", color=12},
 }
 
+
+function solids.init()
+end
+
 function solids.calc_projection(x, y)
 	return x * scale + center_x, y * scale + center_y
 end
 
 
+
+angle = {
+	--angle_x, angle_y, angle_z = 0, 0, 0
+}
+angle_x_step, angle_y_step, angle_z_step = 0.005, 0.003, 0.001
+
+function angle.step(coordinate, value)
+	coordinate += value
+	return coordinate
+end

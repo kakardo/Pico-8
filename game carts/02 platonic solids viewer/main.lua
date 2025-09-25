@@ -64,11 +64,13 @@ function _init()
 	center_x, center_y = 64, 64
 	scale = 30
 	
-	angle_x, angle_y, angle_z = 0, 0, 0
-	angle_x_step, angle_y_step, angle_z_step = 0.005, 0.003, 0.001
+	
 
 	selected = 0
 	shape = 1
+	
+	
+	
 end
 
 function _update()
@@ -112,7 +114,7 @@ function _update()
 				shape -= 1
 			end
 		elseif selected == 1 then
-			angle_x_step -= 0.001
+			angle.step(x, 0.001)
 		elseif selected == 2 then
 			angle_y_step -= 0.001
 		else
