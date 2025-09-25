@@ -49,20 +49,18 @@ solids = {
 function solids.init()
 end
 
-function solids.calc_projection(x, y)
-	return x * scale + center_x, y * scale + center_y
-end
+
 
 
 
 angle = {
-	x = 5,
-	y = 3,
-	z = 1,
+	x = 0,
+	y = 0,
+	z = 0,
 
 	x_step = 0.005,
 	y_step = 0.003,
-	z_step = 0.001
+	z_step = 0.001,
 	
 	step_size = 0.001
 }
@@ -93,11 +91,11 @@ end
 
 function angle.step_up(coordinate)
 	if coordinate == "x" then
-		angle.x_step += step_size
+		angle.x_step += angle.step_size
 	elseif coordinate == "y" then
-		angle.y_step += step_size
+		angle.y_step += angle.step_size
 	elseif coordinate == "z" then
-		angle.z_step += step_size
+		angle.z_step += angle.step_size
 	else
 		print("ERROR angle.step_up")
 	end
@@ -105,18 +103,18 @@ end
 
 function angle.step_down(coordinate)
 	if coordinate == "x" then
-		angle.x_step -= step_size
+		angle.x_step -= angle.step_size
 	elseif coordinate == "y" then
-		angle.y_step -= step_size
+		angle.y_step -= angle.step_size
 	elseif coordinate == "z" then
-		angle.z_step -= step_size
+		angle.z_step -= angle.step_size
 	else
 		print("ERROR angle.step_down")
 	end
 end
 
 function angle.update()
-	angle.x += 	angle.x_step
-	angle.y += 	angle.y_step
-	angle.z += 	angle.z_step
+	angle.x += angle.x_step
+	angle.y += angle.y_step
+	angle.z += angle.z_step
 end

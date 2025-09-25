@@ -25,9 +25,9 @@
 -- sin() and cos() angles go from 0 to 360° (0.0 to 1.0)
 -- example -> 0.25 = 90°, 1.0 = 360°)
 function calc_rotation(x, y, z)
-	x, y, z = rotate_x(x, y, z, angle.get_step("x"))
-	x, y, z = rotate_y(x, y, z, angle.get_step("y"))
-	x, y, z = rotate_z(x, y, z, angle.get_step("z"))
+	x, y, z = rotate_x(x, y, z, angle.get("x"))
+	x, y, z = rotate_y(x, y, z, angle.get("y"))
+	x, y, z = rotate_z(x, y, z, angle.get("z"))
 	return x, y, z
 end
 
@@ -47,6 +47,10 @@ function rotate_z(x, y, z, angle)
 	return 	x*cos(angle) - y*sin(angle),
 			x*sin(angle) + y*cos(angle),
 			z
+end
+
+function calc_projection(x, y)
+	return x * scale + center_x, y * scale + center_y
 end
 
 --[[ TEXT - - - - - - - - - - - - ]]--
@@ -90,11 +94,11 @@ function _update()
 				shape += 1
 			end
 		elseif selected == 1 then
-			angle.step_up(x)
+			angle.step_up("x")
 		elseif selected == 2 then
-			angle.step_up(y)
+			angle.step_up("y")
 		else
-			angle.step_up(z)
+			angle.step_up("z")
 		end
 	end
 	if btnp(3) then
@@ -105,11 +109,11 @@ function _update()
 				shape -= 1
 			end
 		elseif selected == 1 then
-			angle.step_down(x)
+			angle.step_down("x")
 		elseif selected == 2 then
-			angle.step_down(y)
+			angle.step_down("y")
 		else
-			angle.step_down(z)
+			angle.step_down("z")
 		end
 	end
 	
@@ -127,8 +131,8 @@ function _draw()
 		ax, ay, az = calc_rotation(alfa[1], alfa[2], alfa[3])
 		bx, by, bz = calc_rotation(beta[1], beta[2], beta[3])
 
-		pointX1, pointY1 = solids.calc_projection(ax, ay)
-		pointX2, pointY2 = solids.calc_projection(bx, by)
+		pointX1, pointY1 = calc_projection(ax, ay)
+		pointX2, pointY2 = calc_projection(bx, by)
 
 		line(pointX1, pointY1, pointX2, pointY2, 7)
 	end
@@ -170,6 +174,14 @@ function _draw()
 	print_centered_txt(options, 7, color)
 	print_centered_txt("⬅️/➡️ switch parameters", 116, color)
 	print_centered_txt("⬆️/⬇️ adjust angle", 123, color)
+	
+	-- DEBUG
+	debug = false
+	if debug then
+		print("x "..angle.get("x"),0,14,4)
+		print("y "..angle.get("y"),0,21,4)
+		print("z "..angle.get("z"),0,28,4)
+	end
 end
 
 -- LAST_LINE_MAIN_LUA
