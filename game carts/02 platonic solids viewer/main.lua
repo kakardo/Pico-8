@@ -114,11 +114,11 @@ function _update()
 				shape -= 1
 			end
 		elseif selected == 1 then
-			angle.step(x, 0.001)
+			angle.step(x, -0.001)
 		elseif selected == 2 then
-			angle_y_step -= 0.001
+			angle.step(y, -0.001)
 		else
-			angle_z_step -= 0.001
+			angle.step(z, -0.001)
 		end
 	end
 	
