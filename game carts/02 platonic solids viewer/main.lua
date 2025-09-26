@@ -66,6 +66,8 @@ function _init()
 
 	selected = 0
 	shape = 1
+	
+	debug = false
 end
 
 function _update()
@@ -114,6 +116,15 @@ function _update()
 			angle.step_down("y")
 		else
 			angle.step_down("z")
+		end
+	end
+	
+	-- SWITCHABLE NORMAL VS DEBUG MODE (X-KEY)
+	if btnp(5) then
+		if debug then
+			debug = false
+		else
+			debug = true
 		end
 	end
 	
@@ -198,8 +209,9 @@ function _draw()
 	
 	
 	-- DEBUG
-	debug = true
+	
 	if debug then
+		print("debug",0,0,4)
 		print("x "..angle.get("x"),0,14,4)
 		print("y "..angle.get("y"),0,21,4)
 		print("z "..angle.get("z"),0,28,4)
