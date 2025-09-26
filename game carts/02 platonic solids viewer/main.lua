@@ -134,11 +134,25 @@ function _update()
 
 		add(draw_buffer, {pointX1, pointY1, pointX2, pointY2, 7})
 	end
+	
+	error_msg = {}
+	if shape == 1 and #draw_buffer != 6 then
+		add(error_msg, "error draw_buffer size (d4)")
+	elseif shape == 2 and #draw_buffer != 12 then
+		add(error_msg, "error draw_buffer size (d6)")
+	elseif shape == 3 and #draw_buffer != 12 then
+		add(error_msg, "error draw_buffer size (d8)")
+	elseif shape == 4 and #draw_buffer != 12 then
+		add(error_msg, "error draw_buffer size (d12)")
+	elseif shape == 5 and #draw_buffer != 12 then
+		add(error_msg, "error draw_buffer size (d20)")
+	end	
 end
 
 function _draw()
 	cls()
-	
+
+
 	-- DRAW LINES WITH SAVED VERTICES
 	for seg in all(draw_buffer) do
 		line(seg[1], seg[2], seg[3], seg[4], seg[5])
@@ -182,13 +196,19 @@ function _draw()
 	print_centered_txt("⬅️/➡️ switch parameters", 116, color)
 	print_centered_txt("⬆️/⬇️ adjust angle", 123, color)
 	
+	
 	-- DEBUG
 	debug = true
 	if debug then
-		print("x >"..angle.get("x"),0,14,4)
+		print("x "..angle.get("x"),0,14,4)
 		print("y "..angle.get("y"),0,21,4)
 		print("z "..angle.get("z"),0,28,4)
 		print("buff "..#draw_buffer)
+	end
+
+	-- Print saved error messages
+	for msg in all(error_msg) do
+		print(msg)
 	end
 end
 
