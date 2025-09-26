@@ -209,7 +209,6 @@ function _draw()
 	
 	
 	-- DEBUG
-	
 	if debug then
 		print("debug",0,0,4)
 		print("x "..angle.get("x"),0,14,4)
