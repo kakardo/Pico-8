@@ -3,7 +3,8 @@
 	@date 2025-09-26
 ]]--
 
-angle = {
+angle =
+{
 	x = 0,
 	y = 0,
 	z = 0,
@@ -11,8 +12,9 @@ angle = {
 	x_step = 0.005,
 	y_step = 0.003,
 	z_step = 0.001,
-	
 	step_size = 0.001,
+	
+	error_msg = {},
 	
 	get = function(coordinate)
 		if coordinate == "x" then
@@ -22,7 +24,7 @@ angle = {
 		elseif coordinate == "z" then
 			return angle.z
 		else
-			print("ERROR angle.get")
+			add(error_msg, "error angle.get")
 		end
 	end,
 	
@@ -34,7 +36,7 @@ angle = {
 		elseif coordinate == "z" then
 			return angle.z_step
 		else
-			print("ERROR angle.get_step")
+			add(error_msg, "error angle.get_step")
 		end
 	end,
 	
@@ -46,7 +48,7 @@ angle = {
 		elseif coordinate == "z" then
 			angle.z_step += angle.step_size
 		else
-			print("ERROR angle.step_up")
+			add(error_msg, "error angle.step_up")
 		end
 	end,
 
@@ -58,7 +60,7 @@ angle = {
 		elseif coordinate == "z" then
 			angle.z_step -= angle.step_size
 		else
-			print("ERROR angle.step_down")
+			add(error_msg, "error angle.step_down")
 		end
 	end,
 
@@ -66,5 +68,9 @@ angle = {
 		angle.x += angle.x_step
 		angle.y += angle.y_step
 		angle.z += angle.z_step
+	end,
+
+	get_error_msg = function()
+		return error_msg
 	end
 }
