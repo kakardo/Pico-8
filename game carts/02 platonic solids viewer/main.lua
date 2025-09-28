@@ -53,12 +53,6 @@ function calc_projection(x, y)
 	return x * scale + center_x, y * scale + center_y
 end
 
---[[ TEXT - - - - - - - - - - - - ]]--
-function print_centered_txt(txt, y_pos, txt_color)
-	x_pos = 64 - #txt * 2 
-	print(txt, x_pos, y_pos, txt_color)
-end
-
 --[[ MAIN - - - - - - - - - - - - ]]--
 function _init()
 	center_x, center_y = 64, 64
@@ -203,10 +197,10 @@ function _draw()
 	color = solids[shape].color
 	options = text_shape.." "..text_x.." "..text_y.." "..text_z
 
-	print_centered_txt(solids[shape].name, 0, color)
-	print_centered_txt(options, 7, color)
-	print_centered_txt("⬅️/➡️ switch parameters", 116, color)
-	print_centered_txt("⬆️/⬇️ adjust angle", 123, color)
+	ui.centered_txt(solids[shape].name, 0, color)
+	ui.centered_txt(options, 7, color)
+	ui.centered_txt("⬅️/➡️ switch parameters", 116, color)
+	ui.centered_txt("⬆️/⬇️ adjust angle", 123, color)
 	
 	-- DEBUG
 	if debug then
