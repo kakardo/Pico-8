@@ -65,7 +65,7 @@ function _init()
 	scale = 30
 
 	selected = 0
-	shape = 1
+	shape = 4
 	
 	debug = false
 end

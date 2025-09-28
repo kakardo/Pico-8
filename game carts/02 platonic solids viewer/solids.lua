@@ -39,7 +39,12 @@ solids = {
 			{3,5}, {3,6}, {4,5}, {4,6}
 		}
 	},
-	{name="dodecahedron", dice="d12", color=11},
+	{	name="dodecahedron", dice="d12", color=11,
+		v = {
+			{-1,-1,-1},{-1,-1, 1},{-1, 1,-1},{-1, 1, 1},
+			{ 1,-1,-1},{ 1,-1, 1},{ 1, 1,-1},{ 1, 1, 1},
+		},
+	},
 	{name="icosahedron", dice="d20", color=12},
 }
 
