@@ -47,5 +47,21 @@ ui = {
 		ui.centered_txt(options, 7, color)
 		ui.centered_txt("⬅️/➡️ switch parameters", 116, color)
 		ui.centered_txt("⬆️/⬇️ adjust angle", 123, color)
+	end,
+
+	print_debug_menu = function(x, y, z, draw_buffer)
+		-- DEBUG
+		if debug then
+			print("debug",0,0,4)
+			print("x "..angle.get("x"),0,14,4)
+			print("y "..angle.get("y"),0,21,4)
+			print("z "..angle.get("z"),0,28,4)
+			print("buff "..#draw_buffer)
+			
+			-- Print saved error messages
+			for msg in all(error_msg) do
+				print(msg)
+			end
+		end
 	end
 }

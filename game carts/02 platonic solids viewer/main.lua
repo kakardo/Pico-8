@@ -166,20 +166,9 @@ function _draw()
 
 	ui.print_menu(solids[shape], angle.get_step("x"),
 		    	  angle.get_step("y"), angle.get_step("z"))
-	
-	-- DEBUG
-	if debug then
-		print("debug",0,0,4)
-		print("x "..angle.get("x"),0,14,4)
-		print("y "..angle.get("y"),0,21,4)
-		print("z "..angle.get("z"),0,28,4)
-		print("buff "..#draw_buffer)
-		
-		-- Print saved error messages
-		for msg in all(error_msg) do
-			print(msg)
-		end
-	end
+				  
+	ui.print_debug_menu(angle.get("x"), angle.get("y"),
+						angle.get("z"), draw_buffer)
 end
 
 -- LAST_LINE_MAIN_LUA
