@@ -163,12 +163,11 @@ end
 function _draw()
 	cls()
 
-
 	-- DRAW LINES WITH SAVED VERTICES
 	for seg in all(draw_buffer) do
 		line(seg[1], seg[2], seg[3], seg[4], seg[5])
 	end
- 
+
 	-- CONVERT LONG TEXT TO VARIABLES
 	text_shape = solids[shape].dice
 	text_x = "X= "..ceil(angle.get_step("x") * 1000)
@@ -207,7 +206,6 @@ function _draw()
 	print_centered_txt("⬅️/➡️ switch parameters", 116, color)
 	print_centered_txt("⬆️/⬇️ adjust angle", 123, color)
 	
-	
 	-- DEBUG
 	if debug then
 		print("debug",0,0,4)
@@ -215,11 +213,11 @@ function _draw()
 		print("y "..angle.get("y"),0,21,4)
 		print("z "..angle.get("z"),0,28,4)
 		print("buff "..#draw_buffer)
-	end
-
-	-- Print saved error messages
-	for msg in all(error_msg) do
-		print(msg)
+		
+		-- Print saved error messages
+		for msg in all(error_msg) do
+			print(msg)
+		end
 	end
 end
 
