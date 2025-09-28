@@ -3,10 +3,23 @@
 	@date 2025-09-26
 ]]--
 
--- Calculated the golden ratio
-phi = (1 + sqrt(5)) / 2
+solids = {	
+	init = function()
+		-- Calculated the golden ratio
+		phi = (1 + sqrt(5)) / 2
+		
+		-- Contruct vertices for D12 with phi
+		solids[4].v = {
+			-- 8 cube corners
+			{-1,-1,-1},{-1,-1, 1},{-1, 1,-1},{-1, 1, 1},
+			{ 1,-1,-1},{ 1,-1, 1},{ 1, 1,-1},{ 1, 1, 1},
+			-- 12 golden ratio points
+			{0,-1/phi,-phi},{0,-1/phi,phi},{0,1/phi,-phi},{0,1/phi,phi},
+			{-1/phi,-phi,0},{-1/phi,phi,0},{1/phi,-phi,0},{1/phi,phi,0},
+			{-phi,0,-1/phi},{phi,0,-1/phi},{-phi,0,1/phi},{phi,0,1/phi}
+		}
+	end,
 
-solids = {
 	{
 		name="tetrahedron", dice="d4", color=8,
 		v = { -- 4 vertices
@@ -43,14 +56,7 @@ solids = {
 		}
 	},
 	{	name="dodecahedron", dice="d12", color=11,
-		v = { -- 20 vertices
-			-- 8 cube corners
-			{-1,-1,-1},{-1,-1, 1},{-1, 1,-1},{-1, 1, 1},
-			{ 1,-1,-1},{ 1,-1, 1},{ 1, 1,-1},{ 1, 1, 1},
-			-- 12 golden ratio points
-			{0,-1/phi,-phi},{0,-1/phi,phi},{0,1/phi,-phi},{0,1/phi,phi},
-			{-1/phi,-phi,0},{-1/phi,phi,0},{1/phi,-phi,0},{1/phi,phi,0},
-			{-phi,0,-1/phi},{phi,0,-1/phi},{-phi,0,1/phi},{phi,0,1/phi}
+		v = {-- 20 vertices need to be built in init()			
 		},
 		e = {
 			{ 1, 9},{ 1,13},{ 1,17},
@@ -68,10 +74,12 @@ solids = {
 		
 	},
 	{name="icosahedron", dice="d20", color=12},
-}
 
-function solids.init()
-end
+	
+	phi_init = function()
+		return 
+	end
+}
 
 
 

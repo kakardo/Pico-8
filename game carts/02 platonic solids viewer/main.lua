@@ -64,6 +64,8 @@ function _init()
 	center_x, center_y = 64, 64
 	scale = 30
 
+	solids.init()
+
 	selected = 0
 	shape = 4
 	
