@@ -67,63 +67,7 @@ function _init()
 end
 
 function _update()
-	-- Horizontal
-	if btnp(0) then
-		if selected == 0 then
-			selected = 3
-		else
-			selected -= 1
-		end
-	end
-	if btnp(1) then
-		if selected == 3 then
-			selected = 0
-		else
-			selected += 1
-		end
-	end
-
-	-- Vertical
-	if btnp(2) then
-		if selected == 0 then
-			if shape == 5 then
-				shape = 1
-			else
-				shape += 1
-			end
-		elseif selected == 1 then
-			angle.step_up("x")
-		elseif selected == 2 then
-			angle.step_up("y")
-		else
-			angle.step_up("z")
-		end
-	end
-	if btnp(3) then
-		if selected == 0 then
-			if shape == 1 then
-				shape = 5
-			else
-				shape -= 1
-			end
-		elseif selected == 1 then
-			angle.step_down("x")
-		elseif selected == 2 then
-			angle.step_down("y")
-		else
-			angle.step_down("z")
-		end
-	end
-	
-	-- SWITCHABLE NORMAL VS DEBUG MODE (X-KEY)
-	if btnp(5) then
-		if debug then
-			debug = false
-		else
-			debug = true
-		end
-	end
-	
+	ui.input_handler()
 	angle.update()
 	
 	-- SAVE ROTATED VERTICES
@@ -168,7 +112,7 @@ function _draw()
 		    	  angle.get_step("y"), angle.get_step("z"))
 				  
 	ui.print_debug_menu(angle.get("x"), angle.get("y"),
-						angle.get("z"), draw_buffer)
+						angle.get("z"), draw_buffer, error_msg)
 end
 
 -- LAST_LINE_MAIN_LUA

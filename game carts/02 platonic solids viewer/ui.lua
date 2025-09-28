@@ -9,6 +9,65 @@ ui = {
 		print(txt, x_pos, y_pos, txt_color)
 	end,
 
+	input_handler = function()
+		-- HORIZONTAL
+		if btnp(0) then
+			if selected == 0 then
+				selected = 3
+			else
+				selected -= 1
+			end
+		end
+		if btnp(1) then
+			if selected == 3 then
+				selected = 0
+			else
+				selected += 1
+			end
+		end
+		
+		-- VERTICAL
+		if btnp(2) then
+			if selected == 0 then
+				if shape == 5 then
+					shape = 1
+				else
+					shape += 1
+				end
+			elseif selected == 1 then
+				angle.step_up("x")
+			elseif selected == 2 then
+				angle.step_up("y")
+			else
+				angle.step_up("z")
+			end
+		end
+		if btnp(3) then
+			if selected == 0 then
+				if shape == 1 then
+					shape = 5
+				else
+					shape -= 1
+				end
+			elseif selected == 1 then
+				angle.step_down("x")
+			elseif selected == 2 then
+				angle.step_down("y")
+			else
+				angle.step_down("z")
+			end
+		end
+		
+		-- SWITCHABLE NORMAL VS DEBUG MODE (X-KEY)
+		if btnp(5) then
+			if debug then
+				debug = false
+			else
+				debug = true
+			end
+		end		
+	end,
+
 	print_menu = function(shape, x, y, z)
 		dice_label = shape.dice
 		color = shape.color
@@ -49,7 +108,7 @@ ui = {
 		ui.centered_txt("⬆️/⬇️ adjust angle", 123, color)
 	end,
 
-	print_debug_menu = function(x, y, z, draw_buffer)
+	print_debug_menu = function(x, y, z, draw_buffer, error_msg)
 		-- DEBUG
 		if debug then
 			print("debug",0,0,4)
