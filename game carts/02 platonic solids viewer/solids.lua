@@ -1,9 +1,12 @@
 --[[ SOLIDS.LUA
 	@author Kardo Rostam
 	@date 2025-09-26
+	
+	Need to be initiated with init() for D12 to work.
+	init() uses phi to create golden ratio points for D12.
 ]]--
 
-solids = {	
+solids = {
 	init = function()
 		-- Calculated the golden ratio
 		phi = (1 + sqrt(5)) / 2
@@ -74,11 +77,6 @@ solids = {
 		
 	},
 	{name="icosahedron", dice="d20", color=12},
-
-	
-	phi_init = function()
-		return 
-	end
 }
 
 
