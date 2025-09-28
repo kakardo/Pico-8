@@ -21,6 +21,13 @@ solids = {
 			{-1/phi,-phi,0},{-1/phi,phi,0},{1/phi,-phi,0},{1/phi,phi,0},
 			{-phi,0,-1/phi},{phi,0,-1/phi},{-phi,0,1/phi},{phi,0,1/phi}
 		}
+		
+		solids[5].v = {
+			-- 12 golden ratio points
+			{ 0, 1, phi},{ 0,-1, phi},{ 0, 1,-phi},{ 0,-1,-phi},
+			{ 1, phi, 0},{-1, phi, 0},{ 1,-phi, 0},{-1,-phi, 0},
+			{ phi, 0, 1},{ phi, 0,-1},{-phi, 0, 1},{-phi, 0,-1}
+		}
 	end,
 
 	{
@@ -58,7 +65,8 @@ solids = {
 			{3,5}, {3,6}, {4,5}, {4,6}
 		}
 	},
-	{	name="dodecahedron", dice="d12", color=11,
+	{
+		name="dodecahedron", dice="d12", color=11,
 		v = {-- 20 vertices need to be built in init()			
 		},
 		e = {
@@ -76,7 +84,13 @@ solids = {
 		},
 		
 	},
-	{name="icosahedron", dice="d20", color=12},
+	{
+		name="icosahedron", dice="d20", color=12,
+		v = {-- 12 vertices need to be built in init()
+		},
+		e = {
+		},
+	},
 }
 
 

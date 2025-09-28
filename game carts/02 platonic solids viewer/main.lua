@@ -61,7 +61,7 @@ function _init()
 	solids.init()
 
 	selected = 0
-	shape = 4
+	shape = 5
 	
 	debug = false
 end
@@ -97,7 +97,7 @@ function _update()
 		add(error_msg, "error draw_buffer size (d12)")
 	elseif shape == 5 and #draw_buffer != 12 then
 		add(error_msg, "error draw_buffer size (d20)")
-	end	
+	end
 end
 
 function _draw()
@@ -108,6 +108,7 @@ function _draw()
 		line(seg[1], seg[2], seg[3], seg[4], seg[5])
 	end
 
+	-- PRINT MENU
 	ui.print_menu(solids[shape], angle.get_step("x"),
 		    	  angle.get_step("y"), angle.get_step("z"))
 				  
