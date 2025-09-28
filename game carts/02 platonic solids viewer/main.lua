@@ -164,43 +164,8 @@ function _draw()
 		line(seg[1], seg[2], seg[3], seg[4], seg[5])
 	end
 
-	-- CONVERT LONG TEXT TO VARIABLES
-	text_shape = solids[shape].dice
-	text_x = "X= "..ceil(angle.get_step("x") * 1000)
-	text_y = "Y= "..ceil(angle.get_step("y") * 1000)
-	text_z = "Z= "..ceil(angle.get_step("z") * 1000)
-
-	-- HIGHLIGHT CHOSEN OPTION
-	if selected == 0 then
-		text_shape = "<"..text_shape..">"
-		text_x = " "..text_x.." "
-		text_y = " "..text_y.." "
-		text_z = " "..text_z.." "
-	elseif selected == 1 then
-		text_shape = " "..text_shape.." "
-		text_x = "<"..text_x..">"
-		text_y = " "..text_y.." "
-		text_z = " "..text_z.." "
-	elseif selected == 2 then
-		text_shape = " "..text_shape.." "
-		text_x = " "..text_x.." "
-		text_y = "<"..text_y..">"
-		text_z = " "..text_z.." "
-	else
-		text_shape = " "..text_shape.." "
-		text_x = " "..text_x.." "
-		text_y = " "..text_y.." "
-		text_z = "<"..text_z..">"
-	end
-	
-	-- OPTION MENU
-	color = solids[shape].color
-	options = text_shape.." "..text_x.." "..text_y.." "..text_z
-
-	ui.centered_txt(solids[shape].name, 0, color)
-	ui.centered_txt(options, 7, color)
-	ui.centered_txt("⬅️/➡️ switch parameters", 116, color)
-	ui.centered_txt("⬆️/⬇️ adjust angle", 123, color)
+	ui.print_menu(solids[shape], angle.get_step("x"),
+		    	  angle.get_step("y"), angle.get_step("z"))
 	
 	-- DEBUG
 	if debug then
