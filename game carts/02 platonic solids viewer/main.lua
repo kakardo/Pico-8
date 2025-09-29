@@ -2,7 +2,8 @@
 	- Main loop of the program.
 	@author Kardo Rostam
 	@date 2025-09-15
-		
+	HTML & JS GENERATED: 2025-09-29
+	
 	https://en.wikipedia.org/wiki/Platonic_solid
 	https://en.wikipedia.org/wiki/3D_projection
 	https://en.wikipedia.org/wiki/Orthographic_projection
