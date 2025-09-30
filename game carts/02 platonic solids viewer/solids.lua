@@ -55,11 +55,11 @@ solids = {
 	},
 	{
 		name="octahedron", dice="d8", color=10,
-		v = {
+		v = { -- 6 vertices
 			{ 1, 0, 0}, {-1, 0, 0}, { 0, 1, 0},
 			{ 0,-1, 0}, { 0, 0, 1}, { 0, 0,-1}
 		},
-		e = { -- connects to all except its opposite
+		e = { -- 12 edges connects to all except its opposite
 			{1,3}, {1,4}, {1,5}, {1,6},
 			{2,3}, {2,4}, {2,5}, {2,6},
 			{3,5}, {3,6}, {4,5}, {4,6}
@@ -69,7 +69,7 @@ solids = {
 		name="dodecahedron", dice="d12", color=11,
 		v = {-- 20 vertices need to be built in init()			
 		},
-		e = {
+		e = { -- 30 edges
 			{ 1, 9},{ 1,13},{ 1,17},
 			{ 2,10},{ 2,13},{ 2,19},
 			{ 3,11},{ 3,14},{ 3,17},
@@ -88,7 +88,7 @@ solids = {
 		name="icosahedron", dice="d20", color=12,
 		v = {-- 12 vertices need to be built in init()
 		},
-		e = {
+		e = { -- 30 edges
 			{ 1, 2},{ 1, 5},{ 1, 6},{ 1, 9},{ 1,11},
 			{ 2, 7},{ 2, 8},{ 2, 9},{ 2,11},
 			{ 3, 4},{ 3, 5},{ 3, 6},{ 3,10},{ 3,12},
