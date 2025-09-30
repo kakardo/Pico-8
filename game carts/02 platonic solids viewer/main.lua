@@ -96,7 +96,7 @@ function _update()
 		add(error_msg, "error draw_buffer size (d8)")
 	elseif shape == 4 and #draw_buffer != 30 then
 		add(error_msg, "error draw_buffer size (d12)")
-	elseif shape == 5 and #draw_buffer != 12 then
+	elseif shape == 5 and #draw_buffer != 30 then
 		add(error_msg, "error draw_buffer size (d20)")
 	end
 end
