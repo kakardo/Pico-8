@@ -57,7 +57,7 @@ end
 --[[ MAIN - - - - - - - - - - - - ]]--
 function _init()
 	center_x, center_y = 64, 64
-	scale = 30
+	scale = 25
 
 	solids.init()
 
