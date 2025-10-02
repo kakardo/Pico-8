@@ -29,24 +29,30 @@ solids = {
 			{ phi, 0, 1},{ phi, 0,-1},{-phi, 0, 1},{-phi, 0,-1}
 		}
 		
+		-- Makes the shapes roughly the same size by
+		-- limiting the distance between verices
 		for i = 1, #solids do
-			if solids[i].v > 0 and #solids[i].v > 0 then
+			if solids[i].v and #solids[i].v > 0 then
 				local largest_distance = 0
-				
+
 				for v in all(solids[i].v) do
 					-- Distance of vertex from origin
 					local r = sqrt(v[1]^2+v[2]^2+v[3]^2)
-					
+
 					-- Save the largest found distance
 					if r > largest_distance then
 						largest_distance = r
 					end
 				end
-				
-				
-				
-				
-				
+
+				-- Scales all vertices so max distance = 1
+				if largest_distance > 0 then
+					for v in all(solids[i].v) do
+						v[1] /= largest_distance
+						v[2] /= largest_distance
+						v[3] /= largest_distance
+					end
+				end
 			end
 		end
 	end,

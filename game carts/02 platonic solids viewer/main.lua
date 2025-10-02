@@ -10,13 +10,6 @@
 	https://en.wikipedia.org/wiki/Perspective_(graphical)
 	- Linear algebra's needed for matrix calculations.
 
-	TODO
-	- Implement the five platonic solids:
-		Regular dodecahedron
-		Regular icosahedron 
-	- Implement two perspective:
-		Orthographic (ignores depth)
-		Perspective
 	- Make them appear the same size. The solids don't have the
 	  same radius to origin as each other. Octahedron's a good
 	  example. It renders really small compared to D4 and D6.
@@ -57,7 +50,7 @@ end
 --[[ MAIN - - - - - - - - - - - - ]]--
 function _init()
 	center_x, center_y = 64, 64
-	scale = 25
+	scale = 48
 
 	solids.init()
 
