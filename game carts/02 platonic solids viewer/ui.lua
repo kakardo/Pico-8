@@ -113,7 +113,7 @@ ui = {
 		ui.centered_txt(shape.name, 0, color)
 		ui.centered_txt(options, 7, color)
 		ui.centered_txt("⬅️/➡️ switch parameters", 116, color)
-		ui.centered_txt("⬆️/⬇️ adjust angle", 123, color)
+		ui.centered_txt("⬆️/⬇️ adjust rotation speed", 123, color)
 	end,
 
 	print_debug_menu = function(x, y, z, draw_buffer, error_msg)
