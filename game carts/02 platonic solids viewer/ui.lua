@@ -77,24 +77,32 @@ ui = {
 		y = "Y= "..ceil(y * 1000)
 		z = "Z= "..ceil(z * 1000)
 
+		-- MENU STABILIZATION FOR SINGLE DIGIT DICES
+		local space = ""
+		if	dice_label == "d4" or
+			dice_label == "d6" or
+			dice_label == "d8" then
+			space = " "
+		end
+		
 		-- HIGHLIGHT CHOSEN OPTION
 		if selected == 0 then
-			dice_label = "<"..dice_label..">"
+			dice_label = "<"..dice_label..">"..space
 			x = " "..x.." "
 			y = " "..y.." "
 			z = " "..z.." "
 		elseif selected == 1 then
-			dice_label = " "..dice_label.." "
+			dice_label = " "..dice_label.." "..space
 			x = "<"..x..">"
 			y = " "..y.." "
 			z = " "..z.." "
 		elseif selected == 2 then
-			dice_label = " "..dice_label.." "
+			dice_label = " "..dice_label.." "..space
 			x = " "..x.." "
 			y = "<"..y..">"
 			z = " "..z.." "
 		else
-			dice_label = " "..dice_label.." "
+			dice_label = " "..dice_label.." "..space
 			x = " "..x.." "
 			y = " "..y.." "
 			z = "<"..z..">"
@@ -105,7 +113,7 @@ ui = {
 		ui.centered_txt(shape.name, 0, color)
 		ui.centered_txt(options, 7, color)
 		ui.centered_txt("⬅️/➡️ switch parameters", 116, color)
-		ui.centered_txt("⬆️/⬇️ adjust angle", 123, color)
+		ui.centered_txt("⬆️/⬇️ adjust rotation speed", 123, color)
 	end,
 
 	print_debug_menu = function(x, y, z, draw_buffer, error_msg)

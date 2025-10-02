@@ -10,13 +10,6 @@
 	https://en.wikipedia.org/wiki/Perspective_(graphical)
 	- Linear algebra's needed for matrix calculations.
 
-	TODO
-	- Implement the five platonic solids:
-		Regular dodecahedron
-		Regular icosahedron 
-	- Implement two perspective:
-		Orthographic (ignores depth)
-		Perspective
 	- Make them appear the same size. The solids don't have the
 	  same radius to origin as each other. Octahedron's a good
 	  example. It renders really small compared to D4 and D6.
@@ -57,7 +50,7 @@ end
 --[[ MAIN - - - - - - - - - - - - ]]--
 function _init()
 	center_x, center_y = 64, 64
-	scale = 30
+	scale = 48
 
 	solids.init()
 
@@ -96,7 +89,7 @@ function _update()
 		add(error_msg, "error draw_buffer size (d8)")
 	elseif shape == 4 and #draw_buffer != 30 then
 		add(error_msg, "error draw_buffer size (d12)")
-	elseif shape == 5 and #draw_buffer != 12 then
+	elseif shape == 5 and #draw_buffer != 30 then
 		add(error_msg, "error draw_buffer size (d20)")
 	end
 end
