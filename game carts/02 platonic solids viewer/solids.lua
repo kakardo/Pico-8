@@ -28,6 +28,27 @@ solids = {
 			{ 1, phi, 0},{-1, phi, 0},{ 1,-phi, 0},{-1,-phi, 0},
 			{ phi, 0, 1},{ phi, 0,-1},{-phi, 0, 1},{-phi, 0,-1}
 		}
+		
+		for i = 1, #solids do
+			if solids[i].v > 0 and #solids[i].v > 0 then
+				local largest_distance = 0
+				
+				for v in all(solids[i].v) do
+					-- Distance of vertex from origin
+					local r = sqrt(v[1]^2+v[2]^2+v[3]^2)
+					
+					-- Save the largest found distance
+					if r > largest_distance then
+						largest_distance = r
+					end
+				end
+				
+				
+				
+				
+				
+			end
+		end
 	end,
 
 	{
