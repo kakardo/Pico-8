@@ -21,3 +21,5 @@
   The D12 I made came out stretched. I learned that I needed to use the golden ratio (φ) to make regular pentagons. With this I can make all angles 108° and all edges the same length. It's not just aesthetically pleasing, but one of the requirements according to the definition of what makes a platonic solid.
 
   The D20's made up of equal triangles with 60° angles. The edges run in different direction in 3D, and I could use phi in the coordinate to make sure all the edges were the same length no matter what direction.
+
+  Last problem was that the shapes were not the same size in relation to each other. Their corners were different distances from the center. The biggest difference was the octahedron with 1 in length, while for example the cube had √3. This made the D8 seem a lot smaller. My solution was to limit the distance to corners, so the furthest distance a corner can be is 1.
