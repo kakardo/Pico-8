@@ -1,9 +1,9 @@
 --[[ SOLIDS.LUA
-	@author Kardo Rostam
+	@author Kardo Rostam (https://github.com/kakardo/Pico-8)
 	@date 2025-10-03
 	
-	Need to be initiated with init() for D12 to work.
-	init() uses phi to create golden ratio points for D12.
+	Need to be initiated with init() for D12 and D20 to project
+	correctly. init() uses phi to create golden ratio points.
 ]]--
 
 solids = {
@@ -130,11 +130,4 @@ solids = {
 	},
 }
 
-
-
-
-
-
-
-
-
+-- LAST_LINE_OF_SOLIDS_LUA

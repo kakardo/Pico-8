@@ -1,5 +1,5 @@
 --[[ ANGLE.LUA
-	@author Kardo Rostam
+	@author Kardo Rostam (https://github.com/kakardo/Pico-8)
 	@date 2025-10-03
 ]]--
 
@@ -74,3 +74,5 @@ angle =
 		return error_msg
 	end
 }
+
+-- LAST_LINE_OF_ANGLE_LUA

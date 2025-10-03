@@ -1,5 +1,5 @@
 --[[ UI.LUA
-	@author Kardo Rostam
+	@author Kardo Rostam (https://github.com/kakardo/Pico-8)
 	@date 2025-10-03
 ]]--
 
@@ -132,3 +132,5 @@ ui = {
 		end
 	end
 }
+
+-- LAST_LINE_OF_UI_LUA

@@ -1,4 +1,4 @@
---[[ MAIN.LUA (start 2025-09-15)
+--[[ MAIN.LUA
 	@author Kardo Rostam (https://github.com/kakardo/Pico-8)
 	@date 2025-10-03
 	
@@ -8,9 +8,10 @@
 	https://en.wikipedia.org/wiki/Perspective_(graphical)
 
 	VERSION 1.0 (2025-10-03)
-	- Linear algebra's needed for matrix calculations.
-	- Adjustable speed parameters in menu.
+	- Orthographic projection of the five platonic solids.
 	- Menu allows toggling between platonic solids.
+	- Rotational matrix calculations with linear algebra.
+	- Menu allows adjustable speed parameters.
 
 	I wanted to draw something generated and animated by 
 	calculations, and my dices from my TTRPG-days came to mind.
@@ -40,11 +41,11 @@
 	a corner can be is 1.
 		
 	I was almost done with the project when I tried some 
-	encapsulation. I belive my next project will be written 
+	encapsulation. I believe my next project will be written 
 	with OOP.
 	
 	TODO
-	- Implement orthographic projection of solids.
+	- Implement perspective projection of solids.
 ]]--
 
 --[[ ROTATION - - - - - - - - - - ]]--
@@ -142,4 +143,4 @@ function _draw()
 						angle.get("z"), draw_buffer, error_msg)
 end
 
--- LAST_LINE_MAIN_LUA
+-- LAST_LINE_OF_MAIN_LUA

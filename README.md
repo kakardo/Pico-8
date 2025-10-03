@@ -24,4 +24,4 @@
 
   Last problem was that the shapes were not the same size in relation to each other. Their corners were different distances from the center. The biggest difference was the octahedron with 1 in length, while for example the cube had √3. This made the D8 seem a lot smaller. My solution was to limit the distance to corners, so the furthest distance a corner can be is 1.
 
-  I was almost done with the project when I tried some encapsulation. I belive my next project will be written with OOP.
+  I was almost done with the project when I tried some encapsulation. I believe my next project will be written with OOP.
