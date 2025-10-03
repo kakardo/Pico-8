@@ -1,6 +1,6 @@
 --[[ SOLIDS.LUA
 	@author Kardo Rostam
-	@date 2025-09-26
+	@date 2025-10-03
 	
 	Need to be initiated with init() for D12 to work.
 	init() uses phi to create golden ratio points for D12.

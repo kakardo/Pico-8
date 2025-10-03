@@ -1,18 +1,50 @@
---[[ MAIN.LUA
-	- Main loop of the program.
-	@author Kardo Rostam
-	@date 2025-09-15
-	HTML & JS GENERATED: 2025-09-29
+--[[ MAIN.LUA (start 2025-09-15)
+	@author Kardo Rostam (https://github.com/kakardo/Pico-8)
+	@date 2025-10-03
 	
 	https://en.wikipedia.org/wiki/Platonic_solid
 	https://en.wikipedia.org/wiki/3D_projection
 	https://en.wikipedia.org/wiki/Orthographic_projection
 	https://en.wikipedia.org/wiki/Perspective_(graphical)
-	- Linear algebra's needed for matrix calculations.
 
-	- Make them appear the same size. The solids don't have the
-	  same radius to origin as each other. Octahedron's a good
-	  example. It renders really small compared to D4 and D6.
+	VERSION 1.0 (2025-10-03)
+	- Linear algebra's needed for matrix calculations.
+	- Adjustable speed parameters in menu.
+	- Menu allows toggling between platonic solids.
+
+	I wanted to draw something generated and animated by 
+	calculations, and my dices from my TTRPG-days came to mind.
+	 When I had decided on how I wanted to structure the 
+	program, the D4, D6 and D8 was not so hard to implement. 
+	The D12 and D20 was a little bit unexpected and became 
+	quite complex for me in the beginning of this project.
+
+	The D12 I made came out stretched. I learned that I needed
+	 to use the golden ratio (φ) to make regular pentagons. 
+	With this I can make all angles 108° and all edges the same
+	 length. It's not just aesthetically pleasing, but one of 
+	the requirements according to the definition of what makes 
+	a platonic solid.
+
+	The D20's made up of equal triangles with 60° angles. The 
+	edges run in different direction in 3D, and I could use phi
+	 in the coordinate to make sure all the edges were the same
+	 length no matter what direction.
+
+	Last problem was that the shapes were not the same size in
+	 relation to each other. Their corners were different 
+	distances from the center. The biggest difference was the 
+	octahedron with 1 in length, while for example the cube had
+	 √3. This made the D8 seem a lot smaller. My solution was 
+	to limit the distance to corners, so the furthest distance 
+	a corner can be is 1.
+		
+	I was almost done with the project when I tried some 
+	encapsulation. I belive my next project will be written 
+	with OOP.
+	
+	TODO
+	- Implement orthographic projection of solids.
 ]]--
 
 --[[ ROTATION - - - - - - - - - - ]]--
