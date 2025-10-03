@@ -24,7 +24,7 @@ angle =
 		elseif coordinate == "z" then
 			return angle.z
 		else
-			add(error_msg, "error angle.get")
+			add(angle.error_msg, "error angle.get")
 		end
 	end,
 	
@@ -36,7 +36,7 @@ angle =
 		elseif coordinate == "z" then
 			return angle.z_step
 		else
-			add(error_msg, "error angle.get_step")
+			add(angle.error_msg, "error angle.get_step")
 		end
 	end,
 	
@@ -48,7 +48,7 @@ angle =
 		elseif coordinate == "z" then
 			angle.z_step += angle.step_size
 		else
-			add(error_msg, "error angle.step_up")
+			add(angle.error_msg, "error angle.step_up")
 		end
 	end,
 
@@ -60,7 +60,7 @@ angle =
 		elseif coordinate == "z" then
 			angle.z_step -= angle.step_size
 		else
-			add(error_msg, "error angle.step_down")
+			add(angle.error_msg, "error angle.step_down")
 		end
 	end,
 

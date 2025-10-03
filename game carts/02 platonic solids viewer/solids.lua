@@ -9,7 +9,7 @@
 solids = {
 	init = function()
 		-- Calculated the golden ratio
-		phi = (1 + sqrt(5)) / 2
+		local phi = (1 + sqrt(5)) / 2
 		
 		-- Contruct vertices for D12 with phi
 		solids[4].v = {
