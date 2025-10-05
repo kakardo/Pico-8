@@ -45,6 +45,15 @@ function is_fruit_eaten()
 		add(body.x, body.last_tail_pos_x)
 		add(body.y, body.last_tail_pos_y)
 
+		-- Assign shape for new last segment (after growing)
+		local previouse_pos = convert_coordinate_to_index(
+			body.x[body.segments-1], body.y[body.segments-1]
+		)
+		local new_pos = convert_coordinate_to_index(
+			body.x[body.segments], body.y[body.segments]
+		)
+		body.pos_dir[new_pos] = body.pos_dir[previouse_pos]
+
 		score += 10
 
 		--printh("F.X: "..fruit.x.." F.Y:"..fruit.y)

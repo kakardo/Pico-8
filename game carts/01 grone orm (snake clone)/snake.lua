@@ -15,7 +15,7 @@
 head = {}
 body = {}
 
-local snake_starting_length = 3
+local snake_starting_length = 10
 local snake_starting_coordinate = 64
 local snake_starting_direction = 1
 
@@ -90,9 +90,7 @@ function update_snake(button_pushed)
 
 	-- TODO make it an option if player wants this safety net
 	if isTurningSafe or isForwardSafe then
-		if not isTurningSafe then
-			print("YES")
-			
+		if not isTurningSafe then			
 			-- Remove to have snake only turn if button is
 			-- is pressed correctly on a possible path.
 			-- Include this to have snake take chosen turn when possible
@@ -104,7 +102,6 @@ function update_snake(button_pushed)
 
 			move_head(new_dir)
 		else
-			print("NO")
 			head.dir = new_dir
 		end
 		
