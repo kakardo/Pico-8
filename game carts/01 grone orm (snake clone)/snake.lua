@@ -1,4 +1,4 @@
---[[ MOVEMENT.LUA 
+--[[ SNAKE.LUA 
 	- Functions connected to the body
 	  and head of the snake.
 	@date 2025-07-14
@@ -286,4 +286,4 @@ function is_alive(min, max)
 	end
 end
 
-// LAST_LINE_SNAKE_LUA
+// LAST_LINE_OF_SNAKE_LUA

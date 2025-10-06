@@ -15,9 +15,6 @@
 	3 = down
 ]]--
 
--- TABLES AND VARIABLES
-local went_backwards = false
-
 -- Stores pressed button direction until move update
 function check_button_push()
 	if (btn(0))	then
@@ -31,13 +28,14 @@ function check_button_push()
 	end
 end
 
+-- Toggle in snake.lua -> update_snake()
 function ignore_button_push(previous_button_input)
 	button_pushed = previous_button_input
 end
 
 -- Move snake and update variable "just_moved" to TRUE
 function move()
-	went_backwards = avert_going_backwards()
+	avert_going_backwards()
 	update_snake(button_pushed)
 	just_moved = true
 end
@@ -45,19 +43,13 @@ end
 function avert_going_backwards()
 	if button_pushed == 0 and head.dir == 1 then
 		button_pushed = head.dir
-		return true
 	elseif button_pushed == 1 and head.dir == 0 then
 		button_pushed = head.dir
-		return true
 	elseif button_pushed == 2 and head.dir == 3 then
 		button_pushed = head.dir
-		return true
 	elseif button_pushed == 3 and head.dir == 2 then
 		button_pushed = head.dir
-		return true
 	end
-	
-	return false
 end
 
-// LAST_LINE_MOVEMENT_LUA
+// LAST_LINE_OF_MOVEMENT_LUA

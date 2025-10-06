@@ -72,4 +72,4 @@ function is_occupied(table, x, y)
 	end
 end
 
-// LAST_LINE_CELLS_LUA
+// LAST_LINE_OF_CELLS_LUA

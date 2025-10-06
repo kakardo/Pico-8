@@ -62,4 +62,4 @@ function is_fruit_eaten()
 	end
 end
 
-// LAST_LINE_FRUIT_LUA
+// LAST_LINE_OF_FRUIT_LUA

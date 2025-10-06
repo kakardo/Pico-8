@@ -142,4 +142,4 @@ function print_centered(str, x, y, color)
 	print(str, x_centered, y_centered, color)
 end
 
-// LAST_LINE_MAIN_LUA
+// LAST_LINE_OF_MAIN_LUA
