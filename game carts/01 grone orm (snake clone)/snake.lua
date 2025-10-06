@@ -6,9 +6,17 @@
 	FUNCTIONS
 	- init_head()
 	- init_body()
-	- update_snake()
+	- update_snake(button_pushed)
+	- update_tail_dir(x, y, segment)
+	- calculate_body_piece(old_dir, new_dir)
+	- add_new_shape(shape_index)
+	- check_if_safe(new_dir, x, y)
+	- move_head(direction)
 	- draw_snake()
-	- is_alive()
+	- draw_tail()
+	- convert_to_tail(dir1, dir2, shape1, shape2)
+	- get_shape(index)
+  - is_alive(min, max)
 ]]--
 
 -- TABLES AND VARIABLES

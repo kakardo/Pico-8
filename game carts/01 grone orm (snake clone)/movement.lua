@@ -5,6 +5,7 @@
 
 	FUNCTIONS
 	- check_button_push()
+	- ignore_button_push(previous_button_input)
 	- move()
 	- avert_going_backwards()
 	
