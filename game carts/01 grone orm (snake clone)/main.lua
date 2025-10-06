@@ -23,10 +23,10 @@
 	- Snakes body's visually linked together. Shapes (vertical, <2025-08-06>
       horizontal and corners) are dynamically placed depending
 	  on path, and tail's dynamically rotated accordingly.
-
+	- When heading for collision with tail tile from the side:
+			tail will have time to move away unless we grow by
+			eating the same movement step / tick.                   <2025-10-06>
 	TODO
-	- Fix: snake dies if heading for tail that should have had
-	  the time to move away. Incorrect collision.
 	- Make suicide turn a toggle-able option.
 	- Increase speed at certain lengths.
 	- Possibility to dash for higher score.
@@ -36,14 +36,10 @@
 	- [SOUND] Fruit
 	- [SOUND] Snake crawl
 	- [SOUND] Game over
-	
-	KNOWN BUGS
-	- Tail becomes an error cube sometimes.
-	- Can crawl through tail sometimes without dying.
 ]]--
 
 -- TABLES AND VARIABLES
---TODO Limit scale use. Mark variables that has been scaled.
+-- TODO Limit scale use. Mark variables that has been scaled.
 scale = 8 -- size of game steps
 min = 0
 max = 128
@@ -59,11 +55,7 @@ tick_count = 0
 score = 0
 
 print_tests = true
-
 ---------------------------------------------------------------
---[[ TODO
-
-]]--
 
 function _init()
 	-- Cell tables
