@@ -12,11 +12,11 @@
 	- Four colors (not black and white!).
 	- No going backwards into body.
 	@version 1.1
-	- No suicide turning (a command that turnes snake into      <2025-07-25>
+	- No suicide turning (a command that turns snake into      <2025-07-25>
 	  its own body within an 1-step move even though the path
 	  ahead is clear and the death could have been avoided).
 	- Fruit never spawns on top of the snake. The spawning
-	  position's randomised from table of available locations.  <2025-07-29>
+	  position's randomized from table of available locations.  <2025-07-29>
 	- Game over screen show score, length and instruction on    <2025-07-29>
 	  how to restart.
 	- Crawling into your own body leads to GAME OVER.           <2025-07-31>
@@ -27,7 +27,7 @@
 	TODO
 	- Fix: snake dies if heading for tail that should have had
 	  the time to move away. Incorrect collision.
-	- Make suicide turn a toggleable option.
+	- Make suicide turn a toggle-able option.
 	- Increase speed at certain lengths.
 	- Possibility to dash for higher score.
 	- [VISUAL] Start screen.
@@ -104,7 +104,7 @@ function _draw()
 		draw_fruit()
 	else
 		print_centered("score: "..score,32,32,9)
-		print_centered("lenght: "..body.segments+1,96,32,11)
+		print_centered("length: "..body.segments+1,96,32,11)
 		print_centered("game over",64,64,8)
 		print_centered("press \"ctr + r\" to restart",64,72,13)
 	end

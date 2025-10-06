@@ -22,7 +22,7 @@ end
 function spawn_fruit()	
 	-- Converts available fruit coordinate to X & Y positions
 	-- No scale multiplier added yet
-	index = flr(rnd(#available_cells))+1
+	index = flr(rnd(#available_cells)) + 1
 	coordinate = available_cells[index]
 	new_x = coordinate % max
 	new_y = flr(coordinate / max)
@@ -36,7 +36,7 @@ function spawn_fruit()
 end
 
 function draw_fruit()
-	spr(4,fruit.x,fruit.y)
+	spr(4, fruit.x, fruit.y)
 end
 
 function is_fruit_eaten()
@@ -46,13 +46,13 @@ function is_fruit_eaten()
 		add(body.y, body.last_tail_pos_y)
 
 		-- Assign shape for new last segment (after growing)
-		local previouse_pos = convert_coordinate_to_index(
-			body.x[body.segments-1], body.y[body.segments-1]
+		local previous_pos = convert_coordinate_to_index(
+			body.x[body.segments - 1], body.y[body.segments - 1]
 		)
 		local new_pos = convert_coordinate_to_index(
 			body.x[body.segments], body.y[body.segments]
 		)
-		body.pos_dir[new_pos] = body.pos_dir[previouse_pos]
+		body.pos_dir[new_pos] = body.pos_dir[previous_pos]
 
 		score += 10
 
