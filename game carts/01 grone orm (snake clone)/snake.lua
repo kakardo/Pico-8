@@ -194,16 +194,21 @@ function check_if_safe(new_dir, x, y)
 		y += scale * (step) -- DOWN
 	end
 	
+	-- Check bounds
+	if x < min or x >= max or y < min or y >= max then
+		return false
+	end
+
 	local tail_x = body.x[body.segments]
 	local tail_y = body.y[body.segments]
 	local will_grow = (x == fruit.x and y == fruit.y)
 	
 	-- Current tail tile will move away unless we grow by eating
-	if not grow and (x == tail_x and y == tail_y) then
+	if not will_grow and (x == tail_x and y == tail_y) then
 		return true
 	end
 
-	-- Current tile not tail, so run regular check
+	-- Current tile != tail tile, so run regular check
 	if is_occupied(empty_cells, x, y) then
 		return false
 	else
