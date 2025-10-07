@@ -18,21 +18,21 @@
 
 -- Stores pressed button direction until move update
 function check_button_push()
-	if (btn(0))	then
-		button_pushed = 0 -- LEFT
-	elseif (btn(1)) then
-		button_pushed = 1 -- RIGHT
-	elseif (btn(2)) then
-		button_pushed = 2 -- UP
-	elseif (btn(3)) then
-		button_pushed = 3 -- DOWN
-	end
+	local dir = -1
+
+	if (btn(0))	dir = 0 -- LEFT
+	if (btn(1)) dir = 1 -- RIGHT
+	if (btn(2)) dir = 2 -- UP
+	if (btn(3)) dir = 3 -- DOWN
+	if dir == -1 then return end
+
+	update_next_dir(dir)
 end
 
--- Toggle in snake.lua -> update_snake()
+--[[-- Toggle in snake.lua -> update_snake()
 function ignore_button_push(previous_button_input)
-	button_pushed = previous_button_input
-end
+	new_dir = previous_button_input
+end]]--
 
 -- Move snake and update variable "just_moved" to TRUE
 function move()

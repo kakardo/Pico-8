@@ -26,6 +26,8 @@
 	- When heading for collision with tail tile from the side:
 			tail will have time to move away unless we grow by
 			eating the same movement step / tick.                   <2025-10-06>
+	- Input buffering (instead of polling).                     <2025-10-07>
+
 	TODO
 	- Make suicide turn a toggle-able option.
 	- Increase speed at certain lengths.
@@ -44,7 +46,6 @@ scale = 8 -- size of game steps
 min = 0
 max = 128
 
-button_pushed = 1
 just_moved = false
 step = 1
 
@@ -123,7 +124,7 @@ function game_state_checker()
 		print("available:"..#available_cells)
 		print("segments:"..body.segments..
 			  ' X = '..head.x..' Y = '..head.y)
-		print("button pushed "..button_pushed.." -> head.dir "..head.dir)
+		--print("button pushed "..button_pushed.." -> head.dir "..head.dir)
 
 		--print("AV-CELLS:"..available_cells[ceil(#available_cells)])
 		--print("available:"..available_cells[flr(rnd(#available_cells))])

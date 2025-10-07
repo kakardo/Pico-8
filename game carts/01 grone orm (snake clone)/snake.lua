@@ -22,6 +22,7 @@
 -- TABLES AND VARIABLES
 head = {}
 body = {}
+next_dir = head.dir -- input buffer global
 
 local snake_starting_length = 11
 local snake_starting_coordinate = 64
@@ -78,8 +79,8 @@ function init_body()
 end
 
 -- Update the snakes movement table.
-function update_snake(button_pushed)
-	new_dir = button_pushed
+function update_snake()
+	new_dir = next_dir
 	old_dir = head.dir
 
 	isTurningSafe = check_if_safe(new_dir, head.x, head.y)
@@ -102,7 +103,7 @@ function update_snake(button_pushed)
 			-- Remove to have snake only turn if button is
 			-- is pressed correctly on a possible path.
 			-- Include this to have snake take chosen turn when possible
-			--ignore_button_push(head.dir)
+			--ignore_button_push(old_dir)
 
 			head.x = last_head_pos_x
 			head.y = last_head_pos_y
@@ -134,6 +135,10 @@ function update_snake(button_pushed)
 	else
 		head.alive = false
 	end
+end
+
+function update_next_dir(dir_input)
+	next_dir = dir_input
 end
 
 function update_tail_dir(x, y, segment)
