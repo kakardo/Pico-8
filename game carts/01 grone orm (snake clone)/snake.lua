@@ -86,16 +86,9 @@ function update_snake()
 	local isTurningSafe = check_if_safe(new_dir, head.x, head.y)
 	local isForwardSafe = check_if_safe(head.dir, head.x, head.y)
 	
-	-- Is occupied space the fruit?
-	if head.x == fruit.x and head.y == fruit.y then
-		isForwardSafe = true
-	end
-	-- TODO This whole section needs a clean up
-	
 	local last_head_pos_x = head.x
 	local last_head_pos_y = head.y
 	move_head(new_dir)
-
 
 	-- TODO make it an option if player wants this safety net
 	if isTurningSafe or isForwardSafe then
