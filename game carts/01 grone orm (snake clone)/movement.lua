@@ -37,11 +37,6 @@ function check_button_push()
 	update_next_dir(dir)
 end
 
---[[-- Toggle in snake.lua -> update_snake()
-function ignore_button_push(previous_button_input)
-	new_dir = previous_button_input
-end]]--
-
 -- Move snake and update variable "just_moved" to TRUE
 function move()
 	update_snake()

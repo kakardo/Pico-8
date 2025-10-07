@@ -73,10 +73,9 @@ end
 function _update()
 	cls(1)
 	game_state_checker() -- Not part of ready game
+	check_button_push()
 
 	if head.alive then
-		check_button_push()
-
 		if (just_moved == false) then
 		 move()
 		 is_alive(min, max)
