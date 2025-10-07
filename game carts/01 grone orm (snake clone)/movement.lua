@@ -1,13 +1,11 @@
 --[[ MOVEMENT.LUA 
-	- Functions connected to the movement
-	  of the snake.
+	- Functions connected to the movement of the snake.
 	@date 2025-07-14
 
 	FUNCTIONS
 	- check_button_push()
 	- ignore_button_push(previous_button_input)
 	- move()
-	- avert_going_backwards()
 	
 	DIRECTIONS
 	0 = left
@@ -24,8 +22,18 @@ function check_button_push()
 	if (btn(1)) dir = 1 -- RIGHT
 	if (btn(2)) dir = 2 -- UP
 	if (btn(3)) dir = 3 -- DOWN
-	if dir == -1 then return end
+	if dir == -1 then
+		return
+	end
 
+	-- Avert going backwards
+	if (dir == 0 and head.dir == 1) or
+		 (dir == 1 and head.dir == 0) or
+	   (dir == 2 and head.dir == 3) or
+	   (dir == 3 and head.dir == 2) then
+		return -- Don't save input
+	end
+	
 	update_next_dir(dir)
 end
 
@@ -36,21 +44,8 @@ end]]--
 
 -- Move snake and update variable "just_moved" to TRUE
 function move()
-	avert_going_backwards()
-	update_snake(button_pushed)
+	update_snake()
 	just_moved = true
-end
-
-function avert_going_backwards()
-	if button_pushed == 0 and head.dir == 1 then
-		button_pushed = head.dir
-	elseif button_pushed == 1 and head.dir == 0 then
-		button_pushed = head.dir
-	elseif button_pushed == 2 and head.dir == 3 then
-		button_pushed = head.dir
-	elseif button_pushed == 3 and head.dir == 2 then
-		button_pushed = head.dir
-	end
 end
 
 // LAST_LINE_OF_MOVEMENT_LUA
