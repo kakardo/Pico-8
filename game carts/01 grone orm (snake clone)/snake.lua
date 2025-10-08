@@ -95,7 +95,11 @@ function update_snake()
 
 	-- Is occupied space the fruit?
 	if head.x == fruit.x and head.y == fruit.y then
-		isForwardSafe = true
+		if new_dir == old_dir then
+			isForwardSafe = true
+		else
+			is_isTurningSafe = true
+		end
 	end
 
 	-- TODO make it an option if player wants this safety net

@@ -8,7 +8,7 @@ __lua__
 #include snake.lua
 #include fruit.lua
 #include movement.lua
-#include debug.lua
+#include debug/debug.lua
 -->8
 function check_x(dir,cor)
 	if (btn(dir))	then
