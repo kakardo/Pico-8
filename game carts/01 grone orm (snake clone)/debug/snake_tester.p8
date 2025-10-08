@@ -3,19 +3,11 @@ version 42
 __lua__
 // start = 2025-07-18 01:53
 #include main_tester.lua
-#include snake.lua
-#include fruit.lua
-#include movement.lua
+#include ../snake.lua
+#include ../fruit.lua
+#include ../movement.lua
 #include debug.lua
-#include cells.lua
--->8
-function check_x(dir,cor)
-	if (btn(dir))	then
-		if (cor > 0) then
-			cor-=8
-		end
-	end
-end
+#include ../cells.lua
 __gfx__
 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 03333330000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
