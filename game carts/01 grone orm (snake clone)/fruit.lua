@@ -44,6 +44,7 @@ function is_fruit_eaten()
 		body.segments += 1
 		add(body.x, body.last_tail_pos_x)
 		add(body.y, body.last_tail_pos_y)
+		empty_cells_occupy(empty_cells, body.last_tail_pos_x, body.last_tail_pos_y)
 
 		-- Assign shape for new last segment (after growing)
 		local previous_pos = convert_coordinate_to_index(
@@ -54,9 +55,9 @@ function is_fruit_eaten()
 		)
 		body.pos_dir[new_pos] = body.pos_dir[previous_pos]
 
-		score += 10
+    update_tail_dir(body.x, body.y, body.segments)
 
-		--printh("F.X: "..fruit.x.." F.Y:"..fruit.y)
+		score += 10
 		empty_cells_free(empty_cells, fruit.x, fruit.y)
 		spawn_fruit()
 	end

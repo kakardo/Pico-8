@@ -72,7 +72,7 @@ end
 
 function _update()
 	cls(1)
-	debug() -- Not part of ready game
+	--debug() -- Not part of ready game
 	check_button_push()
 
 	if head.alive then
@@ -91,7 +91,7 @@ end
 
 function _draw()
 	if head.alive then
-		--print("score = "..score)	
+		print("score = "..score)	
 		draw_snake()
 		draw_fruit()
 	else
@@ -103,8 +103,6 @@ function _draw()
 		print_centered("adjust starting speed",64,88,5)
 	end
 end
-
-
 
 function print_centered(str, x, y, color)
 	x_centered = x - #str * 2
