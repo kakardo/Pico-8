@@ -72,7 +72,7 @@ end
 
 function _update()
 	cls(1)
-	game_state_checker() -- Not part of ready game
+	debug() -- Not part of ready game
 	check_button_push()
 
 	if head.alive then
@@ -104,31 +104,7 @@ function _draw()
 	end
 end
 
-function game_state_checker()
-	debug() -- Not part of ready game
-	
-	if #body.x != #body.y then
-		print("X and Y total's not the same!")
-	elseif body.segments != #body.x then
-		print("Body segments not equal to X!")
-	elseif body.segments != #body.y then
-		print("Body segments not equal to X!")
-	end
 
-	-- Test prints
-	if print_tests then
-		used_cells = 256 - count(empty_cells)
-		print("empty_cells:"..count(empty_cells)..
-			  " (used:"..used_cells..")")
-		print("available:"..#available_cells)
-		print("segments:"..body.segments..
-			  ' X = '..head.x..' Y = '..head.y)
-		--print("button pushed "..button_pushed.." -> head.dir "..head.dir)
-
-		--print("AV-CELLS:"..available_cells[ceil(#available_cells)])
-		--print("available:"..available_cells[flr(rnd(#available_cells))])
-	end
-end
 
 function print_centered(str, x, y, color)
 	x_centered = x - #str * 2

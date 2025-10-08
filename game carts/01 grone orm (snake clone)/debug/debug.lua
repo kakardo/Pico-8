@@ -7,8 +7,9 @@
 ]]--
 
 function debug()
+	game_state_checker() -- Not part of ready game
 	--snake_and_fruit_tester()
-	--coordinat_tester()	
+	--coordinat_tester()
 end
 
 function snake_and_fruit_tester()
@@ -46,4 +47,28 @@ function coordinat_tester()
 
 end
 
-// LAST_LINE_SNAKE_EXTERNAL_LUA
+function game_state_checker()	
+	if #body.x != #body.y then
+		print("X and Y total's not the same!")
+	elseif body.segments != #body.x then
+		print("Body segments not equal to X!")
+	elseif body.segments != #body.y then
+		print("Body segments not equal to X!")
+	end
+
+	-- Test prints
+	if print_tests then
+		used_cells = 256 - count(empty_cells)
+		print("empty_cells:"..count(empty_cells)..
+			  " (used:"..used_cells..")")
+		print("available:"..#available_cells)
+		print("segments:"..body.segments..
+			  ' X = '..head.x..' Y = '..head.y)
+		--print("button pushed "..button_pushed.." -> head.dir "..head.dir)
+
+		--print("AV-CELLS:"..available_cells[ceil(#available_cells)])
+		--print("available:"..available_cells[flr(rnd(#available_cells))])
+	end
+end
+
+-- LAST_LINE_DEBUG_LUA

@@ -209,7 +209,7 @@ function check_if_safe(new_dir, x, y)
 	local will_grow = (x == fruit.x and y == fruit.y)
 	
 	-- Current tail tile will move away unless we grow by eating
-	if not will_grow and (x == tail_x and y == tail_y) then
+	if (not will_grow) and (x == tail_x and y == tail_y) then
 		return true
 	end
 
