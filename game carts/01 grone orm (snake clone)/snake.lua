@@ -178,7 +178,7 @@ function calculate_body_piece(old_dir, new_dir)
 		   (old_dir == 3 and new_dir == 0) then
 			add_new_shape(11)
 	else
-		printh("calculate_body_piece: old_dir:"..old_dir.." new_dir: "..new_dir)
+		--printh("calculate_body_piece: old_dir:"..old_dir.." new_dir: "..new_dir)
 		add_new_shape(32) --error
 	end
 end

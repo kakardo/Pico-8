@@ -75,9 +75,32 @@ function check_if_safe(new_dir, x, y)
 	end
 
 	-- Current tile != tail tile, so run regular check
-	if is_occupied(empty_cells, x, y) then
+	if body_collision(x, y, will_grow) then
 		return false
 	else
+		return true
+	end
+end
+
+function body_collision(x, y, will_grow)
+	local last = body.segments
+
+	for i = 1, last do
+		local bx = body.x[i]
+		local by = body.y[i]
+
+		if x == bx and y == by then
+			--No tail collision if tail moves away this tick
+			if i == last and (not will_grow) then
+				-- Allow step on tail
+				return false
+			end
+			return true
+		end
+	end
+
+	-- Block stepping into the heads
+	if x == head.x and y == head.y then
 		return true
 	end
 end
