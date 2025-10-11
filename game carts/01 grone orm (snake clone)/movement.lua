@@ -61,6 +61,10 @@ function check_if_safe(new_dir, x, y)
 		return false
 	end
 
+	if x == fruit.x and y == fruit.y then
+		return true
+	end
+
 	local tail_x = body.x[body.segments]
 	local tail_y = body.y[body.segments]
 	local will_grow = (x == fruit.x and y == fruit.y)
