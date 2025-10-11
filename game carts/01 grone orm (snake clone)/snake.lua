@@ -281,4 +281,4 @@ function is_alive(min, max)
 	end
 end
 
-// LAST_LINE_OF_SNAKE_LUA
+-- LAST_LINE_OF_SNAKE_LUA
