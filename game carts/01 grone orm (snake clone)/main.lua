@@ -87,7 +87,11 @@ function _draw()
 		draw_snake()
 		draw_fruit()
 	else
-		print_ui()
+		if btn(4) or btn(5) then
+    	init_game()
+    else
+			print_ui()
+		end
 	end
 end
 
