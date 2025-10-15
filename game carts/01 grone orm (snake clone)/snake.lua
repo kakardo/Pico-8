@@ -65,9 +65,8 @@ function init_body()
 		a = starting_x_pos
 		b = snake_starting_coordinate
 		
-		-- TEST FOR BODY ANIMATION
-		body.pos_dir[convert_coordinate_to_index(a,b)] = 6
-		print(body.pos_dir[convert_coordinate_to_index(a,b)])
+		-- Forces to be the neutral piece (needed???)
+		-- body.pos_dir[convert_coordinate_to_index(a,b)] = 6
 
 		-- Add occupied cells to empty_cells-table
 		empty_cells_occupy(empty_cells, body.x[i], body.y[i])
@@ -249,7 +248,7 @@ function draw_tail()
 	if new_tail_shape == 32 then
 		printh("Snake.draw_tail\n- New tail shape: "..new_tail_shape)
 		printh("- body.segments: "..body.segments)
-		printh("- last_segment: "..last_segment)
+		--printh("- last_segment: "..last_segment)
 		printh("- body.tail_dir: "..body.tail_dir)
 	end
 
