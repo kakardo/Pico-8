@@ -104,6 +104,12 @@ function init_game()
 	init_head()
 	init_body()
 	init_fruit()
+
+	-- Makes sure values are reset during game reset
+	score = 0
+	tick_count = 0
+	just_moved = false
+	update_next_dir(head.dir)  -- Buffered turn clear
 end
 
 function print_centered(str, x, y, color)
