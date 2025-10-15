@@ -59,15 +59,7 @@ print_tests = true
 ---------------------------------------------------------------
 
 function _init()
-	-- Cell tables
-	empty_cells     = init_isEmpty    (max, scale)
-	available_cells = init_isAvailable(max, scale)
-
-	-- Snake tables
-	init_head()
-	init_body()
-	init_fruit()
-	printh("\n\nSnake debugger text")
+	init_game()
 end
 
 function _update()
@@ -97,6 +89,17 @@ function _draw()
 	else
 		print_ui()
 	end
+end
+
+function init_game()
+	-- Cell tables
+	empty_cells     = init_isEmpty    (max, scale)
+	available_cells = init_isAvailable(max, scale)
+
+	-- Snake tables
+	init_head()
+	init_body()
+	init_fruit()
 end
 
 function print_centered(str, x, y, color)
