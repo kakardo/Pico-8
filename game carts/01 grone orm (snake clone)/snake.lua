@@ -65,8 +65,10 @@ function init_body()
 		a = starting_x_pos
 		b = snake_starting_coordinate
 		
-		-- Forces to be the neutral piece (needed???)
-		-- body.pos_dir[convert_coordinate_to_index(a,b)] = 6
+		-- Forces starting pieces to be the neutral piece
+		body.pos_dir[convert_coordinate_to_index(a,b)] = 6
+
+		-- init body shape (horizontal start)
 
 		-- Add occupied cells to empty_cells-table
 		empty_cells_occupy(empty_cells, body.x[i], body.y[i])
