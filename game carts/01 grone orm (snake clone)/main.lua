@@ -62,7 +62,7 @@ function _init()
 	init_game()
 end
 
-function _update()
+function _update60()
 	cls(1)
 	--debug() -- Not part of ready game
 	check_button_push()
