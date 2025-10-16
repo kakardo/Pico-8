@@ -121,13 +121,12 @@ function update_snake()
 		body.last_tail_pos_y = body.y[body.segments]
 		
 		-- Tail update
-		update_tail_dir(body.x, body.y, body.segments)
 		deli(body.x, body.segments)
 		deli(body.y, body.segments)
 		add(body.x, last_head_pos_x, 1)
 		add(body.y, last_head_pos_y, 1)
 		
-		--print("NewDir:"..head.dir.." OldDir:"..old_dir)
+		update_tail_dir(body.x, body.y, body.segments)
 		calculate_body_piece(old_dir, head.dir)
 		
 		empty_cells_occupy(empty_cells, head.x, head.y)
@@ -143,14 +142,14 @@ function update_next_dir(dir_input)
 end
 
 function update_tail_dir(x, y, segment)
-	if x[segment-1] == x[segment-2] then
-		if y[segment-1] > y[segment-2] then
+	if x[segment] == x[segment-1] then
+		if y[segment] > y[segment-1] then
 			body.tail_dir = 2
 		else
 			body.tail_dir = 3
 		end
-	elseif y[segment-1] == y[segment-2] then
-		if x[segment-1] > x[segment-2] then
+	elseif y[segment] == y[segment-1] then
+		if x[segment] > x[segment-1] then
 			body.tail_dir = 0
 		else
 			body.tail_dir = 1
