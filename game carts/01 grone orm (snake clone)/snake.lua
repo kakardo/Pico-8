@@ -226,9 +226,36 @@ function draw_snake()
 end
 
 function draw_tail()
-	last_segment = get_shape(body.segments)
+	-- Save position of the last two segments (tail -> neighbor)
+	local tx, ty = body.x[body.segments], body.y[body.segments]
+	local nx, ny = body.x[body.segments-1], body.y[body.segments-1]
+	
+	local last_segment
 
-	new_tail_shape = 32	-- Error sprite
+  if tx == nx then
+    -- vertical column
+    last_segment = 7
+  elseif ty == ny then
+    -- horizontal row
+    last_segment = 6
+  else
+    -- corners: decide which shape by tail vs neighbor position
+    if tx < nx and ty > ny then
+      -- tail is left & below neighbor -> SW corner
+      last_segment = 10
+    elseif tx > nx and ty > ny then
+      -- tail is right & below neighbor -> SE corner
+      last_segment = 11
+    elseif tx < nx and ty < ny then
+      -- tail is left & above neighbor -> NW corner
+      last_segment = 8
+    else
+      -- tail is right & above neighbor -> NE corner
+      last_segment = 9
+    end
+  end
+
+	local new_tail_shape = 32	-- Error sprite
 
 	-- Horizontal shape
 	if last_segment == 6 then
