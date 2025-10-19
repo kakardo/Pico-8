@@ -13,18 +13,24 @@ function print_ui()
   --print_centered("adjust starting speed",64,88,5)
 
   -- Letter (with space) = 4 pixels
-  local first = 20
-  print_centered("hiscore", 64, 80, 137)
-  print("1st ", first, 85, 137)
-  --print("88     88", first+12, 85, 8) -- space check
-  print(hiscore[1], first+28, 85, 137)
-  print("gelaflax", first+48, 85, 137) -- space check
+  local score_x = 28
+  local score_y = 77
+  
+  local score_color = 137
+  print_centered("hiscore", 64, score_y, score_color)
 
-  print_centered("2nd "..hiscore[2], 64, 96, 137)
-  print_centered("3rd "..hiscore[3], 64, 104, 137)
+  print_score("1st", hiscore[1], score_x, score_y+4, score_color, "kakardo")
+  print_score("2nd", hiscore[2], score_x, score_y+11, score_color, "unknown")
+  print_score("3rd", hiscore[3], score_x, score_y+18, score_color, "unknown")
+  print_score("4rd", hiscore[3], score_x, score_y+25, score_color, "unknown")
+  print_score("5rd", hiscore[3], score_x, score_y+32, score_color, "unknown")
 end
 
-function print_score()
+function print_score(place, score, x, y, color, name)
+  print(place, x, y, color)
+  --print("88     88", x+12, y, 8) -- space check
+  print(score, x+28, y, color)
+  print(name, x+48, y, color) -- space check
 end
 
 -- LAST_LINE_OF_UI_LUA
