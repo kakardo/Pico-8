@@ -56,6 +56,7 @@ tick_count = 0
 
 score = 0
 hiscore = {0, 0, 0}
+score_saved = false
 
 print_tests = true
 ---------------------------------------------------------------
@@ -112,6 +113,7 @@ function init_game()
 
 	-- Makes sure values are reset during game reset
 	score = 0
+	score_saved = false
 	tick_count = 0
 	just_moved = false
 	update_next_dir(head.dir)  -- Buffered turn clear

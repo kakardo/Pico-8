@@ -134,7 +134,6 @@ function update_snake()
 								body.last_tail_pos_x, body.last_tail_pos_y)
 	else
 		head.alive = false
-		submite_score(score)
 	end
 end
 
@@ -300,7 +299,11 @@ function is_alive(min, max)
 	if head.x < min or head.x >= max or
 	   head.y < min or head.y >= max then
 		head.alive = false
+	end
+	
+	if (not head.alive) and not (score_saved) then
 		submite_score(score)
+		score_saved = true
 	end
 end
 
