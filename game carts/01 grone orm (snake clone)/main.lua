@@ -27,6 +27,7 @@
 			tail will have time to move away unless we grow by
 			eating the same movement step / tick.                   <2025-10-06>
 	- Input buffering (instead of polling).                     <2025-10-07>
+	- Top scores are shown on hiscore table.										<2025-10-20>
 
 	TODO
 	- Make suicide turn a toggle-able option.
@@ -145,7 +146,7 @@ function submite_score(new_score)
 	elseif new_score > hiscore[2] then
 		hiscore[3] = hiscore[2]
 		hiscore[2] = new_score
-	elseif new_score > hiscore[1] then
+	elseif new_score > hiscore[3] then
 		hiscore[3] = new_score
 	else
 		return -- not top three
