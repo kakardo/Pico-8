@@ -227,7 +227,8 @@ end
 
 function draw_tail()
 	last_segment = get_shape(body.segments)
-	new_tail_shape = 32	
+
+	new_tail_shape = 32	-- Error sprite
 
 	-- Horizontal shape
 	if last_segment == 6 then
@@ -244,13 +245,6 @@ function draw_tail()
 		new_tail_shape = convert_to_tail(1, 2, 17, 18)
 	elseif last_segment == 11 then -- SE
 		new_tail_shape = convert_to_tail(0, 2, 16, 18)
-	end
-
-	if new_tail_shape == 32 then
-		printh("Snake.draw_tail\n- New tail shape: "..new_tail_shape)
-		printh("- body.segments: "..body.segments)
-		--printh("- last_segment: "..last_segment)
-		printh("- body.tail_dir: "..body.tail_dir)
 	end
 
 	spr(new_tail_shape, body.x[body.segments], body.y[body.segments])
