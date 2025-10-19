@@ -14,7 +14,9 @@ function print_ui()
   --print_centered("adjust starting speed",64,88,5)
 
   print_centered("hiscore", 64, 88, 137)
-
+  print_centered("1st "..hiscore[1], 64, 96, 137)
+  print_centered("2nd "..hiscore[2], 64, 104, 137)
+  print_centered("3rd "..hiscore[3], 64, 112, 137)
 end
 
 -- LAST_LINE_OF_UI_LUA

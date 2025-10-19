@@ -117,8 +117,8 @@ function init_game()
 end
 
 function print_centered(str, x, y, color)
-	x_centered = x - #str * 2
-	y_centered = y - 3 --Half string height
+	local x_centered = x - #str * 2
+	local y_centered = y - 3 --Half string height
 	print(str, x_centered, y_centered, color)
 end
 
@@ -137,5 +137,22 @@ function save_score()
 	end
 end
 
+function submite_score(new_score)
+	if new_score > hiscore[1] then
+		hiscore[3] = hiscore[2]
+		hiscore[2] = hiscore[1]
+		hiscore[1] = new_score
+	elseif new_score > hiscore[2] then
+		hiscore[3] = hiscore[2]
+		hiscore[2] = new_score
+	elseif new_score > hiscore[1] then
+		hiscore[3] = new_score
+	else
+		return -- not top three
+	end
+
+	-- Wont be reached unless new score in switch statement
+	save_score()
+end
 
 // LAST_LINE_OF_MAIN_LUA
