@@ -54,11 +54,15 @@ tick_goal = 5 -- Default = 5, Testing = 15
 tick_count = 0
 
 score = 0
+hiscore = {0, 0, 0}
 
 print_tests = true
 ---------------------------------------------------------------
 
 function _init()
+	cartdata("kardo_snake")
+	load_score()
+
 	init_game()
 end
 
@@ -117,5 +121,21 @@ function print_centered(str, x, y, color)
 	y_centered = y - 3 --Half string height
 	print(str, x_centered, y_centered, color)
 end
+
+
+-- HISCORE
+
+function load_score()
+	for i = 1, 3 do
+		hiscore[i] = dget(i-1) or 0
+	end
+end
+
+function save_score()
+	for i = 1, 3 do
+		dset(i-1, hiscore[i])
+	end
+end
+
 
 // LAST_LINE_OF_MAIN_LUA
