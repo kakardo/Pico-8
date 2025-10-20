@@ -55,7 +55,7 @@ tick_goal = 5 -- Default = 5, Testing = 15
 tick_count = 0
 
 score = 0
-hiscore = {0, 0, 0}
+hiscore = {0, 0, 0, 0, 0}
 score_saved = false
 
 print_tests = true
@@ -129,33 +129,28 @@ end
 -- HISCORE
 
 function load_score()
-	for i = 1, 3 do
+	for i = 1, 5 do
 		hiscore[i] = dget(i-1) or 0
 	end
 end
 
 function save_score()
-	for i = 1, 3 do
+	for i = 1, 5 do
 		dset(i-1, hiscore[i])
 	end
 end
 
 function submite_score(new_score)
-	if new_score > hiscore[1] then
-		hiscore[3] = hiscore[2]
-		hiscore[2] = hiscore[1]
-		hiscore[1] = new_score
-	elseif new_score > hiscore[2] then
-		hiscore[3] = hiscore[2]
-		hiscore[2] = new_score
-	elseif new_score > hiscore[3] then
-		hiscore[3] = new_score
-	else
-		return -- not top three
+	for i = 1, 5 do
+		if new_score > hiscore[i] then
+			for j = 5, i+1, -1 do
+				hiscore[j] = hiscore[j-1]
+			end
+			hiscore[i] = new_score
+			save_score()
+			return
+		end
 	end
-
-	-- Wont be reached unless new score in switch statement
-	save_score()
 end
 
 // LAST_LINE_OF_MAIN_LUA
