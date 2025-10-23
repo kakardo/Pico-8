@@ -18,16 +18,18 @@
 	- Fruit never spawns on top of the snake. The spawning
 	  position's randomized from table of available locations.  <2025-07-29>
 	- Game over screen show score, length and instruction on    <2025-07-29>
-	  how to restart.
+		how to restart.
 	- Crawling into your own body leads to GAME OVER.           <2025-07-31>
 	- Snakes body's visually linked together. Shapes (vertical, <2025-08-06>
-      horizontal and corners) are dynamically placed depending
+    horizontal and corners) are dynamically placed depending
 	  on path, and tail's dynamically rotated accordingly.
 	- When heading for collision with tail tile from the side:
-			tail will have time to move away unless we grow by
-			eating the same movement step / tick.                   <2025-10-06>
+		tail will have time to move away unless we grow by
+		eating the same movement step / tick.               	    <2025-10-06>
 	- Input buffering (instead of polling).                     <2025-10-07>
 	- Top scores are shown on hiscore table.										<2025-10-20>
+	- Multiple fruit sprites with random bag logic (so it's
+		semi-random) and Fisher-Yates shuffle.										<2025-10-23>
 
 	TODO
 	- Make suicide turn a toggle-able option.
