@@ -12,11 +12,16 @@
 
 -- TABLES AND VARIABLES
 fruit = {}
+current_fruit = 32
 
 function init_fruit()
 	fruit.x = 0
 	fruit.y = 0
 	spawn_fruit()
+end
+
+function get_rnd_fruit_index()
+	return flr(rnd(8) + 48)
 end
 
 function spawn_fruit()	
@@ -33,10 +38,11 @@ function spawn_fruit()
 	fruit.x = new_x * scale
 
 	empty_cells_occupy(empty_cells, fruit.x, fruit.y)
+	current_fruit = get_rnd_fruit_index()
 end
 
 function draw_fruit()
-	spr(4, fruit.x, fruit.y)
+	spr(current_fruit, fruit.x, fruit.y)
 end
 
 function is_fruit_eaten()
