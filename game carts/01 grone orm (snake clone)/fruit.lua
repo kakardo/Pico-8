@@ -12,7 +12,7 @@
 
 -- TABLES AND VARIABLES
 fruit = {}
-fruit_basket = {}
+fruit_basket = {48,49,50,51,52,53,54,55}
 fruit_basket_i = 1
 
 function init_fruit()
@@ -23,12 +23,6 @@ function init_fruit()
 end
 
 function refill_fruit_basket()
-	fruit_basket = {}
-
-	for s = 48, 55 do
-		add(fruit_basket, s)
-	end
-
 	-- Fisher-Yates shuffle
 	for i = #fruit_basket, 2, -1 do
 		local j = flr(rnd(i)) + 1
