@@ -71,7 +71,6 @@ function _init()
 end
 
 function _update60()
-	cls(1)
 	--debug() -- Not part of ready game
 	check_button_push()
 
@@ -95,6 +94,7 @@ function _update60()
 end
 
 function _draw()
+	cls(1)
 	if head.alive then
 		print("score = "..score)
 		draw_snake()
