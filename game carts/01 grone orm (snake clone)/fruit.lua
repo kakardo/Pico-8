@@ -12,16 +12,41 @@
 
 -- TABLES AND VARIABLES
 fruit = {}
-current_fruit = 32
+fruit_basket = {}
+fruit_basket_i = 1
 
 function init_fruit()
 	fruit.x = 0
 	fruit.y = 0
+	refill_fruit_basket()
 	spawn_fruit()
 end
 
-function get_rnd_fruit_index()
-	return flr(rnd(8) + 48)
+function refill_fruit_basket()
+	fruit_basket = {}
+
+	for s = 48, 55 do
+		add(fruit_basket, s)
+	end
+
+	-- Fisher-Yates shuffle
+	for i = #fruit_basket, 2, -1 do
+		local j = flr(rnd(i)) + 1
+    fruit_basket[i], fruit_basket[j] = fruit_basket[j], fruit_basket[i]
+	end
+
+	fruit_basket_i = 1
+end
+
+function next_fruit_sprite()
+	if fruit_basket_i > #fruit_basket then
+		refill_fruit_basket()
+	end
+
+	local s = fruit_basket[fruit_basket_i]
+  fruit_basket_i += 1
+
+	return s
 end
 
 function spawn_fruit()	
@@ -38,7 +63,7 @@ function spawn_fruit()
 	fruit.x = new_x * scale
 
 	empty_cells_occupy(empty_cells, fruit.x, fruit.y)
-	current_fruit = get_rnd_fruit_index()
+	current_fruit = next_fruit_sprite()
 end
 
 function draw_fruit()
