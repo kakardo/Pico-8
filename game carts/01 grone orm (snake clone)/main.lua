@@ -84,8 +84,13 @@ function _update60()
 			just_moved = false
 			tick_count = 0
 		else
-		 tick_count += 1
+			tick_count += 1
 		end
+	end
+
+	-- Let people restart with z/x when dead
+	if not head.alive and (btnp(4) or btnp(5)) then
+    init_game()
 	end
 end
 
@@ -95,11 +100,7 @@ function _draw()
 		draw_snake()
 		draw_fruit()
 	else
-		if btn(4) or btn(5) then
-    	init_game()
-    else
-			print_ui()
-		end
+		print_ui()
 	end
 end
 

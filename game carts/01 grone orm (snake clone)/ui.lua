@@ -9,7 +9,7 @@ function print_ui()
   print_centered("score: "..score, 32, 24, 9)
   print_centered("length: "..body.segments+1, 96, 24, 11)
   print_centered("game over", 64, 48, 8)
-  print_centered("< press 🅾️ or \'z\' to retry >", 64, 56, 6)
+  print_centered("press 🅾️/❎ or z/x to retry", 64, 56, 6)
   --print_centered("adjust starting speed",64,88,5)
 
   -- Letter (with space) = 4 pixels
