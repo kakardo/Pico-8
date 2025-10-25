@@ -58,17 +58,11 @@ step = 1
 tick_goal = 3 -- Default = 4, Testing = 15
 tick_count = 0
 
-score = 0
-hiscore = {0, 0, 0, 0, 0}
-score_saved = false
-
 print_tests = true
 ---------------------------------------------------------------
 
 function _init()
-	cartdata("kardo_snake")
-	load_score()
-
+	init_score()
 	init_game()
 end
 

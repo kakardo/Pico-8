@@ -5,6 +5,11 @@ score = 0
 hiscore = {0, 0, 0, 0, 0}
 score_saved = false
 
+function init_score()
+  cartdata("kardo_snake")
+	load_score()
+end
+
 function load_score()
 	for i = 1, 5 do
 		hiscore[i] = dget(i-1) or 0
