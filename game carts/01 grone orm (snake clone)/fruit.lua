@@ -56,14 +56,12 @@ function spawn_fruit()
 	
 	-- Converts available fruit coordinate to X & Y positions
 	-- No scale multiplier added yet
-	index = flr(rnd(#available_cells)) + 1
-	coordinate = available_cells[index]
-	new_x = coordinate % max
-	new_y = flr(coordinate / max)
+	local index = flr(rnd(#candidates)) + 1
+	local coordinate = candidates[index]
 	
 	-- POSITION BOUNDARIES = min: 0, max: 15
-	fruit.y = new_y * scale
-	fruit.x = new_x * scale
+	fruit.x = coordinate.x
+	fruit.y = coordinate.y
 
 	current_fruit = next_fruit_sprite()
 	empty_cells_occupy(empty_cells, fruit.x, fruit.y)
