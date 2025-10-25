@@ -43,22 +43,50 @@ function next_fruit_sprite()
 	return s
 end
 
-function spawn_fruit()	
+function spawn_fruit()
+	-- Collect all free cells as fruit candidates
+	local candidates = {}
+	for yy = min, max - 1, scale do
+		for xx = min, max - 1, scale do
+			if is_fruit_cell_free(xx, yy) do
+				add(candidates, {x=xx, y=yy})
+			end
+		end
+	end
+	
 	-- Converts available fruit coordinate to X & Y positions
 	-- No scale multiplier added yet
 	index = flr(rnd(#available_cells)) + 1
 	coordinate = available_cells[index]
 	new_x = coordinate % max
 	new_y = flr(coordinate / max)
-	--printh("Fruit coordinate:"..coordinate.." [index:"..index.."] (x:"..new_x..".y:"..new_y..")")
 	
 	-- POSITION BOUNDARIES = min: 0, max: 15
 	fruit.y = new_y * scale
 	fruit.x = new_x * scale
 
-	empty_cells_occupy(empty_cells, fruit.x, fruit.y)
 	current_fruit = next_fruit_sprite()
+	empty_cells_occupy(empty_cells, fruit.x, fruit.y)
 end
+
+function is_fruit_cell_free(x, y)
+	-- Is the head?
+	if (x == head.x and y == head.y) then
+		return false
+	end
+
+	-- Is body?
+	for i = 1, body.segments do
+		if (x == body.x[i] and y == body.y[i]) then
+			return false
+		end
+	end
+
+	-- Is not head or body = free
+	return true
+end
+
+
 
 function draw_fruit()
 	spr(current_fruit, fruit.x, fruit.y)

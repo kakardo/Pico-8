@@ -32,6 +32,8 @@
 		semi-random) and Fisher-Yates shuffle.										<2025-10-23>
 
 	TODO
+	- Add win screen.
+	- Make game over and win show dimmed snake in the background.
 	- Make suicide turn a toggle-able option.
 	- Increase speed at certain lengths.
 	- Possibility to dash for higher score.
