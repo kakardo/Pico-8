@@ -92,8 +92,6 @@ function is_fruit_cell_free(x, y)
 	return true
 end
 
-
-
 function draw_fruit()
 	spr(current_fruit, fruit.x, fruit.y)
 end

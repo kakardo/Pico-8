@@ -10,6 +10,7 @@ __lua__
 #include movement.lua
 #include debug/debug.lua
 #include ui.lua
+#include score.lua
 -->8
 function check_x(dir,cor)
 	if (btn(dir))	then

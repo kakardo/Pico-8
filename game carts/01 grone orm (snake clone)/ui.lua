@@ -33,4 +33,10 @@ function print_score(place, score, x, y, color, name)
   print(name, x+48, y, color) -- space check
 end
 
+function print_centered(str, x, y, color)
+	local x_centered = x - #str * 2
+	local y_centered = y - 3 --Half string height
+	print(str, x_centered, y_centered, color)
+end
+
 -- LAST_LINE_OF_UI_LUA

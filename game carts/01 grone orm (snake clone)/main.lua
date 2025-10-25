@@ -55,7 +55,7 @@ just_moved = false
 step = 1
 
 -- game loop tick
-tick_goal = 4 -- Default = 4, Testing = 15
+tick_goal = 3 -- Default = 4, Testing = 15
 tick_count = 0
 
 score = 0
@@ -124,38 +124,4 @@ function init_game()
 	update_next_dir(head.dir)  -- Buffered turn clear
 end
 
-function print_centered(str, x, y, color)
-	local x_centered = x - #str * 2
-	local y_centered = y - 3 --Half string height
-	print(str, x_centered, y_centered, color)
-end
-
-
--- HISCORE
-
-function load_score()
-	for i = 1, 5 do
-		hiscore[i] = dget(i-1) or 0
-	end
-end
-
-function save_score()
-	for i = 1, 5 do
-		dset(i-1, hiscore[i])
-	end
-end
-
-function submite_score(new_score)
-	for i = 1, 5 do
-		if new_score > hiscore[i] then
-			for j = 5, i+1, -1 do
-				hiscore[j] = hiscore[j-1]
-			end
-			hiscore[i] = new_score
-			save_score()
-			return
-		end
-	end
-end
-
-// LAST_LINE_OF_MAIN_LUA
+-- LAST_LINE_OF_MAIN_LUA
