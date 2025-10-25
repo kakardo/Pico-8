@@ -59,6 +59,14 @@ function spawn_fruit()
 	local index = flr(rnd(#candidates)) + 1
 	local coordinate = candidates[index]
 	
+	-- If no space left, spawn no fruit
+	-- TODO Add win screen
+	if #candidates == 0 then
+		fruit.x = -1
+		fruit.y = -1
+		return
+	end
+
 	-- POSITION BOUNDARIES = min: 0, max: 15
 	fruit.x = coordinate.x
 	fruit.y = coordinate.y
