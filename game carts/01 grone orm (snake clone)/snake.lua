@@ -304,6 +304,9 @@ function is_alive(min, max)
 	if (not head.alive) and not (score_saved) then
 		submite_score(score)
 		score_saved = true
+
+		memcpy(0x8000, 0x6000, 0x2000)
+	  death_bg_captured = true
 	end
 end
 

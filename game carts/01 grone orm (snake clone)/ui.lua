@@ -4,6 +4,7 @@
 	FUNCTIONS
 
 ]]--
+death_bg_captured = false
 
 function print_ui()
   print_centered("score: "..score, 32, 24, 9)

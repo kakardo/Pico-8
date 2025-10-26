@@ -96,6 +96,10 @@ function _draw()
 		draw_snake()
 		draw_fruit()
 	else
+		if death_bg_captured then
+      -- Restore saved death frame to screen
+      memcpy(0x6000, 0x8000, 0x2000)
+		end
 		print_ui()
 	end
 end
