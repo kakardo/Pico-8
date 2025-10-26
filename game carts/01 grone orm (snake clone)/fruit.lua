@@ -43,21 +43,18 @@ function next_fruit_sprite()
 	return s
 end
 
+
+
 function spawn_fruit()
 	-- Collect all free cells as fruit candidates
 	local candidates = {}
 	for yy = min, max - 1, scale do
 		for xx = min, max - 1, scale do
-			if is_fruit_cell_free(xx, yy) do
+			if is_fruit_cell_free(xx, yy) then
 				add(candidates, {x=xx, y=yy})
 			end
 		end
 	end
-	
-	-- Converts available fruit coordinate to X & Y positions
-	-- No scale multiplier added yet
-	local index = flr(rnd(#candidates)) + 1
-	local coordinate = candidates[index]
 	
 	-- If no space left, spawn no fruit
 	-- TODO Add win screen
@@ -67,6 +64,11 @@ function spawn_fruit()
 		return
 	end
 
+	-- Converts available fruit coordinate to X & Y positions
+	-- No scale multiplier added yet
+	local index = flr(rnd(#candidates)) + 1
+	local coordinate = candidates[index]
+	
 	-- POSITION BOUNDARIES = min: 0, max: 15
 	fruit.x = coordinate.x
 	fruit.y = coordinate.y
@@ -74,6 +76,8 @@ function spawn_fruit()
 	current_fruit = next_fruit_sprite()
 	empty_cells_occupy(empty_cells, fruit.x, fruit.y)
 end
+
+
 
 function is_fruit_cell_free(x, y)
 	-- Is the head?

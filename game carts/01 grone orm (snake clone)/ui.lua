@@ -22,8 +22,8 @@ function print_ui()
   print_score("1st", hiscore[1], score_x, score_y+4, score_color, "kakardo")
   print_score("2nd", hiscore[2], score_x, score_y+11, score_color, "unknown")
   print_score("3rd", hiscore[3], score_x, score_y+18, score_color, "unknown")
-  print_score("4rd", hiscore[4], score_x, score_y+25, score_color, "unknown")
-  print_score("5rd", hiscore[5], score_x, score_y+32, score_color, "unknown")
+  print_score("4th", hiscore[4], score_x, score_y+25, score_color, "unknown")
+  print_score("5th", hiscore[5], score_x, score_y+32, score_color, "unknown")
 end
 
 function print_score(place, score, x, y, color, name)

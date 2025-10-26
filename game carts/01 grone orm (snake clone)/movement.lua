@@ -103,6 +103,8 @@ function body_collision(x, y, will_grow)
 	if x == head.x and y == head.y then
 		return true
 	end
+
+	return false
 end
 
 -- LAST_LINE_OF_MOVEMENT_LUA
