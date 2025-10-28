@@ -28,18 +28,18 @@
 		eating the same movement step / tick.               	    <2025-10-06>
 	- Input buffering (instead of polling).                     <2025-10-07>
 	- Top scores are shown on hiscore table.										<2025-10-20>
+	@version 1.2
 	- Multiple fruit sprites with random bag logic (so it's
 		semi-random) and Fisher-Yates shuffle.										<2025-10-23>
+	- Game over captures and shows a frame of your demise.      <2025-10-26>
 
 	TODO
 	- Add win screen.
-	- Make game over and win show dimmed snake in the background.
 	- Make suicide turn a toggle-able option.
 	- Increase speed at certain lengths.
 	- Possibility to dash for higher score.
 	- [VISUAL] Start screen.
 	- [VISUAL] Game border.
-	- [VISUAL] Multiple fruit types.
 	- [SOUND] Fruit
 	- [SOUND] Snake crawl
 	- [SOUND] Game over
