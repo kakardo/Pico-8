@@ -91,17 +91,25 @@ end
 
 function _draw()
 	cls(1)
+	draw_snake()
+	draw_fruit()
+	
 	if head.alive then
+		death_bg_captured = false
 		print("score = "..score)
+		return
+	end
+	
+	if not death_bg_captured then
 		draw_snake()
 		draw_fruit()
-	else
-		if death_bg_captured then
-      -- Restore saved death frame to screen
-      memcpy(0x6000, 0x8000, 0x2000)
-		end
-		print_ui()
+		memcpy(0x8000, 0x6000, 0x2000)
+	  death_bg_captured = true
 	end
+
+	-- Restore saved death frame to screen
+	memcpy(0x6000, 0x8000, 0x2000)
+	print_ui()
 end
 
 function init_game()
@@ -120,6 +128,7 @@ function init_game()
 	tick_count = 0
 	just_moved = false
 	update_next_dir(head.dir)  -- Buffered turn clear
+	death_bg_captured = false
 end
 
 -- LAST_LINE_OF_MAIN_LUA
