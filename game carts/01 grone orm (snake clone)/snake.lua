@@ -133,6 +133,8 @@ function update_snake()
 		empty_cells_free(empty_cells,
 								body.last_tail_pos_x, body.last_tail_pos_y)
 	else
+		head.x = last_head_pos_x
+	  head.y = last_head_pos_y
 		head.alive = false
 	end
 end
