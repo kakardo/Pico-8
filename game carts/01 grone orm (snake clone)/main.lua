@@ -33,6 +33,7 @@
 		semi-random) and Fisher-Yates shuffle.										<2025-10-23>
 	- Game over captures and shows a frame of your demise.      <2025-10-26>
 	- Start screen with cover art.															<2025-11-08>
+	- Score drawn behind snake and fruit for visibility.				<2025-11-08>
 
 	TODO
 	- Add win screen.
