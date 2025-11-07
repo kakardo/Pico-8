@@ -103,13 +103,17 @@ function _draw()
 	draw_fruit()
 	
 	if show_cover then
-		sspr(0, 24, 128, 104, 0, 24)
-		print_centered("press 🅾️/❎ or z/x to start", 64, 120, 7)
+		sspr(0, 24, 128, 104, 0, 0)
+		print_centered("press 🅾️/❎ or z/x to start", 120, 7)
 	end
 
 	if head.alive then
 		death_bg_captured = false
-		print("score = "..score)
+		
+		if not show_cover then
+			print("score = "..score, 1, 1, 9)
+		end
+		
 		return
 	end
 	
