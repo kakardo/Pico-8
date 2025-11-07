@@ -99,8 +99,7 @@ end
 
 function _draw()
 	cls(1)
-	draw_snake()
-	draw_fruit()
+	
 	
 	if show_cover then
 		sspr(0, 24, 128, 104, 0, 8)
@@ -112,12 +111,15 @@ function _draw()
 		
 		if not show_cover then
 			print("score = "..score, 1, 1, 9)
+			draw_snake()
+			draw_fruit()
 		end
-		
+
 		return
 	end
 	
 	if not death_bg_captured then
+		-- Draw screen without the HUD
 		draw_snake()
 		draw_fruit()
 		memcpy(0x8000, 0x6000, 0x2000)
