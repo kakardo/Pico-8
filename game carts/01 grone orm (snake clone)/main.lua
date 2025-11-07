@@ -62,6 +62,7 @@ print_tests = true
 ---------------------------------------------------------------
 
 function _init()
+	show_cover = true
 	init_score()
 	init_game()
 end
@@ -69,6 +70,13 @@ end
 function _update60()
 	--debug() -- Not part of ready game
 	check_button_push()
+
+	if show_cover then
+		if btnp(4) or btnp(5) then
+			show_cover = false
+		end
+		return
+	end
 
 	if head.alive then
 		if (just_moved == false) then
@@ -94,6 +102,11 @@ function _draw()
 	draw_snake()
 	draw_fruit()
 	
+	if show_cover then
+		sspr(0, 24, 128, 104, 0, 24)
+		print_centered("press 🅾️/❎ or z/x to start", 64, 120, 7)
+	end
+
 	if head.alive then
 		death_bg_captured = false
 		print("score = "..score)
