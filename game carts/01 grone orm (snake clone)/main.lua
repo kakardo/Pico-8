@@ -103,7 +103,7 @@ function _draw()
 	draw_fruit()
 	
 	if show_cover then
-		sspr(0, 24, 128, 104, 0, 0)
+		sspr(0, 24, 128, 104, 0, 8)
 		print_cover_msg()
 	end
 
