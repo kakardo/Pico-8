@@ -12,7 +12,7 @@
 
 -- TABLES AND VARIABLES
 fruit = {}
-fruit_basket = {48,49,50,51,52,53,54,55}
+fruit_basket = {22,23,24,25,26,27,28,29}
 fruit_basket_i = 1
 
 function init_fruit()
