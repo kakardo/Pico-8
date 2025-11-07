@@ -32,13 +32,13 @@
 	- Multiple fruit sprites with random bag logic (so it's
 		semi-random) and Fisher-Yates shuffle.										<2025-10-23>
 	- Game over captures and shows a frame of your demise.      <2025-10-26>
+	- Start screen with cover art.															<2025-11-08>
 
 	TODO
 	- Add win screen.
 	- Make suicide turn a toggle-able option.
 	- Increase speed at certain lengths.
 	- Possibility to dash for higher score.
-	- [VISUAL] Start screen.
 	- [VISUAL] Game border.
 	- [SOUND] Fruit
 	- [SOUND] Snake crawl
