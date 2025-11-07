@@ -104,7 +104,7 @@ function _draw()
 	
 	if show_cover then
 		sspr(0, 24, 128, 104, 0, 0)
-		print_centered("press 🅾️/❎ or z/x to start", 120, 7)
+		print_cover_msg()
 	end
 
 	if head.alive then

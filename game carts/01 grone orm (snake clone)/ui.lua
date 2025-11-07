@@ -39,4 +39,11 @@ function print_centered(str, x, y, color)
 	print(str, x_centered, y_centered, color)
 end
 
+function print_cover_msg()
+  local msg = "press 🅾️/❎ or z/x to start"
+  local x = 60 - #msg * 2
+  local y = 120
+  print(msg, x, y, 7)
+end
+
 -- LAST_LINE_OF_UI_LUA
