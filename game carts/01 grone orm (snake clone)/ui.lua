@@ -41,8 +41,9 @@ end
 
 function print_cover_msg()
   local msg = "press 🅾️/❎ or z/x to start"
-  local x = 60 - #msg * 2
-  local y = 117
+  local width = print(msg, 0, -6)
+  local x = 64 - width / 2
+  local y = 120
   print(msg, x, y, 7)
 end
 
