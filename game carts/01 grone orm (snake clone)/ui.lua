@@ -18,21 +18,22 @@ function print_ui()
   local score_y = 77
   
   local score_color = 137
-  print_centered("hiscore", 64, score_y, score_color)
-
-  print_score("1st", hiscore[1], time_played[1], score_x, score_y+4, score_color, "kakardo")
-  print_score("2nd", hiscore[2], time_played[2], score_x, score_y+11, score_color, "unknown")
-  print_score("3rd", hiscore[3], time_played[3], score_x, score_y+18, score_color, "unknown")
-  print_score("4th", hiscore[4], time_played[4], score_x, score_y+25, score_color, "unknown")
-  print_score("5th", hiscore[5], time_played[5], score_x, score_y+32, score_color, "unknown")
+  --print_centered("hiscore", 64, score_y, score_color)
+  
+  print_score("rank", "score", "time", score_x, score_y+4, 7, "player")
+  print_score("1st", hiscore[1], time_played[1], score_x, score_y+11, score_color, "kakardo")
+  print_score("2nd", hiscore[2], time_played[2], score_x, score_y+18, score_color, "unknown")
+  print_score("3rd", hiscore[3], time_played[3], score_x, score_y+25, score_color, "unknown")
+  print_score("4th", hiscore[4], time_played[4], score_x, score_y+32, score_color, "unknown")
+  print_score("5th", hiscore[5], time_played[5], score_x, score_y+39, score_color, "unknown")
 end
 
 function print_score(place, score, time, x, y, color, name)
   print(place, x, y, color)
-  --print("88     88   88", x+12, y, 8) -- space check
-  print(score, x+28, y, color)
-  print(time, x+48, y, color)
-  print(name, x+68, y, color) -- space check
+  --print("8     8    8", x+16, y, 8) -- space check
+  print(score, x+20, y, color)
+  print(time, x+44, y, color)
+  print(name, x+64, y, color) -- space check
 end
 
 function print_centered(str, x, y, color)
