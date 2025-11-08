@@ -13,18 +13,15 @@ end
 
 function load_score()
 	for i = 1, 5 do
-		hiscore[i] = dget(i-1) or 0
-		time_played[i] = dget(i-1) or 0
+		hiscore[i]     = dget(i - 1) or 0
+		time_played[i] = dget(4 + i) or 0
 	end
 end
 
 function save_score()
 	for i = 1, 5 do
-		dset(i-1, hiscore[i])
-		dset(i-1, dset(i-1, hiscore[i])[i])
-
-		dset(i-1, time_played[i])
-		dset(i-1, dset(i-1, time_played[i])[i])
+		dset(i - 1, hiscore    [i])
+		dset(4 + i, time_played[i])
 	end
 end
 
@@ -33,9 +30,12 @@ function submite_score(new_score)
 		if new_score > hiscore[i] then
 			for j = 5, i+1, -1 do
 				hiscore[j] = hiscore[j-1]
+				time_played[j] = time_played[j-1]
 			end
+
 			hiscore[i] = new_score
 			time_played[i] = flr(cycle_cnt/60)
+
 			save_score()
 			return
 		end
