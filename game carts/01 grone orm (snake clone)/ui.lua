@@ -47,4 +47,9 @@ function print_cover_msg()
   print(msg, x, y, 7)
 end
 
+function print_score_ui()
+  local time = flr(cycle_cnt/60)
+  print("score = "..score.." ("..time..")", 1, 1, 7)
+end
+
 -- LAST_LINE_OF_UI_LUA

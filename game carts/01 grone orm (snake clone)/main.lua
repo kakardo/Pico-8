@@ -54,6 +54,7 @@ max = 128
 
 just_moved = false
 step = 1
+cycle_cnt = 0
 
 -- game loop tick
 tick_goal = 3 -- Default = 4, Testing = 15
@@ -71,6 +72,7 @@ end
 function _update60()
 	--debug() -- Not part of ready game
 	check_button_push()
+	cycle_cnt += 1
 
 	if show_cover then
 		if btnp(4) or btnp(5) then
@@ -87,7 +89,6 @@ function _update60()
 		elseif tick_count == tick_goal then
 			just_moved = false
 			tick_count = 0
-			step_point += 1
 		else
 			tick_count += 1
 		end
@@ -111,8 +112,7 @@ function _draw()
 		death_bg_captured = false
 		
 		if not show_cover then
-			print("score = "..score, 1, 1, 9)
-			print("step = "..step_point, 50, 1, 9)
+			print_score_ui()
 			draw_snake()
 			draw_fruit()
 		end

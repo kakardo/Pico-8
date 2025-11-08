@@ -4,7 +4,6 @@
 score = 0
 hiscore = {0, 0, 0, 0, 0}
 score_saved = false
-step_point = 0
 
 function init_score()
   cartdata("kardo_snake")
