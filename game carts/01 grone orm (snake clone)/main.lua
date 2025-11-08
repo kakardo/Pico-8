@@ -72,7 +72,6 @@ end
 function _update60()
 	--debug() -- Not part of ready game
 	check_button_push()
-	cycle_cnt += 1
 
 	if show_cover then
 		if btnp(4) or btnp(5) then
@@ -82,6 +81,7 @@ function _update60()
 	end
 
 	if head.alive then
+		cycle_cnt += 1
 		if (just_moved == false) then
 		 move()
 		 is_alive(min, max)

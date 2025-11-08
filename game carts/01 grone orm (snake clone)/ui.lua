@@ -8,6 +8,7 @@ death_bg_captured = false
 
 function print_ui()
   print_centered("score: "..score, 32, 24, 9)
+  print_centered("time: "..flr(cycle_cnt/60), 32, 32, 9)
   print_centered("length: "..body.segments+1, 96, 24, 11)
   print_centered("game over", 64, 48, 8)
   print_centered("press 🅾️/❎ or z/x to retry", 64, 56, 6)
