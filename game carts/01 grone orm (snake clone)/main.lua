@@ -35,8 +35,12 @@
 	- Start screen with cover art.															<2025-11-08>
 	- Score drawn behind snake and fruit for visibility.				<2025-11-08>
 
-	TODO
+	TODO PRIO
+	- Let player type their name when getting high score.
+	- Save and show time together with their score.
 	- Add win screen.
+
+	TODO
 	- Make suicide turn a toggle-able option.
 	- Increase speed at certain lengths.
 	- Possibility to dash for higher score.

@@ -22,6 +22,9 @@ function save_score()
 	for i = 1, 5 do
 		dset(i-1, hiscore[i])
 		dset(i-1, dset(i-1, hiscore[i])[i])
+
+		dset(i-1, time_played[i])
+		dset(i-1, dset(i-1, time_played[i])[i])
 	end
 end
 
