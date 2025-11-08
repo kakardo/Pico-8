@@ -14,7 +14,7 @@ function print_ui()
   print_centered("press 🅾️/❎ or z/x to retry", 64, 56, 6)
   
   -- Letter (with space) = 4 pixels
-  local score_x = 21
+  local score_x = 18
   local score_y = 77
   
   local score_color = 137
@@ -29,10 +29,10 @@ end
 
 function print_score(place, score, time, x, y, color, name)
   print(place, x, y, color)
-  --print("88     88", x+12, y, 8) -- space check
+  --print("88     88   88", x+12, y, 8) -- space check
   print(score, x+28, y, color)
   print(time, x+48, y, color)
-  --print(name, x+48, y, color) -- space check
+  print(name, x+68, y, color) -- space check
 end
 
 function print_centered(str, x, y, color)
