@@ -87,6 +87,7 @@ function _update60()
 		elseif tick_count == tick_goal then
 			just_moved = false
 			tick_count = 0
+			step_point += 1
 		else
 			tick_count += 1
 		end
@@ -100,8 +101,7 @@ end
 
 function _draw()
 	cls(1)
-	
-	
+
 	if show_cover then
 		sspr(0, 24, 128, 104, 0, 8)
 		print_cover_msg()
@@ -112,6 +112,7 @@ function _draw()
 		
 		if not show_cover then
 			print("score = "..score, 1, 1, 9)
+			print("step = "..step_point, 50, 1, 9)
 			draw_snake()
 			draw_fruit()
 		end
@@ -145,6 +146,7 @@ function init_game()
 	-- Makes sure values are reset during game reset
 	score = 0
 	score_saved = false
+	step_point = 0
 	tick_count = 0
 	just_moved = false
 	update_next_dir(head.dir)  -- Buffered turn clear
