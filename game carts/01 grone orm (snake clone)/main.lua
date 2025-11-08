@@ -112,7 +112,7 @@ function _draw()
 		death_bg_captured = false
 		
 		if not show_cover then
-			print_score_ui()
+			print("score = "..score, 1, 1, 7)
 			draw_snake()
 			draw_fruit()
 		end
