@@ -3,6 +3,7 @@
 ]]--
 score = 0
 hiscore = {0, 0, 0, 0, 0}
+time_played = {0, 0, 0, 0, 0}
 score_saved = false
 
 function init_score()
@@ -13,12 +14,14 @@ end
 function load_score()
 	for i = 1, 5 do
 		hiscore[i] = dget(i-1) or 0
+		time_played[i] = dget(i-1) or 0
 	end
 end
 
 function save_score()
 	for i = 1, 5 do
 		dset(i-1, hiscore[i])
+		dset(i-1, dset(i-1, hiscore[i])[i])
 	end
 end
 
@@ -29,6 +32,7 @@ function submite_score(new_score)
 				hiscore[j] = hiscore[j-1]
 			end
 			hiscore[i] = new_score
+			time_played[i] = flr(cycle_cnt/60)
 			save_score()
 			return
 		end

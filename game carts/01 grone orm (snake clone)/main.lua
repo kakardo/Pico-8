@@ -146,7 +146,7 @@ function init_game()
 	-- Makes sure values are reset during game reset
 	score = 0
 	score_saved = false
-	step_point = 0
+	cycle_cnt = 0
 	tick_count = 0
 	just_moved = false
 	update_next_dir(head.dir)  -- Buffered turn clear
