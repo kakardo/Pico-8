@@ -26,19 +26,29 @@ function save_score()
 end
 
 function submite_score(new_score)
+	local new_time = flr(cycle_cnt/60)
+
 	for i = 1, 5 do
-		if new_score > hiscore[i] then
-			for j = 5, i+1, -1 do
+		local score_i = hiscore[i]
+		local time_i = time_played[i]
+		
+		-- Is better if high score, or same but shorter time
+		local better = (new_score > score_i) or
+						(new_score == score_i and new_time < time_i)
+
+		-- Shifting arrays to make room for new high score
+		if better then
+			for j = 5, i + 1, -1 do
 				hiscore[j] = hiscore[j-1]
 				time_played[j] = time_played[j-1]
 			end
-
-			hiscore[i] = new_score
-			time_played[i] = flr(cycle_cnt/60)
-
-			save_score()
-			return
+		
 		end
+		
+		hiscore[i] = new_score
+		time_played[i] = new_time
+		save_score()
+		return
 	end
 end
 
