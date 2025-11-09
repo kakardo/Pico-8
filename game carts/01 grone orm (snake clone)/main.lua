@@ -34,10 +34,12 @@
 	- Game over captures and shows a frame of your demise.      <2025-10-26>
 	- Start screen with cover art.															<2025-11-08>
 	- Score drawn behind snake and fruit for visibility.				<2025-11-08>
+	- Time of game run is displayed at game over. Score and			<2025-11-09>
+	  time is shown together as a pair in high score.	Shortest
+		time will determine rank order when scores are tied.
 
 	TODO PRIO
 	- Let player type their name when getting high score.
-	- Save and show time together with their score.
 	- Add win screen.
 
 	TODO
