@@ -18,6 +18,7 @@ score_saved = false
 function init_score()
   cartdata("kardo_snake")
 	load_score()
+	load_totals()
 end
 
 function load_score()
@@ -42,6 +43,12 @@ end
 function save_totals()
 	dset(10, total_score)
 	dset(11, total_time)
+end
+
+function record_run(score, sec)
+	total_score += score
+	total_time += sec
+	save_totals()
 end
 
 function submite_score(new_score)
