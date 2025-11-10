@@ -6,6 +6,7 @@
 ]]--
 death_bg_captured = false
 
+-- TODO FIX HIGH, MAKE IT PRETTIER
 function print_ui()
   print_centered("score: "..score, 32, 24, 9)
   print_centered("time: "..flr(cycle_cnt/60), 32, 32, 9)
@@ -54,8 +55,16 @@ end
 
 function print_totals()
   local total_fruit = flr(total_score / 10)
-  local total_str = ("fruits: "..total_fruit.."   time: "..total_time)
-  print_centered(total_str, 64, 123, 141)
+  local total_str =
+    "fruits: "..total_fruit.."   time: "..format_time(total_time)
+  print_centered(total_str, 64, 124, 141)
+end
+
+function format_time(sec)
+  sec = sec or 0
+  local minute = flr(sec/60)
+  local s = sec % 60
+  return minute..":"..(s < 10 and "0"..s or s)
 end
 
 -- LAST_LINE_OF_UI_LUA
