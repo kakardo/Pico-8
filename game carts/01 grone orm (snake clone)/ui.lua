@@ -15,7 +15,7 @@ function print_ui()
   
   -- Letter (with space) = 4 pixels
   local score_x = 18
-  local score_y = 77
+  local score_y = 70
   
   local score_color = 137
   --print_centered("hiscore", 64, score_y, score_color)
@@ -48,6 +48,15 @@ function print_cover_msg()
   local x = 64 - width / 2
   local y = 120
   print(msg, x, y, 7)
+
+  print_totals()
+end
+
+function print_totals()
+  print("totals", 0, 0, 141)
+  line(0,6,50,6,141)
+  print("fruits: "..total_score/10, 0, 8, 141)
+  print("time: "..total_time, 0, 15, 141)
 end
 
 -- LAST_LINE_OF_UI_LUA
