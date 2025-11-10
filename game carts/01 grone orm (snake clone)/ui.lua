@@ -27,9 +27,7 @@ function print_ui()
   print_score("4th", hiscore[4], time_played[4], score_x, score_y+32, score_color, "unknown")
   print_score("5th", hiscore[5], time_played[5], score_x, score_y+39, score_color, "unknown")
 
-  local total_fruit = flr(total_score / 10)
-  local total_str = ("fruits: "..total_fruit.."   time: "..total_time)
-  print_centered(total_str, 64, 123, 141)
+  print_totals()
 end
 
 function print_score(place, score, time, x, y, color, name)
@@ -52,6 +50,12 @@ function print_cover_msg()
   local x = 64 - width / 2
   local y = 120
   print(msg, x, y, 7)
+end
+
+function print_totals()
+  local total_fruit = flr(total_score / 10)
+  local total_str = ("fruits: "..total_fruit.."   time: "..total_time)
+  print_centered(total_str, 64, 123, 141)
 end
 
 -- LAST_LINE_OF_UI_LUA
