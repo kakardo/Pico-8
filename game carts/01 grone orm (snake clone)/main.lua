@@ -37,6 +37,9 @@
 	- Time of game run is displayed at game over. Score and			<2025-11-09>
 	  time is shown together as a pair in high score.	Shortest
 		time will determine rank order when scores are tied.
+	- Total score (shown as fruit) and time's shown on game			<2025-11-11>
+	  over. Avoided to track total runs, averages etc. Feels
+		unnecessary competitive.
 
 	TODO PRIO
 	- Let player type their name when getting high score.
