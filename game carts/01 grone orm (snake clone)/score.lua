@@ -43,12 +43,11 @@ function submite_score(new_score)
 				time_played[j] = time_played[j-1]
 			end
 		
+			hiscore[i] = new_score
+			time_played[i] = new_time
+			save_score()
+			return
 		end
-		
-		hiscore[i] = new_score
-		time_played[i] = new_time
-		save_score()
-		return
 	end
 end
 
