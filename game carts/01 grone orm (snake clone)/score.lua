@@ -1,9 +1,18 @@
 --[[ SCORE.LUA 
 	@date 2025-10-26
+
+	Memory array:
+	0,1,2,3,4 = top five scores
+	5,6,7,8,9 = top five times
+	10 = total score
+	11 = total time
 ]]--
+
 score = 0
 hiscore = {0, 0, 0, 0, 0}
 time_played = {0, 0, 0, 0, 0}
+total_score = 0
+total_time = 0 -- seconds
 score_saved = false
 
 function init_score()
@@ -18,11 +27,21 @@ function load_score()
 	end
 end
 
+function load_totals()
+	total_score = dget(10) or 0
+	total_time  = dget(11) or 0
+end
+
 function save_score()
 	for i = 1, 5 do
 		dset(i - 1, hiscore    [i])
 		dset(4 + i, time_played[i])
 	end
+end
+
+function save_totals()
+	dset(10, total_score)
+	dset(11, total_time)
 end
 
 function submite_score(new_score)
