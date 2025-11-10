@@ -304,6 +304,8 @@ function is_alive(min, max)
 	end
 	
 	if (not head.alive) and not (score_saved) then
+		local run_time = flr(cycle_cnt/60)
+		record_run(score, run_time)
 		submite_score(score)
 		score_saved = true
 	end
