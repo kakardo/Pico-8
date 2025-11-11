@@ -66,7 +66,7 @@ step = 1
 cycle_cnt = 0
 
 -- game loop tick
-tick_goal = 3 -- Default = 4, Testing = 15
+tick_goal = 6 -- Fast: 3, Default: 6, Slow: 10, Testing = 15
 tick_count = 0
 
 print_tests = true
