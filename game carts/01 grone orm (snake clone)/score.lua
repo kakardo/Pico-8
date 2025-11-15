@@ -11,6 +11,7 @@
 score = 0
 hiscore = {0, 0, 0, 0, 0}
 time_played = {0, 0, 0, 0, 0}
+player = {"unknown", "unknown", "unknown", "unknown", "unknown"}
 total_score = 0
 total_time = 0 -- seconds
 score_saved = false
