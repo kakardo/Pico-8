@@ -6,10 +6,11 @@
 	5,6,7,8,9 = top five times
 	10 = total score
 	11 = total time
+	12..51 = names for top five scores (5 * 8 chars)
 	
 	NAME	SCORE	TIME
 	Kardo	510		114
-	Linus	370		110
+	Linus	470		163
 ]]--
 
 score = 0
@@ -20,12 +21,15 @@ score_saved = false
 time_played = {0, 0, 0, 0, 0}
 total_time = 0 -- seconds
 
+name_length = 8
+name_base = 12 -- first memory slot used for names
 player = {"unknown", "unknown", "unknown", "unknown", "unknown"}
 
 function init_score()
   cartdata("kardo_snake")
 	load_score()
 	load_totals()
+	load_names()
 end
 
 -- SCORE ----------------------------------------
@@ -52,6 +56,56 @@ end
 function save_totals()
 	dset(10, total_score)
 	dset(11, total_time)
+end
+
+-- NAMES ----------------------------------------
+function load_names()
+	for i = 1, 5 do
+		local base = name_base + (i - 1) * name_length
+		local n = load_name_from_mem(base)
+		if n == "" then
+			n = "unknown"
+		end
+		player[i] = n
+	end
+end
+
+function save_names()
+	for i = 1, 5 do
+		local base = name_base + (i - 1) * name_length
+		save_name_to_mem(player[i] or "unknown", base)
+	end
+end
+
+function load_name_from_mem(base_index)
+	local s = ""
+	for offset = 0, name_length - 1 do
+		local code = dget(base_index + offset) or 0
+		if code <= 0 then
+			break
+		end
+		s = s .. chr(code)
+	end
+	return s
+end
+
+function save_name_to_mem(str, base_index)
+	str = str or ""
+
+	-- clear previous contents
+	for offset = 0, name_length - 1 do
+		dset(base_index + offset, 0)
+	end
+
+	local len = #str
+	if len > name_length then
+		len = name_length
+	end
+
+	for i = 1, len do
+		local ch = sub(str, i, i)
+		dset(base_index + i - 1, ord(ch))
+	end
 end
 
 -- OPERATIONAL ----------------------------------
