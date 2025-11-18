@@ -8,8 +8,8 @@
 	11 = total time
 	
 	NAME	SCORE	TIME
+	Kardo	510		114
 	Linus	370		110
-	Kardo	350		99
 ]]--
 
 score = 0
