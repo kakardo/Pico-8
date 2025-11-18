@@ -24,7 +24,9 @@ total_time = 0 -- seconds
 name_length = 8
 name_base = 12 -- first memory slot used for names
 player = {"unknown", "unknown", "unknown", "unknown", "unknown"}
+
 FORCE_SCORE_RESET = false
+FORCE_SCORE_BLANK_WIPE = false
 
 function init_score()
   cartdata("kardo_snake")
@@ -145,6 +147,11 @@ end
 
 -- HELPERS --------------------------------------
 function seed_default_scores_if_empty()
+	if FORCE_SCORE_BLANK_WIPE then
+		blank_reset_of_score()
+		return
+	end
+
   -- check if table is already used (by checking rank 1)
 	if hiscore[1] ~= 0 or time_played[1] ~= 0 then
   	if not FORCE_SCORE_RESET then
@@ -155,9 +162,9 @@ function seed_default_scores_if_empty()
   -- brand new cart: put in your friends + fillers
   set_score_entry(1, "kardo", 510, 114)
   set_score_entry(2, "linus", 470, 163)
-  set_score_entry(3, "alundra", 370, 79)
-  set_score_entry(4, "ratchet", 370, 88)
-  set_score_entry(5, "daxter", 370, 106)
+  set_score_entry(3, "alundra", 420, 91)
+  set_score_entry(4, "ratchet", 370, 79)
+  set_score_entry(5, "daxter", 370, 88)
 
   save_score()
 	save_names()
@@ -167,6 +174,15 @@ function set_score_entry(slot, name, score_value, time_value)
   player[slot]      = name or "unknown"
   hiscore[slot]     = score_value or 0
   time_played[slot] = time_value or 0
+end
+
+function blank_reset_of_score()
+	for i = 1, 5 do
+		set_score_entry(i, "unknown", 0, 0)
+	end
+	
+	save_score()
+	save_names()
 end
 
 -- LAST_LINE_OF_SCORE_LUA
