@@ -27,7 +27,7 @@
 		tail will have time to move away unless we grow by
 		eating the same movement step / tick.               	    <2025-10-06>
 	- Input buffering (instead of polling).                     <2025-10-07>
-	- Top scores are shown on hiscore table.										<2025-10-20>
+	- Top scores are shown on high score table.										<2025-10-20>
 	@version 1.2
 	- Multiple fruit sprites with random bag logic (so it's
 		semi-random) and Fisher-Yates shuffle.										<2025-10-23>
@@ -40,6 +40,9 @@
 	- Total score (shown as fruit) and time's shown on game			<2025-11-11>
 	  over. Avoided to track total runs, averages etc. Feels
 		unnecessary competitive.
+	- Will load in me and my friends highest scores by default	<2025-11-18>
+		if the game is loaded in for the first time with an empty
+		high score table. Something to compare to :)
 
 	TODO PRIO
 	- Let player type their name when getting high score.
