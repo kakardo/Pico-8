@@ -6,6 +6,10 @@
 	5,6,7,8,9 = top five times
 	10 = total score
 	11 = total time
+	
+	NAME	SCORE	TIME
+	Linus	370		110
+	Kardo	350		99
 ]]--
 
 score = 0
