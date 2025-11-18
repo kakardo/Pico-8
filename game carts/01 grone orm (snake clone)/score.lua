@@ -13,12 +13,14 @@
 ]]--
 
 score = 0
-hiscore = {0, 0, 0, 0, 0}
-time_played = {0, 0, 0, 0, 0}
-player = {"unknown", "unknown", "unknown", "unknown", "unknown"}
 total_score = 0
-total_time = 0 -- seconds
+hiscore = {0, 0, 0, 0, 0}
 score_saved = false
+
+time_played = {0, 0, 0, 0, 0}
+total_time = 0 -- seconds
+
+player = {"unknown", "unknown", "unknown", "unknown", "unknown"}
 
 function init_score()
   cartdata("kardo_snake")
@@ -26,16 +28,12 @@ function init_score()
 	load_totals()
 end
 
+-- SCORE ----------------------------------------
 function load_score()
 	for i = 1, 5 do
 		hiscore[i]     = dget(i - 1) or 0
 		time_played[i] = dget(4 + i) or 0
 	end
-end
-
-function load_totals()
-	total_score = dget(10) or 0
-	total_time  = dget(11) or 0
 end
 
 function save_score()
@@ -45,11 +43,18 @@ function save_score()
 	end
 end
 
+-- TOTAL ----------------------------------------
+function load_totals()
+	total_score = dget(10) or 0
+	total_time  = dget(11) or 0
+end
+
 function save_totals()
 	dset(10, total_score)
 	dset(11, total_time)
 end
 
+-- OPERATIONAL ----------------------------------
 function record_run(score, sec)
 	total_score += score
 	total_time += sec
