@@ -160,6 +160,7 @@ function seed_default_scores_if_empty()
   set_score_entry(5, "daxter", 370, 106)
 
   save_score()
+	save_names()
 end
 
 function set_score_entry(slot, name, score_value, time_value)
