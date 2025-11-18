@@ -147,19 +147,19 @@ end
 
 -- HELPERS --------------------------------------
 function seed_default_scores_if_empty()
+	-- full blank wipe (keeping totals)
 	if FORCE_SCORE_BLANK_WIPE then
 		blank_reset_of_score()
 		return
 	end
 
-  -- check if table is already used (by checking rank 1)
 	if hiscore[1] ~= 0 or time_played[1] ~= 0 then
-  	if not FORCE_SCORE_RESET then
-			return
-		end
-	end
+    if not FORCE_SCORE_RESET then
+      return
+    end
+  end
 
-  -- brand new cart: put in your friends + fillers
+	-- brand new cart: put in your friends + fillers
   set_score_entry(1, "kardo", 510, 114)
   set_score_entry(2, "linus", 470, 163)
   set_score_entry(3, "alundra", 420, 91)
