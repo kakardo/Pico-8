@@ -158,13 +158,15 @@ function seed_default_scores_if_empty()
 		return
 	end
 
-	if hiscore[1] ~= 0 or time_played[1] ~= 0 then
-    if not FORCE_SCORE_RESET then
-      return
-    end
+  -- if EITHER score OR time is 0, we want to load defaults
+  local rank1_needs_default = (hiscore[1] == 0 or time_played[1] == 0)
+
+  -- if rank 1 looks fine and we don't force reset, keep current table
+  if not rank1_needs_default and not FORCE_SCORE_RESET then
+    return
   end
 
-	-- brand new cart: put in your friends + fillers
+	-- DEFAULT TABLE. brand new cart: put in your friends + fillers
   set_score_entry(1, "kardo", 510, 114)
   set_score_entry(2, "linus", 470, 163)
   set_score_entry(3, "alundra", 420, 91)
