@@ -7,7 +7,8 @@
 	10 = total score
 	11 = total time
 	12..51 = names for top five scores (5 * 8 chars)
-	
+	52 = Flag determine if first run or not
+
 	NAME	SCORE	TIME
 	Kardo	510		114
 	Linus	470		163
@@ -22,11 +23,11 @@ time_played = {0, 0, 0, 0, 0}
 total_time = 0 -- seconds
 
 name_length = 8
-name_base = 12 -- first memory slot used for names
+NAME_BASE_INDEX = 12 -- first memory slot used for names
+FIRST_RUN_FLAG_INDEX = 52
 player = {"unknown", "unknown", "unknown", "unknown", "unknown"}
 
-FORCE_SCORE_RESET = false
-FORCE_SCORE_BLANK_WIPE = false
+
 
 function init_score()
   cartdata("kardo_snake")
@@ -65,7 +66,7 @@ end
 -- NAMES ----------------------------------------
 function load_names()
 	for i = 1, 5 do
-		local base = name_base + (i - 1) * name_length
+		local base = NAME_BASE_INDEX + (i - 1) * name_length
 		local n = load_name_from_mem(base)
 		if n == "" then
 			n = "unknown"
@@ -76,7 +77,7 @@ end
 
 function save_names()
 	for i = 1, 5 do
-		local base = name_base + (i - 1) * name_length
+		local base = NAME_BASE_INDEX + (i - 1) * name_length
 		save_name_to_mem(player[i] or "unknown", base)
 	end
 end
@@ -119,7 +120,7 @@ function record_run(score, sec)
 	save_totals()
 end
 
-function submite_score(new_score)
+function submit_score(new_score)
 	local new_time = flr(cycle_cnt/60)
 
 	for i = 1, 5 do
@@ -144,6 +145,9 @@ function submite_score(new_score)
 		end
 	end
 end
+
+FORCE_SCORE_RESET = false
+FORCE_SCORE_BLANK_WIPE = false
 
 -- HELPERS --------------------------------------
 function seed_default_scores_if_empty()
