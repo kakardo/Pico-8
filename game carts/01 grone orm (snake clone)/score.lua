@@ -22,12 +22,16 @@ score_saved = false
 time_played = {0, 0, 0, 0, 0}
 total_time = 0 -- seconds
 
+player = {"unknown", "unknown", "unknown", "unknown", "unknown"}
 name_length = 8
 NAME_BASE_INDEX = 12 -- first memory slot used for names
-FIRST_RUN_FLAG_INDEX = 52
-player = {"unknown", "unknown", "unknown", "unknown", "unknown"}
 
+-- Overwrites current score with default (my friends) score
+FORCE_SCORE_RESET = false
 
+-- Only for testing. Works when true and
+-- leaves no changes when switched back to false.
+FORCE_SCORE_BLANK_WIPE = false
 
 function init_score()
   cartdata("kardo_snake")
@@ -146,14 +150,11 @@ function submit_score(new_score)
 	end
 end
 
-FORCE_SCORE_RESET = false
-FORCE_SCORE_BLANK_WIPE = false
-
 -- HELPERS --------------------------------------
 function seed_default_scores_if_empty()
 	-- full blank wipe (keeping totals)
 	if FORCE_SCORE_BLANK_WIPE then
-		blank_reset_of_score()
+		blank_reset_of_score() 
 		return
 	end
 
