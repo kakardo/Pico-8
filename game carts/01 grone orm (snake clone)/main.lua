@@ -12,7 +12,7 @@
 	- Four colors (not black and white!).
 	- No going backwards into body.
 	@version 1.1
-	- No suicide turning (a command that turns snake into      <2025-07-25>
+	- No suicide turning (a command that turns snake into   		<2025-07-25>
 	  its own body within an 1-step move even though the path
 	  ahead is clear and the death could have been avoided).
 	- Fruit never spawns on top of the snake. The spawning
@@ -27,7 +27,7 @@
 		tail will have time to move away unless we grow by
 		eating the same movement step / tick.               	    <2025-10-06>
 	- Input buffering (instead of polling).                     <2025-10-07>
-	- Top scores are shown on high score table.										<2025-10-20>
+	- Top scores are shown on high score table.									<2025-10-20>
 	@version 1.2
 	- Multiple fruit sprites with random bag logic (so it's
 		semi-random) and Fisher-Yates shuffle.										<2025-10-23>

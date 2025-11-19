@@ -9,6 +9,13 @@
 	12..51 = names for top five scores (5 * 8 chars)
 	52 = Flag determine if first run or not
 
+	My top five:
+	1st	520	131	2025-11-20
+  2nd	510	114
+  3rd 420 91
+  4th	370 79
+  5th	370	88
+
 	NAME	SCORE	TIME
 	Kardo	510		114
 	Linus	470		163
@@ -167,11 +174,11 @@ function seed_default_scores_if_empty()
   end
 
 	-- DEFAULT TABLE. brand new cart: put in your friends + fillers
-  set_score_entry(1, "kardo", 510, 114)
-  set_score_entry(2, "linus", 470, 163)
-  set_score_entry(3, "alundra", 420, 91)
-  set_score_entry(4, "ratchet", 370, 79)
-  set_score_entry(5, "daxter", 370, 88)
+  set_score_entry(1, "kardo", 520, 131)
+  set_score_entry(2, "medusa", 510, 114)
+  set_score_entry(3, "linus", 470, 163)
+  set_score_entry(4, "alundra", 420, 91)
+  set_score_entry(5, "ratchet", 370, 79)
 
   save_score()
 	save_names()
