@@ -145,16 +145,24 @@ function submit_score(new_score)
 		-- Shifting arrays to make room for new high score
 		if better then
 			for j = 5, i + 1, -1 do
-				hiscore[j] = hiscore[j-1]
+				hiscore[j]     = hiscore[j-1]
 				time_played[j] = time_played[j-1]
+				player[j]      = player[j-1]
 			end
 		
 			hiscore[i] = new_score
 			time_played[i] = new_time
+
 			save_score()
-			return
+			save_names()
+
+			-- New high score! Return rank.
+			return i
 		end
 	end
+
+	-- no new high score
+	return 0
 end
 
 -- HELPERS --------------------------------------
